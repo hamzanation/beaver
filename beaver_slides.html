@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BEAVER Benchmark: Overview</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --panel: #111827;
+      --ink: #f8fafc;
+      --muted: #cbd5e1;
+      --accent: #38bdf8;
+      --accent2: #22c55e;
+      --warn: #f59e0b;
+      --border: #334155;
+    }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: linear-gradient(135deg, #020617, #111827);
+      color: var(--ink);
+    }
+    .slide {
+      min-height: 100vh;
+      padding: 56px 72px;
+      box-sizing: border-box;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    h1, h2, h3 { margin: 0 0 16px; }
+    h1 { font-size: 2.3rem; }
+    h2 { font-size: 1.7rem; color: var(--accent); }
+    h3 { font-size: 1.15rem; color: var(--muted); }
+    p, li { font-size: 1.06rem; line-height: 1.55; color: var(--muted); }
+    ul { padding-left: 1.2rem; }
+    .grid { display: grid; gap: 18px; }
+    .two-col { grid-template-columns: 1.1fr 0.9fr; }
+    .card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px 20px;
+    }
+    .kicker {
+      display: inline-block;
+      color: var(--accent);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.82rem;
+      margin-bottom: 10px;
+    }
+    .pill {
+      display: inline-block;
+      margin: 6px 8px 0 0;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(56,189,248,0.15);
+      color: #bae6fd;
+      border: 1px solid rgba(56,189,248,0.3);
+      font-size: 0.95rem;
+    }
+    .quote {
+      border-left: 4px solid var(--accent);
+      padding-left: 14px;
+      font-style: italic;
+      color: #e2e8f0;
+    }
+    .small { font-size: 0.95rem; }
+    code {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1px 6px;
+      color: #f8fafc;
+    }
+    .footer {
+      margin-top: 24px;
+      font-size: 0.9rem;
+      color: #94a3b8;
+    }
+  </style>
+</head>
+<body>
+  <section class="slide">
+    <div class="kicker">Presentation</div>
+    <h1>BEAVER Benchmark</h1>
+    <h3>What it is, how it works, and how Few-shot on the dw dataset is run</h3>
+    <div class="grid two-col" style="margin-top: 20px;">
+      <div class="card">
+        <h3>Core idea</h3>
+        <p>BEAVER is a text-to-SQL benchmark built around enterprise-style databases, where the model must map a natural-language question to SQL over complex schemas.</p>
+      </div>
+      <div class="card">
+        <h3>Why it matters</h3>
+        <p>It focuses on harder problems than many public benchmarks: schema complexity, domain knowledge, joins, and multi-step reasoning.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">Why BEAVER exists</div>
+    <h2>From public benchmarks to enterprise reality</h2>
+    <ul>
+      <li>Most older text-to-SQL benchmarks use cleaner, more standard schemas.</li>
+      <li>BEAVER is built from private-enterprise-style warehouse data and realistic analytical questions.</li>
+      <li>The benchmark is designed to test not only whether SQL is correct, but also where reasoning breaks down.</li>
+    </ul>
+    <div class="quote" style="margin-top: 16px;">
+      The paper’s main message is that current models still struggle in enterprise settings, even when the SQL is conceptually simple to humans.
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">Datasets & Methods</div>
+    <h2>The four datasets</h2>
+    <div class="grid two-col">
+      <div class="card">
+        <h3>dw</h3>
+        <p>Primary data warehouse dataset with analytical queries over enterprise schemas.</p>
+      </div>
+      <div class="card">
+        <h3>dw_real</h3>
+        <p>Real-world variant of dw with additional complexity and edge cases.</p>
+      </div>
+      <div class="card">
+        <h3>neutron</h3>
+        <p>Enterprise dataset with domain-specific schema patterns.</p>
+      </div>
+      <div class="card">
+        <h3>nova</h3>
+        <p>Diverse schema structures and data modeling approaches.</p>
+      </div>
+    </div>
+    <p class="small" style="margin-top: 12px;">Each dataset includes questions, target SQL, schemas, example rows, and metadata for schema linking.</p>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">Methods Explained</div>
+    <h2>Few-shot: Simple baseline</h2>
+    <div class="card">
+      <h3>What it does</h3>
+      <ul>
+        <li>Provides one example question-to-SQL pair</li>
+        <li>Supplies the current question and schema</li>
+        <li>Asks the model to generate SQL</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">Methods Explained (continued)</div>
+    <h2>DAIL-SQL: Smart examples</h2>
+    <div class="card">
+      <h3>What it does</h3>
+      <ul>
+        <li>Uses <strong>example selection</strong> instead of random few-shot examples</li>
+        <li>Chooses examples semantically similar to the current question</li>
+        <li>Aims to show the model the most relevant demonstration</li>
+        <li>More sophisticated than Few-shot, often produces better results</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">Methods Explained (continued)</div>
+    <h2>DIN-SQL: Decomposition + Self-correction</h2>
+    <div class="card">
+      <h3>What it does</h3>
+      <ol>
+        <li><strong>Schema linking</strong>: identifies relevant tables and columns</li>
+        <li><strong>Query decomposition</strong>: breaks complex queries into sub-queries</li>
+        <li><strong>SQL generation</strong>: produces the final SQL</li>
+        <li><strong>Self-correction</strong>: if SQL fails, it attempts to fix the query</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">Methods Explained (continued)</div>
+    <h2>ReFoRCE: Agentic refinement</h2>
+    <div class="card">
+      <h3>What it does</h3>
+      <ul>
+        <li><strong>Candidate generation</strong>: generates multiple SQL candidates</li>
+        <li><strong>Majority voting</strong>: selects the most common output</li>
+        <li><strong>Column exploration</strong>: iteratively refines column selections</li>
+        <li><strong>Execution feedback</strong>: uses actual results to guide refinement</li>
+      </ul>
+      <p style="margin-top: 8px;">Most complex but often achieves highest accuracy. More computationally expensive.</p>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">Evaluation Modes</div>
+    <h2>How BEAVER measures performance</h2>
+    <div class="grid two-col">
+      <div class="card">
+        <h3>Execution Accuracy</h3>
+        <p>Did the generated SQL produce the same result as the gold SQL?</p>
+        <p class="small">All-or-nothing metric: either the result matches or it doesn't.</p>
+      </div>
+      <div class="card">
+        <h3>Subtask Evaluation</h3>
+        <p>Fine-grained analysis of five critical steps:</p>
+        <ul>
+          <li>Table retrieval</li>
+          <li>Column mapping</li>
+          <li>Join key detection</li>
+          <li>Domain knowledge</li>
+          <li>Query decomposition</li>
+        </ul>
+      </div>
+    </div>
+    <p class="small" style="margin-top: 12px;">Subtask evaluation reveals where models fail, enabling targeted error analysis.</p>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">Paper-level context</div>
+    <h2>BEAVER results from the original paper</h2>
+    <ul>
+      <li>Strong agentic systems using GPT-5.2 achieve about <strong>10.8%</strong> execution accuracy.</li>
+      <li>When given oracle-style subtask hints, accuracy rises to about <strong>30.1%</strong>.</li>
+      <li>This 20-point gap reveals that the main bottleneck is in the reasoning subtasks, not the final SQL generation.</li>
+    </ul>
+    <div class="quote" style="margin-top: 14px;">
+      The benchmark is challenging because the reasoning steps are hard, not just the syntax of the final query.
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">What is in the prompt</div>
+    <h2>Prompt contents for the Few-shot run</h2>
+    <div class="grid two-col">
+      <div class="card">
+        <h3>Always included</h3>
+        <ul>
+          <li>A system instruction telling the model to produce MySQL SQL</li>
+          <li>One few-shot example from the dataset</li>
+          <li>The current user question</li>
+          <li>Formatted table descriptions with example rows and columns</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Optionally included</h3>
+        <ul>
+          <li><strong>Mapping</strong>: question phrases to columns</li>
+          <li><strong>Join keys</strong>: how tables should be connected</li>
+          <li><strong>Domain knowledge</strong>: useful semantic hints</li>
+          <li><strong>Query decomposition</strong>: sub-questions or subqueries</li>
+        </ul>
+      </div>
+    </div>
+    <p class="small" style="margin-top: 12px;">This matches the logic in the repository’s Few-shot prompt builder.</p>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">The dw dataset</div>
+    <h2>What dw contributes</h2>
+    <p>The <strong>dw</strong> dataset is one of the benchmark’s main evaluation domains. In the repository, it includes:</p>
+    <ul>
+      <li>question-SQL pairs</li>
+      <li>table metadata</li>
+      <li>example prompts and example SQL</li>
+      <li>retrieval data for selecting relevant tables</li>
+    </ul>
+    <div class="card" style="margin-top: 14px;">
+      <h3>Example from the repo</h3>
+      <p>The example prompt for dw includes a complex question about rooms, buildings, and departments, plus a multi-table SQL query.</p>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">Settings</div>
+    <h2>What the different settings mean</h2>
+    <div class="grid two-col">
+      <div class="card">
+        <h3>Setting 0</h3>
+        <p>Standard end-to-end run with no extra hints.</p>
+      </div>
+      <div class="card">
+        <h3>Setting 1</h3>
+        <p>Adds hints for <strong>gold tables</strong>, <strong>column mapping</strong>, and <strong>join keys</strong>.</p>
+      </div>
+      <div class="card">
+        <h3>Setting 2</h3>
+        <p>Adds even more guidance: domain knowledge and query decomposition on top of the setting 1 hints.</p>
+      </div>
+      <div class="card">
+        <h3>Practical effect</h3>
+        <p>Higher settings make the prompt easier for the model by supplying more explicit intermediate structure.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">Current model results</div>
+    <h2>Local evaluation on dw (setting 1)</h2>
+    <div class="card">
+      <h3>Few-shot runs</h3>
+      <table style="width: 100%; margin-top: 10px;">
+        <tr>
+          <th style="text-align: left;">Model</th>
+          <th style="text-align: center;">Accuracy</th>
+          <th style="text-align: center;">Table Retrieval F1</th>
+          <th style="text-align: center;">Join Key F1</th>
+          <th style="text-align: center;">Domain Knowledge F1</th>
+        </tr>
+        <tr>
+          <td>qwen2.5-coder-14b-instruct</td>
+          <td style="text-align: center;">8.0%</td>
+          <td style="text-align: center;">0.78</td>
+          <td style="text-align: center;">0.66</td>
+          <td style="text-align: center;">0.19</td>
+        </tr>
+        <tr>
+          <td>gpt-5.4-mini</td>
+          <td style="text-align: center;">15.0%</td>
+          <td style="text-align: center;">0.95</td>
+          <td style="text-align: center;">0.82</td>
+          <td style="text-align: center;">0.25</td>
+        </tr>
+        <tr>
+          <td>gpt-5.5</td>
+          <td style="text-align: center;">20.0%</td>
+          <td style="text-align: center;">0.92</td>
+          <td style="text-align: center;">0.80</td>
+          <td style="text-align: center;">0.24</td>
+        </tr>
+      </table>
+    </div>
+    <div class="card" style="margin-top: 12px;">
+      <h3>About Claude models</h3>
+      <p>The repository supports Anthropic's Claude models via the <code>--model claude</code> flag. However, no local Claude results are currently available in the unified-output directory. Claude can be used by running evaluations with appropriate API credentials.</p>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">Takeaway</div>
+    <h2>Bottom line</h2>
+    <ul>
+      <li>BEAVER is a realistic, enterprise-style text-to-SQL benchmark.</li>
+      <li>Few-shot is a lightweight baseline that uses an example plus structured context.</li>
+      <li>The <strong>dw</strong> dataset is one of the benchmark domains used for evaluation.</li>
+      <li>The benchmark is useful because it exposes where models fail beyond simple SQL generation.</li>
+    </ul>
+    <div class="footer">This deck is based on the repository’s README and Few-shot implementation files.</div>
+  </section>
+</body>
+</html>

@@ -1,0 +1,98 @@
+# High-precision regex/phrase cues per reasoning move (Phase 2F). A sentence gets a
+# regex seed label only when cues from exactly ONE move fire (see move_taxonomy.py) --
+# these are deliberately narrow/high-precision, not exhaustive; recall is filled in by
+# the zero-shot NLI step and, ultimately, the trained classifier.
+#
+# NLI hypothesis label: a natural-language description used as the zero-shot
+# candidate label for this move (MoritzLaurer/deberta-v3-large-zeroshot-v2.0).
+
+restate:
+  cues:
+    - "the question (is )?ask(s|ing)"
+    - "i need to (find|get|determine|calculate|compute)"
+    - "the user wants"
+    - "so the task is"
+    - "in other words"
+    - "this (is asking|wants) (me )?to"
+    - "to summarize what('s| is) (being )?asked"
+  nli_label: "restating what the question is asking"
+
+interpret_ambiguity:
+  cues:
+    - "not (entirely |completely )?clear"
+    - "ambiguous"
+    - "could (mean|refer to)"
+    - "interpret(ing)? this as"
+    - "i'?ll assume"
+    - "assuming that"
+    - "it'?s unclear whether"
+    - "this (could|might) mean"
+  nli_label: "interpreting an ambiguous part of the question"
+
+plan:
+  cues:
+    - "i'?ll (start by|begin by|first)"
+    - "my (approach|plan) (is|will be)"
+    - "let me break this down"
+    - "i need to first"
+    - "the plan is"
+    - "steps?:"
+    - "here'?s (my|the) approach"
+  nli_label: "planning an approach before writing anything"
+
+hypothesize:
+  cues:
+    - "maybe"
+    - "perhaps"
+    - "could be"
+    - "might be"
+    - "let'?s try"
+    - "what if"
+    - "suppose"
+    - "one possibility"
+  nli_label: "forming a hypothesis or tentative guess"
+
+verify:
+  cues:
+    - "let me (check|verify|confirm)"
+    - "double([- ])?check"
+    - "make sure"
+    - "does this match"
+    - "checking (the|this|that)"
+    - "to verify"
+    - "sanity check"
+  nli_label: "verifying or checking a result against the requirements"
+
+self_correct:
+  cues:
+    - "wait,"
+    - "actually,"
+    - "on second thought"
+    - "i made a mistake"
+    - "that'?s wrong"
+    - "let me redo"
+    - "correction:"
+    - "i need to fix"
+    - "scratch that"
+  nli_label: "correcting a previous mistake in the reasoning"
+
+meta_format:
+  cues:
+    - "the output should"
+    - "wrap.*tags"
+    - "<ans>"
+    - "json (format|object)"
+    - "the instructions say"
+    - "the prompt (says|asks)"
+    - "formatted as"
+  nli_label: "discussing output format or instructions rather than the problem itself"
+
+execute:
+  cues:
+    - "so the (final )?(sql|query) is"
+    - "writing the (query|sql)"
+    - "here'?s the (sql|query)"
+    - "final answer:"
+    - "```sql"
+    - "the final (sql|query) (statement )?is"
+  nli_label: "writing or finalizing the SQL query"

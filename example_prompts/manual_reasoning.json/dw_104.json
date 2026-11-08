@@ -1,0 +1,12 @@
+{
+  "instance_id": "dw_104",
+  "model": "human",
+  "dataset": "dw",
+  "setting": 2,
+  "traces": [
+    {
+      "stage": "generation",
+      "text": " I have to find subject information that belong to the Math department which relates to Course 18. I need to show the subject title, department, total units, and the difference between the total units for that subject and the average total units for math subjects, all of this in the year 2022 with no rounding. I also have to do this with an initial subquery that has subject information and window functions ordered by the subject title. So first I have to create the first subquery `inner_cte`, I do this by selecting the columns requested, the subject_title and total_units from the course_catalog_subject_offered table, and then the department_name from the SIS_DEPARTMENT table joined onto via department code. This will get filtered on the 2022 year, the department code of 18 and the name of 'Mathematics'. From there I have another CTE that just averages the total units across the records. Then in the final SELECT I can concatenate the two CTEs via a CROSS JOIN or just a 1=1 since the averaging CTE only has 1 record. From there I get all the information from the first CTE and derive the deviation_from_average_units by subtracting the total_units by the average. "
+    }
+  ]
+}

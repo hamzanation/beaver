@@ -6,9 +6,14 @@ import time
 from openai import OpenAI
 import os
 import sys
+from pathlib import Path
 from tqdm import tqdm
 import json
 from multiprocessing import Pool, set_start_method
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from local_llm import is_lmstudio_model, lmstudio_client, lmstudio_model_name, response_usage
+from anthropic_llm import anthropic_chat, is_anthropic_model
 
 
 #----------------------------------------------------prompts-----------------------------------------------
@@ -493,7 +498,11 @@ CLIENT = None
 def init_client(model):
     global CLIENT
     if CLIENT is None:
-        if "gemini" in model:
+        if is_anthropic_model(model):
+            CLIENT = None
+        elif is_lmstudio_model(model):
+            CLIENT = lmstudio_client()
+        elif "gemini" in model:
             CLIENT = OpenAI(
                 api_key=os.environ.get("GEMINI_API_KEY"),
                 base_url="https://generativelanguage.googleapis.com/v1beta/openai/"
@@ -782,9 +791,29 @@ def debuger(test_sample_text, db_names, sql, spider_schema, spider_primary, spid
 def GPT4o_generation(prompt, n=1, temperature=0, model="gpt-4.1"):
   init_client(model)
   global CLIENT
+  t0 = time.time()
   try:
     # print(f"model: {model}")
-    if "gemini" in model:
+    if is_anthropic_model(model):
+        result = anthropic_chat(
+            model,
+            [{"role": "user", "content": prompt}],
+            temperature=temperature,
+            n=n,
+            max_tokens=1000,
+        )
+        result["latency_sec"] = time.time() - t0
+        return result
+    elif is_lmstudio_model(model):
+        response = CLIENT.chat.completions.create(
+            model=lmstudio_model_name(model),
+            messages=[{"role": "user", "content": prompt}],
+            stream=False,
+            n=n,
+            temperature=temperature,
+            max_tokens=1000,
+        )
+    elif "gemini" in model:
         try:
             response = CLIENT.chat.completions.create(
                 model=model,
@@ -861,22 +890,40 @@ def GPT4o_generation(prompt, n=1, temperature=0, model="gpt-4.1"):
     response_clean = [choice.message.content for choice in response.choices]
     return dict(
         response=response_clean,
-        # usage might be different object in v1, access safely
-        total_tokens=response.usage.total_tokens,
-        prompt_tokens=response.usage.prompt_tokens,
-        completion_tokens=response.usage.completion_tokens
+        latency_sec=time.time() - t0,
+        **response_usage(response)
     )
 
   except Exception as e:
     print(f"Error occurred: {e}")
-    response = {"total_tokens": 0, "response": ["SELECT" for _ in range(n)]}
+    return {"total_tokens": 0, "response": ["SELECT" for _ in range(n)], "latency_sec": time.time() - t0, "error": True}
 
 
 def GPT4o_debug(prompt, n=1, temperature=0, model="gpt-4.1"):
   init_client(model)
   global CLIENT
-  try:  
-    if "gemini" in model:
+  t0 = time.time()
+  try:
+    if is_anthropic_model(model):
+        result = anthropic_chat(
+            model,
+            [{"role": "user", "content": prompt}],
+            temperature=temperature,
+            n=n,
+            max_tokens=1000,
+        )
+        result["latency_sec"] = time.time() - t0
+        return result
+    elif is_lmstudio_model(model):
+        response = CLIENT.chat.completions.create(
+            model=lmstudio_model_name(model),
+            messages=[{"role": "user", "content": prompt}],
+            stream=False,
+            n=n,
+            temperature=temperature,
+            max_tokens=1000,
+        )
+    elif "gemini" in model:
         try:
             response = CLIENT.chat.completions.create(
                 model=model,
@@ -949,17 +996,16 @@ def GPT4o_debug(prompt, n=1, temperature=0, model="gpt-4.1"):
 
     # return response['choices'][0]['message']['content']
     response_clean = [choice.message.content for choice in response.choices]
-    # if n == 1: 
+    # if n == 1:
     #     response_clean = response_clean[0]
     return dict(
         response=response_clean,
-        total_tokens=response.usage.total_tokens,
-        prompt_tokens=response.usage.prompt_tokens,
-        completion_tokens=response.usage.completion_tokens
+        latency_sec=time.time() - t0,
+        **response_usage(response)
     )
   except Exception as e:
     print(f"Error occurred: {e}")
-    response = {"total_tokens": 0, "response": ["SELECT" for _ in range(n)]}
+    return {"total_tokens": 0, "response": ["SELECT" for _ in range(n)], "latency_sec": time.time() - t0, "error": True}
 
 
 def multi_processing_process_row(index, row, args, output_dir, spider_schema, spider_primary, spider_foreign):

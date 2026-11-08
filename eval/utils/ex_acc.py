@@ -19,24 +19,34 @@ def get_mysql_credentials(dataset, creds_path=None):
     """
     if creds_path and os.path.exists(creds_path):
         with open(creds_path, "r") as f:
-            return json.load(f)
+            creds = json.load(f)
+        if dataset == "dw_real":
+            db_id = "dw"
+        else:
+            db_id = dataset
+        creds.setdefault("database", db_id)
+        return creds
     
     # Fallback to environment variables
     host = os.environ.get("MYSQL_HOST")
     user = os.environ.get("MYSQL_USER")
     password = os.environ.get("MYSQL_PASSWORD")
+    port = os.environ.get("MYSQL_PORT")
     if dataset == "dw_real":
         db_id = "dw"
     else:
         db_id = dataset
     
-    if host and user and password:
-        return {
+    if host and user and password is not None:
+        creds = {
             "host": host,
             "user": user,
             "password": password,
             "database": db_id
         }
+        if port:
+            creds["port"] = int(port)
+        return creds
     
     return None
 

@@ -2,7 +2,6 @@
 import argparse
 import os
 import json
-import tiktoken
 import openai
 import logging
 from tqdm import tqdm
@@ -12,6 +11,13 @@ from multiprocessing import Pool, set_start_method
 from llm.chatgpt import init_chatgpt, ask_llm
 from utils.enums import LLM
 from utils.post_process import process_duplication, get_sqls
+
+# eval/ was added to sys.path as a side effect of importing llm.chatgpt above
+from usage_utils import (
+    new_usage_record, record_call, finalize_cost, write_usage_json,
+    new_reasoning_trace, record_reasoning_trace, write_reasoning_trace_json,
+)
+from pricing import PRICING
 
 
 def process_batch(batch, submit_folder, db_ids, args, i, 
@@ -35,22 +41,7 @@ def process_batch(batch, submit_folder, db_ids, args, i,
     logger.info(f"Processing question: {instance_id}")
     logger.info("="*80)
 
-    # cost recorded
-    os.makedirs(os.path.join(submit_folder, "../cost"), exist_ok=True)
-    with open(os.path.join(submit_folder, "../cost", f"{batch['instance_id'][0]}.json"), "w") as submit_file:
-        prompt = batch["prompt"][0]
-        prompt_tokens = len(tiktoken.get_encoding("cl100k_base").encode(prompt))
-        logger.info(f"[Prompt Tokens]: {prompt_tokens}")
-        logger.info(f"[Input Prompt]\n{prompt}\n[End Input Prompt]")
-        json.dump(
-            {
-                "prompt": prompt,
-                "prompt_tokens": prompt_tokens, 
-                "cost": prompt_tokens * 5e-6  # USD
-            },
-            submit_file)
-
-    # return  # count cost only
+    logger.info(f"[Input Prompt]\n{batch['prompt'][0]}\n[End Input Prompt]")
 
     # init openai api
     init_chatgpt(args.openai_api_key, args.openai_group_id, args.model)
@@ -84,7 +75,18 @@ def process_batch(batch, submit_folder, db_ids, args, i,
     except openai.error.InvalidRequestError:
         logger.error(f"The {i}-th question has too much tokens! Return \"SELECT\" instead")
         print(f"The {i}-th question has too much tokens! Return \"SELECT\" instead")
-        res = {"response": [["SELECT" for _ in range(args.n)]]}  # hard-code for batch_size=1
+        res = {"response": [["SELECT" for _ in range(args.n)]], "latency_sec": 0.0, "error": True}  # hard-code for batch_size=1
+
+    usage_record = new_usage_record(instance_id, args.model, dataset=getattr(args, "dataset", None), setting=getattr(args, "setting", None))
+    record_call(usage_record, "generation", res, res.get("latency_sec", 0.0), error=res.get("error", False))
+    finalize_cost(usage_record, PRICING)
+    write_usage_json(os.path.join(instance_dir, "usage.json"), usage_record)
+
+    thinking_text = res.get("thinking_text")
+    if thinking_text:
+        trace = new_reasoning_trace(instance_id, args.model, dataset=getattr(args, "dataset", None), setting=getattr(args, "setting", None))
+        record_reasoning_trace(trace, "generation", thinking_text)
+        write_reasoning_trace_json(os.path.join(instance_dir, "reasoning_trace.json"), trace)
 
     if args.n == 1: 
         assert len(res["response"]) == args.batch_size == 1
@@ -137,6 +139,8 @@ if __name__ == '__main__':
     parser.add_argument("--openai_api_key", type=str)
     parser.add_argument("--openai_group_id", type=str, default=None)
     parser.add_argument("--model", type=str, default=LLM.GPT_35_TURBO)
+    parser.add_argument("--dataset", type=str, default=None, help="Dataset name, recorded in per-example usage.json only")
+    parser.add_argument("--setting", type=int, default=None, help="Hint setting (0/1/2), recorded in per-example usage.json only")
 
     parser.add_argument("--temperature", type=float, default=0)
     parser.add_argument("--batch_size", type=int, default=1)

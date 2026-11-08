@@ -24,9 +24,11 @@ def main():
     unified_dir = os.path.join(eval_dir, "unified-output", baseline_name, args.run_name)
     generated_dir = os.path.join(unified_dir, "generated")
     gold_dir = os.path.join(unified_dir, "gold")
-    
+    usage_dir = os.path.join(unified_dir, "usage")
+
     os.makedirs(generated_dir, exist_ok=True)
     os.makedirs(gold_dir, exist_ok=True)
+    os.makedirs(usage_dir, exist_ok=True)
     
     with open(args.gold_file, 'r') as f:
         gold_data = json.load(f)
@@ -83,7 +85,16 @@ def main():
         
         with open(pred_sql_path, "w") as f:
             f.write(pred_sql)
-            
+
+        # 3. Save per-example usage/telemetry, if the generation step recorded one
+        usage_src_path = os.path.join(subdir_path, "usage.json")
+        if os.path.exists(usage_src_path):
+            usage_dst_path = os.path.join(usage_dir, f"{real_id}.json")
+            with open(usage_src_path, "r") as f:
+                usage_payload = f.read()
+            with open(usage_dst_path, "w") as f:
+                f.write(usage_payload)
+
     print(f"Saved SQL files to {unified_dir}")
 
 if __name__ == "__main__":

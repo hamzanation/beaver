@@ -1,0 +1,101 @@
+# Editable lexicons for Phase 1 lexical features (reasoning_analysis/src/lexical_features.py).
+# Each list is matched as whole-word/phrase, case-insensitive, against normalized trace text.
+# Rates are reported per 100 words unless noted otherwise.
+
+hedging:
+  - might
+  - may
+  - could
+  - seems
+  - seem
+  - perhaps
+  - likely
+  - possibly
+  - probably
+  - not sure
+  - unsure
+  - i think
+  - i believe
+  - it appears
+  - appears to
+  - presumably
+  - uncertain
+
+contrast_self_correction:
+  - however
+  - but
+  - yet
+  - wait
+  - actually
+  - alternatively
+  - hmm
+  - on second thought
+  - on the other hand
+  - although
+  - though
+  - instead
+  - rather
+  - let me reconsider
+  - let me re-check
+  - i was wrong
+  - correction
+  - re-reading
+
+commitment_action:
+  - i'll
+  - i will
+  - let me
+  - i need to
+  - i have to
+  - writing
+  - so the answer
+  - final
+  - therefore
+  - thus
+  - so i'll
+  - the final query
+  - the final answer
+  - final sql
+  - going with
+
+meta_format:
+  - output
+  - format
+  - tags
+  - instructions
+  - the user
+  - the prompt
+  - the question asks
+  - the task
+  - <ans>
+  - </ans>
+  - wrap
+  - wrapped
+  - json object
+  - markdown
+
+first_person:
+  - i
+  - i'm
+  - i've
+  - i'll
+  - i'd
+  - me
+  - my
+  - myself
+
+question:
+  - "?"
+
+# Progress-marker phrases stripped during normalization (not scored as a lexicon feature,
+# but kept here so both text_normalize.py and this config stay in one editable place).
+progress_markers:
+  - writing the query
+  - writing the sql
+  - let me write
+  - i'll write
+  - generating the sql
+  - generating sql
+  - now writing
+  - working on the query
+  - working on the sql

@@ -1,0 +1,2 @@
+n_total_rows,n_excluded_blank_or_unclear,n_unrecognized_label_value,unrecognized_values,n_used,labels_present_in_sample,moves_never_appearing,cohen_kappa,raw_agreement_rate
+200,0,0,[],200,"['interpret_ambiguity', 'plan', 'hypothesize', 'verify', 'self_correct', 'meta_format', 'execute']",['restate'],0.9400569459013937,0.95

@@ -1,0 +1,2 @@
+n_total_rows,n_excluded_blank_or_unclear,n_unrecognized_label_value,unrecognized_values,n_used,labels_present_in_sample,moves_never_appearing,scored_against,n_rows_not_found_in_current_run,n_predictions_changed_since_export,cohen_kappa_at_export_time_predictions,cohen_kappa,raw_agreement_rate
+200,5,0,[],195,"['restate', 'interpret_ambiguity', 'plan', 'hypothesize', 'verify', 'self_correct', 'meta_format', 'execute']",[],current classifier,5,47,0.9400569459013937,0.6910435241852806,0.7384615384615385

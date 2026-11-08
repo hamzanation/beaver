@@ -81,6 +81,18 @@ The command takes the following arguments:
 * `rerank_model` (default `None`): the optional reranker model for the reranking step; the paper used `Qwen/Qwen3-Reranker-8B`
 * `rerank_k` (default `15`): the number of tables returned by the reranking step
 
+For lower-memory local GPUs, use a smaller embedding model, smaller batches, and optionally skip reranking first:
+
+```
+python retrieve/retrieve.py --dataset dw --embed_provider local --embed_model Qwen/Qwen3-Embedding-0.6B --embed_batch_size 1 --embed_k 50
+```
+
+If you also rerank on a smaller GPU, keep reranker batches and context short:
+
+```
+python retrieve/retrieve.py --dataset dw --embed_provider local --embed_model Qwen/Qwen3-Embedding-0.6B --embed_batch_size 1 --embed_k 50 --rerank_model Qwen/Qwen3-Reranker-0.6B --rerank_batch_size 1 --rerank_max_length 2048
+```
+
 Note: the retrieval step outputs `retrieved_tables.json`, and the reranking step (if enabled) outputs `reranked_tables.json`. While generating SQL, the text-to-SQL method uses `reranked_tables.json` if it exists and otherwise `retrieved_tables.json`.
 
 ## Text-to-SQL methods
@@ -125,6 +137,17 @@ cd eval/[method]
 - `setting=0` *(default setting)*: Standard end-to-end setting with no hints. Base information with only the top-k tables retrieved from [table retrieval](#table-retrieval).
 - `setting=1`: With hints for three schema-linking subtasks. Includes gold tables, column mapping, and join keys.
 - `setting=2`: With hints for all five subtasks. Includes three subtasks in `setting=1`, domain knowledge, and subquery decomposition.
+
+### Local LM Studio models
+
+The evaluation scripts also support LM Studio through its OpenAI-compatible local server. Start LM Studio's local server, load the model with enough context length for BEAVER prompts, and run:
+
+```bash
+cd eval/fewshot
+./run.sh --model qwen2.5-coder-14b-instruct --dataset dw --setting 1
+```
+
+By default, local LM Studio runs use one worker to avoid overloading a single local model server. You can change this with `BEAVER_NUM_WORKERS`. If your LM Studio server is not at `http://localhost:1234/v1`, set `LMSTUDIO_BASE_URL`; either `http://localhost:1234/v1` or `http://localhost:1234/api/v1/chat` is accepted.
 
 ## Evaluation
 

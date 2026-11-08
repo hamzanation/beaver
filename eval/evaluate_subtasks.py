@@ -9,6 +9,8 @@ from utils.evaluate_extraction_subtasks import (
     eval_extraction_output, EXTRACTION_PROMPT
 )
 from utils.utils import read_json, write_json
+from usage_utils import estimate_cost
+from pricing import PRICING
 
 load_dotenv('../.env')
 
@@ -91,6 +93,7 @@ def evaluate_single_entry(sql_fn: Path, gold_data, chat_client: GPTChat, output_
         "scores": {},
         "extraction_output": None,
         "decomp_output": None,
+        "judge_usage": None,
     }
 
     try:
@@ -132,6 +135,9 @@ def evaluate_single_entry(sql_fn: Path, gold_data, chat_client: GPTChat, output_
             **eval_extraction_output(extraction_output, gold_entry),
             "query_decomposition_score": decomp_output.get("score", 0) if decomp_output else None
         }
+        judge_usage = chat_client.get_token_usage()
+        judge_usage["cost_usd"] = estimate_cost(chat_client.model, judge_usage["usage"], PRICING)
+        result["judge_usage"] = judge_usage
         result["status"] = "success"
         print(f"Processed {q_id}: Score {json.dumps(result['scores'], indent=2)}")
 
@@ -212,11 +218,26 @@ def main():
         # the original decomp score is 0-5, divide by 5 to normalize
         avg_scores["avg_query_decomposition_score"] /= 5
 
+    # Judge-side telemetry (separate from the generation-side usage tracked by evaluate_ex_acc.py)
+    judge_usages = [r["judge_usage"] for r in valid_results if r.get("judge_usage")]
+    judge_total_tokens = sum(j["usage"]["total_tokens"] for j in judge_usages)
+    judge_priced = [j["cost_usd"] for j in judge_usages if j.get("cost_usd") is not None]
+    judge_metrics = {
+        "judge_questions_with_usage": len(judge_usages),
+        "judge_total_prompt_tokens": sum(j["usage"]["prompt_tokens"] for j in judge_usages),
+        "judge_total_completion_tokens": sum(j["usage"]["completion_tokens"] for j in judge_usages),
+        "judge_total_tokens": judge_total_tokens,
+        "judge_avg_tokens": (judge_total_tokens / len(judge_usages)) if judge_usages else None,
+        "judge_total_cost_usd": sum(judge_priced) if judge_priced else None,
+        "judge_avg_cost_usd": (sum(judge_priced) / len(judge_priced)) if judge_priced else None,
+    }
+
     summary = {
         "total_questions": len(results),
         "total_valid_questions": len(valid_results),
         "total_valid_questions_with_query_decomposition": len(valid_results_with_decomp),
-        **avg_scores
+        **avg_scores,
+        **judge_metrics,
     }
     
     summary_path = Path(args.input_dir) / "summary_subtasks.json"

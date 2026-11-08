@@ -46,6 +46,10 @@ OUTPUT_PATH="output/${MODEL}-beaver-${DATASET}-setting${SETTING}-log-${TIMESTAMP
 GOLD_RESULT_PATH="output/${MODEL}-beaver-${DATASET}-setting${SETTING}-gold-${TIMESTAMP}"
 NUM_VOTES=8
 NUM_WORKERS=16
+case "$MODEL" in
+    qwen2.5-coder-14b-instruct|lmstudio/*|lmstudio:*|local/*) NUM_WORKERS=${BEAVER_NUM_WORKERS:-1} ;;
+    claude*|anthropic/claude*) NUM_WORKERS=${BEAVER_NUM_WORKERS:-1} ;;
+esac
 
 # Export DB name for sql.py env-var fallback
 DB_NAME="${DATASET}"
@@ -96,7 +100,9 @@ python run.py \
     --do_vote \
     --num_votes $NUM_VOTES \
     --option ${OPTION} \
-    --num_workers $NUM_WORKERS
+    --num_workers $NUM_WORKERS \
+    --dataset ${DATASET} \
+    --setting ${SETTING}
 
 echo ""
 echo "Evaluation after Step 1:"
@@ -126,6 +132,8 @@ python run.py \
     --num_votes $NUM_VOTES \
     --option ${OPTION} \
     --num_workers $NUM_WORKERS \
+    --dataset ${DATASET} \
+    --setting ${SETTING} \
     --rerun \
     --overwrite_unfinished
 

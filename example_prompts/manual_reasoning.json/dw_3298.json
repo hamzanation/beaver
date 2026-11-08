@@ -1,0 +1,12 @@
+{
+  "instance_id": "dw_3298",
+  "model": "human",
+  "dataset": "dw",
+  "setting": 2,
+  "traces": [
+    {
+      "stage": "generation",
+      "text": "The question is asking for subject information regarding subjects in the math department during regular terms. They should also be undergraduate and degree granting. I am asked for the subject, the number of enrolled students, the department, the term description, the year, the short title of the subject, the max total units, and some stats on the CIP program code like MAX, Range, and variance in that order. Also, I need the max total units for each row between the row itself and teh next two rows after it in order of subjectID. This means I have two CTEs, one with a window function, and one focused on aggregation. For the first CTE, I will get the regular term mathematics information along with the total units over the next two subjects. From the LIBRARY_SUBJECT_OFFERED table I will pull hte subject, enrolled students, and department name. From the ACADEMIC_TERMS table, I'll get the term_description, academic year, and the short tile, finally, I will use COURSE_CATALOG_SUBJECT_OFFERED to get total_units, and I will do a MAX of it OVER and ORDER BY where teh LIBRARY_SUBJECT_OFFERED.SUBJECT_ID is between the current row's ID and then then that number plus 2. I'll Join them all by using term code for both joins across the 3 tables, and for library subject and the course catalog subject, I will also utilize the subject_id in the JOIN. Now for the CIP_PROGRAM_CODE stats, I'll get the program code from the SIS_COURSE_DESCRPTION_TABLE and the department name from SIS_DEPARTMENT, I can join them on DEPARTMENT_CODE and DEPARTMENT respectively. I can get the average with AVG, the range with max - min and the variance with VARIANCE(). I will name them appropriately as avg_cip_code, cip_code_range, and cip_code_variance and group by department, from here I can filter on undergraduate degree granting courses using COURSE_LEVEL = 'U' and IS_DEGREE_GRANTING = 'Y'. Now for the final SELECT I join the two on department name and order the columns as expected."
+    }
+  ]
+}

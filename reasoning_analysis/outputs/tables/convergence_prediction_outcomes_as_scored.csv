@@ -1,0 +1,842 @@
+model,instance_id,correct,official_correct,has_reasoning_trace,had_html_entities,error_type,pred_rows,pred_cols,gold_rows,gold_cols,tables,exec_error
+claude-haiku-4-5,dw_104,True,True,True,False,correct,29,4,29,4,COURSE_CATALOG_SUBJECT_OFFERED;SIS_DEPARTMENT,
+claude-haiku-4-5,dw_1133,False,False,True,False,wrong_values,1,5,1,5,COURSE_CATALOG_SUBJECT_OFFERED;SIS_DEPARTMENT,
+claude-haiku-4-5,dw_1191,True,True,True,False,correct,5,14,5,14,CIS_COURSE_CATALOG;COURSE_CATALOG_SUBJECT_OFFERED;SIS_DEPARTMENT;SIS_SUBJECT_CODE,
+claude-haiku-4-5,dw_1207,False,False,True,False,no_prediction,,,2,3,,no prediction
+claude-haiku-4-5,dw_140,False,False,True,False,wrong_row_count,27,5,19,5,ACADEMIC_TERMS;SUBJECT_SUMMARY,
+claude-haiku-4-5,dw_1414,False,False,True,False,exec_error,,,3,3,SIS_ADMIN_DEPARTMENT;SIS_DEPARTMENT,Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 44
+claude-haiku-4-5,dw_1498,False,False,True,False,exec_error,,,1,10,,Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'None' at line 1
+claude-haiku-4-5,dw_1566,False,False,True,False,wrong_values,2121,5,2121,5,FCLT_BUILDING;FCLT_BUILDING_HIST;FCLT_ROOMS,
+claude-haiku-4-5,dw_1570,False,False,True,False,wrong_row_count,32,5,34,5,CIS_COURSE_CATALOG;SIS_DEPARTMENT;SUBJECT_OFFERED_SUMMARY,
+claude-haiku-4-5,dw_1582,False,False,True,False,no_prediction,,,16,7,,no prediction
+claude-haiku-4-5,dw_1616,False,False,True,False,wrong_values,1768,10,1768,10,ACADEMIC_TERMS_ALL;IAP_SUBJECT_DETAIL;LIBRARY_SUBJECT_OFFERED;TIP_SUBJECT_OFFERED,
+claude-haiku-4-5,dw_1639,False,False,True,False,wrong_row_count,40,7,20,7,ACADEMIC_TERMS_ALL;ACADEMIC_TERM_PARAMETER;CIS_COURSE_CATALOG;COURSE_CATALOG_SUBJECT_OFFERED;SIS_DEPARTMENT,
+claude-haiku-4-5,dw_1679,False,False,True,False,exec_error,,,5,6,SIS_COURSE_DESCRIPTION,Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 9
+claude-haiku-4-5,dw_1737,False,False,True,False,wrong_row_count,2,4,23,4,LIBRARY_SUBJECT_OFFERED;SIS_SUBJECT_CODE;SUBJECT_SUMMARY,
+claude-haiku-4-5,dw_1795,False,False,True,False,no_prediction,,,70,9,,no prediction
+claude-haiku-4-5,dw_1848,False,False,True,False,wrong_row_count,3069,5,2121,5,FCLT_BUILDING;FCLT_BUILDING_HIST;FCLT_ROOMS,
+claude-haiku-4-5,dw_19,True,True,True,False,correct,24,4,24,4,COURSE_CATALOG_SUBJECT_OFFERED;SIS_COURSE_DESCRIPTION,
+claude-haiku-4-5,dw_1948,False,False,True,False,wrong_row_count,48,6,71,6,SIS_COURSE_DESCRIPTION;SIS_DEPARTMENT;SUBJECT_OFFERED_SUMMARY,
+claude-haiku-4-5,dw_1970,False,False,True,False,empty_result,0,5,1,5,COURSE_CATALOG_SUBJECT_OFFERED;FCLT_ROOMS;SIS_DEPARTMENT;TIP_SUBJECT_OFFERED,
+claude-haiku-4-5,dw_2030,False,False,True,False,wrong_values,50,5,50,5,ACADEMIC_TERMS;COURSE_CATALOG_SUBJECT_OFFERED;SIS_ADMIN_DEPARTMENT;SIS_DEPARTMENT,
+claude-haiku-4-5,dw_2070,False,False,True,False,no_prediction,,,2720,9,,no prediction
+claude-haiku-4-5,dw_2097,True,True,True,False,correct,6,2,6,2,SIS_DEPARTMENT;TIP_SUBJECT_OFFERED,
+claude-haiku-4-5,dw_2132,False,False,True,False,wrong_values,1,11,1,11,SIS_DEPARTMENT;STUDENT_DEPARTMENT;SUBJECT_OFFERED_SUMMARY;TIP_SUBJECT_OFFERED,
+claude-haiku-4-5,dw_2227,False,False,True,False,wrong_row_count,48,12,1,12,ACADEMIC_TERMS;ACADEMIC_TERM_PARAMETER;COURSE_CATALOG_SUBJECT_OFFERED,
+claude-haiku-4-5,dw_2293,False,False,True,False,no_prediction,,,332,10,,no prediction
+claude-haiku-4-5,dw_232,False,False,True,False,wrong_values,49,3,49,3,TIP_DETAIL;TIP_SUBJECT_OFFERED,
+claude-haiku-4-5,dw_2394,False,False,True,False,no_prediction,,,127,6,,no prediction
+claude-haiku-4-5,dw_2443,False,False,True,False,wrong_row_count,24,4,27,4,ACADEMIC_TERMS;COURSE_CATALOG_SUBJECT_OFFERED,
+claude-haiku-4-5,dw_2633,False,False,True,False,wrong_row_count,28,4,50,4,ACADEMIC_TERMS;ACADEMIC_TERM_PARAMETER;SUBJECT_SUMMARY,
+claude-haiku-4-5,dw_2669,True,True,True,False,correct,58,6,58,6,SPACE_SUPERVISOR_USAGE;SPACE_UNIT,
+claude-haiku-4-5,dw_2694,False,False,True,False,empty_result,0,6,270,6,SUBJECT_OFFERED;SUBJECT_OFFERED_SUMMARY;SUBJECT_SUMMARY,
+claude-haiku-4-5,dw_2715,True,True,True,False,correct,140,10,140,10,ACADEMIC_TERMS_ALL;ACADEMIC_TERM_PARAMETER;TIP_SUBJECT_OFFERED,
+claude-haiku-4-5,dw_287,False,False,True,False,exec_error,,,66,5,SIS_DEPARTMENT;STUDENT_DEPARTMENT;TIP_SUBJECT_OFFERED,"Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'dense_rank
+  FROM inner_cte ic
+  CROSS JOIN avg_enrolled ae
+  WHERE ic.NUM_ENROL' at line 26"
+claude-haiku-4-5,dw_2878,False,False,True,False,wrong_row_count,34,2,15,2,SUBJECT_OFFERED_SUMMARY;TIP_DETAIL,
+claude-haiku-4-5,dw_2933,False,False,True,False,wrong_row_count,10,3,154,3,FCLT_ORGANIZATION;SPACE_UNIT,
+claude-haiku-4-5,dw_3148,False,False,True,False,wrong_values,337,6,339,6,ACADEMIC_TERMS;ACADEMIC_TERMS_ALL;COURSE_CATALOG_SUBJECT_OFFERED;TIP_DETAIL,
+claude-haiku-4-5,dw_3183,False,False,True,False,wrong_row_count,18,2,17,2,SPACE_UNIT;ZPM_ROOMS_LOAD,
+claude-haiku-4-5,dw_323,True,True,True,False,correct,14,2,14,2,LIBRARY_SUBJECT_OFFERED;SIS_COURSE_DESCRIPTION;SIS_SUBJECT_CODE,
+claude-haiku-4-5,dw_3298,True,True,True,False,correct,149,10,149,10,ACADEMIC_TERMS;COURSE_CATALOG_SUBJECT_OFFERED;LIBRARY_SUBJECT_OFFERED;SIS_COURSE_DESCRIPTION;SIS_DEPARTMENT,
+claude-haiku-4-5,dw_3310,False,False,True,False,exec_error,,,11599,5,,Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 7
+claude-haiku-4-5,dw_3545,False,False,True,False,empty_result,0,11,83,11,ACADEMIC_TERMS;LIBRARY_SUBJECT_OFFERED;STUDENT_DEPARTMENT;SUBJECT_OFFERED;TIP_SUBJECT_OFFERED,
+claude-haiku-4-5,dw_3585,False,False,True,False,wrong_row_count,169,7,14,7,ACADEMIC_TERMS;COURSE_CATALOG_SUBJECT_OFFERED;FCLT_ORGANIZATION;FCLT_ROOMS,
+claude-haiku-4-5,dw_3643,True,True,True,False,correct,1,8,1,8,ACADEMIC_TERMS;SIS_DEPARTMENT;SUBJECT_SUMMARY;TIP_SUBJECT_OFFERED,
+claude-haiku-4-5,dw_3778,False,False,True,False,no_prediction,,,1141,8,,no prediction
+claude-haiku-4-5,dw_3847,False,False,True,False,wrong_values,263,9,9534,9,ACADEMIC_TERMS;COURSE_CATALOG_SUBJECT_OFFERED;SUBJECT_OFFERED_SUMMARY;TIP_DETAIL;TIP_SUBJECT_OFFERED,
+claude-haiku-4-5,dw_3862,False,False,True,False,no_prediction,,,2260,7,,no prediction
+claude-haiku-4-5,dw_3868,False,False,True,False,no_prediction,,,871,13,,no prediction
+claude-haiku-4-5,dw_3901,False,False,True,False,exec_error,,,25809,16,CIP;SIS_COURSE_DESCRIPTION;SUBJECT_OFFERED;SUBJECT_OFFERED_SUMMARY;SUBJECT_SUMMARY,"Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'dense_rank,
+      NULL as total_subjects,
+      NULL as COURSE,
+      NULL as CO' at line 7"
+claude-haiku-4-5,dw_4004,False,False,True,False,no_prediction,,,15881,12,,no prediction
+claude-haiku-4-5,dw_4061,False,False,True,False,exec_error,,,1021,10,ACADEMIC_TERMS;COURSE_CATALOG_SUBJECT_OFFERED,Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 22
+claude-haiku-4-5,dw_4072,False,False,True,False,exec_error,,,68,9,CIS_COURSE_CATALOG;SIS_COURSE_DESCRIPTION;SIS_DEPARTMENT,Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 14
+claude-haiku-4-5,dw_4101,False,False,True,False,exec_error,,,152,9,FCLT_ORGANIZATION;FCLT_ORG_DLC_KEY;MASTER_DEPT_HIERARCHY;SPACE_UNIT,Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 20
+claude-haiku-4-5,dw_4128,False,False,True,False,wrong_row_count,2,8,95,8,ACADEMIC_TERMS;ACADEMIC_TERM_PARAMETER;SIS_DEPARTMENT;SUBJECT_OFFERED_SUMMARY,
+claude-haiku-4-5,dw_4155,False,False,True,False,exec_error,,,1021,9,COURSE_CATALOG_SUBJECT_OFFERED;SIS_DEPARTMENT;SIS_SUBJECT_CODE,"Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'dense_rank
+  FROM inner_cte2
+),
+subq3 AS (
+  WITH inner_cte3 AS (
+    SELECT 
+  ' at line 32"
+claude-haiku-4-5,dw_427,False,False,True,False,wrong_columns,1,5,1,4,SUBJECT_OFFERED_SUMMARY,
+claude-haiku-4-5,dw_4339,False,False,True,False,no_prediction,,,605,16,,no prediction
+claude-haiku-4-5,dw_4349,False,False,True,False,no_prediction,,,14,8,,no prediction
+claude-haiku-4-5,dw_4351,False,False,True,False,exec_error,,,220,11,ACADEMIC_TERMS;LIBRARY_SUBJECT_OFFERED;SIS_DEPARTMENT;SIS_SUBJECT_CODE,Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 42
+claude-haiku-4-5,dw_4374,False,False,True,False,no_prediction,,,157,9,,no prediction
+claude-haiku-4-5,dw_4407,False,False,True,False,no_prediction,,,130080,9,,no prediction
+claude-haiku-4-5,dw_4413,False,False,True,False,no_prediction,,,6,11,,no prediction
+claude-haiku-4-5,dw_4513,False,False,True,False,empty_result,0,12,53,12,ACADEMIC_TERMS;LIBRARY_RESERVE_MATRL_DETAIL;LIBRARY_SUBJECT_OFFERED;TIP_SUBJECT_OFFERED,
+claude-haiku-4-5,dw_4522,False,False,True,False,wrong_row_count,430,11,2363,11,ACADEMIC_TERMS;LIBRARY_SUBJECT_OFFERED;SUBJECT_OFFERED_SUMMARY;SUBJECT_SUMMARY;TIP_DETAIL,
+claude-haiku-4-5,dw_4553,False,False,True,False,wrong_columns,1,9,2,8,ACADEMIC_TERMS;ACADEMIC_TERMS_ALL;ACADEMIC_TERM_PARAMETER;SUBJECT_SUMMARY;TIP_DETAIL,
+claude-haiku-4-5,dw_4570,False,False,True,False,no_prediction,,,77493,8,,no prediction
+claude-haiku-4-5,dw_458,False,False,True,False,wrong_row_count,61,3,85,3,FCLT_BUILDING;FCLT_BUILDING_ADDRESS;FCLT_ROOMS,
+claude-haiku-4-5,dw_4588,False,False,True,False,wrong_values,99,6,99,6,FCLT_ORGANIZATION;FCLT_ROOMS;SPACE_SUPERVISOR_USAGE;SPACE_UNIT,
+claude-haiku-4-5,dw_461,True,True,True,False,correct,3,2,3,2,SIS_ADMIN_DEPARTMENT;SIS_DEPARTMENT,
+claude-haiku-4-5,dw_4610,False,False,True,False,no_prediction,,,158,6,,no prediction
+claude-haiku-4-5,dw_4691,False,False,True,False,wrong_row_count,293,9,254,9,ACADEMIC_TERMS;SUBJECT_SUMMARY;TIP_DETAIL;TIP_SUBJECT_OFFERED,
+claude-haiku-4-5,dw_4725,False,False,True,False,wrong_row_count,162,9,7,9,ACADEMIC_TERMS_ALL;COURSE_CATALOG_SUBJECT_OFFERED;SUBJECT_OFFERED_SUMMARY;TIP_DETAIL;TIP_SUBJECT_OFFERED,
+claude-haiku-4-5,dw_4771,False,False,True,False,wrong_row_count,42,6,37,6,SIS_COURSE_DESCRIPTION;SIS_DEPARTMENT;TIP_DETAIL;TIP_SUBJECT_OFFERED,
+claude-haiku-4-5,dw_4876,False,False,True,False,no_prediction,,,1315,11,,no prediction
+claude-haiku-4-5,dw_4961,False,False,True,False,wrong_values,7,6,7,6,ACADEMIC_TERMS;ACADEMIC_TERM_PARAMETER;LIBRARY_SUBJECT_OFFERED;SUBJECT_OFFERED_SUMMARY;SUBJECT_SUMMARY,
+claude-haiku-4-5,dw_5008,False,False,True,False,wrong_values,2,5,2,5,ACADEMIC_TERMS_ALL;ACADEMIC_TERM_PARAMETER;COURSE_CATALOG_SUBJECT_OFFERED;TIP_DETAIL,
+claude-haiku-4-5,dw_5136,False,False,True,False,wrong_values,158,6,158,6,FCLT_ORGANIZATION;MASTER_DEPT_HIERARCHY;SPACE_SUPERVISOR_USAGE;SPACE_UNIT,
+claude-haiku-4-5,dw_5166,True,True,True,False,correct,105,2,105,2,FCLT_ORGANIZATION;FCLT_ROOMS,
+claude-haiku-4-5,dw_5181,False,False,True,False,wrong_values,35,3,35,3,COURSE_CATALOG_SUBJECT_OFFERED;SIS_DEPARTMENT,
+claude-haiku-4-5,dw_5330,False,False,True,False,wrong_values,1,4,1,4,MIT_STUDENT_DIRECTORY;SIS_DEPARTMENT;TIP_SUBJECT_OFFERED,
+claude-haiku-4-5,dw_5361,True,True,True,False,correct,155,4,155,4,FCLT_ORGANIZATION;MASTER_DEPT_HIERARCHY,
+claude-haiku-4-5,dw_5415,False,False,True,False,wrong_values,31,7,31,7,STUDENT_DEPARTMENT;TIP_SUBJECT_OFFERED,
+claude-haiku-4-5,dw_5638,False,False,True,False,wrong_row_count,13,4,12,4,ACADEMIC_TERMS_ALL;COURSE_CATALOG_SUBJECT_OFFERED;TIP_DETAIL,
+claude-haiku-4-5,dw_5668,False,False,True,False,empty_result,0,3,1,3,SIS_ADMIN_DEPARTMENT;SIS_COURSE_DESCRIPTION;SIS_DEPARTMENT,
+claude-haiku-4-5,dw_5711,True,True,True,False,correct,1,4,1,4,SIS_COURSE_DESCRIPTION;SIS_DEPARTMENT,
+claude-haiku-4-5,dw_5769,True,True,True,False,correct,1,2,1,2,ACADEMIC_TERMS;COURSE_CATALOG_SUBJECT_OFFERED;LIBRARY_RESERVE_MATRL_DETAIL,
+claude-haiku-4-5,dw_588,False,False,True,False,wrong_columns,8,4,10,6,ACADEMIC_TERMS_ALL;COURSE_CATALOG_SUBJECT_OFFERED;LIBRARY_SUBJECT_OFFERED,
+claude-haiku-4-5,dw_625,True,True,True,False,correct,1,3,1,3,SUBJECT_OFFERED;TIP_SUBJECT_OFFERED,
+claude-haiku-4-5,dw_649,False,False,True,False,wrong_values,38,8,38,8,LIBRARY_SUBJECT_OFFERED;SIS_DEPARTMENT;SIS_SUBJECT_CODE;TIP_SUBJECT_OFFERED,
+claude-haiku-4-5,dw_663,True,True,True,False,correct,25,6,25,6,ACADEMIC_TERMS;COURSE_CATALOG_SUBJECT_OFFERED;MIT_STUDENT_DIRECTORY;SE_PERSON,
+claude-haiku-4-5,dw_714,False,False,True,False,wrong_row_count,64,6,56,6,ACADEMIC_TERMS;MIT_STUDENT_DIRECTORY;SIS_DEPARTMENT;SUBJECT_SUMMARY,
+claude-haiku-4-5,dw_718,False,False,True,False,wrong_values,24,5,24,5,ACADEMIC_TERMS;ACADEMIC_TERMS_ALL;COURSE_CATALOG_SUBJECT_OFFERED;TIP_SUBJECT_OFFERED,
+claude-haiku-4-5,dw_752,False,False,True,False,no_prediction,,,35,6,,no prediction
+claude-haiku-4-5,dw_777,False,False,True,False,wrong_values,37,6,37,6,COURSE_CATALOG_SUBJECT_OFFERED;SIS_DEPARTMENT;TIP_DETAIL;TIP_SUBJECT_OFFERED,
+claude-haiku-4-5,dw_779,False,False,True,False,wrong_row_count,24,5,23,5,ACADEMIC_TERMS;COURSE_CATALOG_SUBJECT_OFFERED,
+claude-haiku-4-5,dw_817,False,False,True,False,timeout,,,1325,7,SPACE_DETAIL;SPACE_FLOOR,Timeout exceeded
+claude-haiku-4-5,dw_872,False,False,True,False,wrong_values,5,13,5,13,CIS_COURSE_CATALOG;COURSE_CATALOG_SUBJECT_OFFERED,
+claude-haiku-4-5,dw_942,False,False,True,False,no_prediction,,,1,6,,no prediction
+claude-haiku-4-5,dw_960,False,False,True,False,wrong_row_count,10,3,9,3,COURSE_CATALOG_SUBJECT_OFFERED;SIS_DEPARTMENT;SUBJECT_OFFERED_SUMMARY,
+claude-haiku-4-5,dw_965,False,False,True,False,wrong_values,1,10,1,10,SIS_DEPARTMENT;STUDENT_DEPARTMENT;SUBJECT_OFFERED_SUMMARY;TIP_SUBJECT_OFFERED,
+claude-haiku-4-5,dw_995,False,False,True,False,wrong_row_count,60,6,101,6,ACADEMIC_TERMS_ALL;SIS_COURSE_DESCRIPTION;SIS_DEPARTMENT;TIP_SUBJECT_OFFERED,
+claude-opus-5,dw_104,True,True,True,False,correct,29,4,29,4,COURSE_CATALOG_SUBJECT_OFFERED;SIS_DEPARTMENT,
+claude-opus-5,dw_1133,True,True,True,False,correct,1,5,1,5,COURSE_CATALOG_SUBJECT_OFFERED;SIS_DEPARTMENT,
+claude-opus-5,dw_1191,True,True,True,False,correct,5,14,5,14,CIS_COURSE_CATALOG;COURSE_CATALOG_SUBJECT_OFFERED;SIS_DEPARTMENT;SIS_SUBJECT_CODE,
+claude-opus-5,dw_1207,False,False,True,False,wrong_row_count,24,3,2,3,ACADEMIC_TERMS_ALL;COURSE_CATALOG_SUBJECT_OFFERED;LIBRARY_RESERVE_MATRL_DETAIL,
+claude-opus-5,dw_140,False,False,True,False,wrong_row_count,27,5,19,5,ACADEMIC_TERMS;SUBJECT_SUMMARY,
+claude-opus-5,dw_1414,True,True,True,False,correct,3,3,3,3,SIS_ADMIN_DEPARTMENT;SIS_DEPARTMENT,
+claude-opus-5,dw_1498,False,False,True,False,exec_error,,,1,10,COURSE_CATALOG_SUBJECT_OFFERED;MIT_STUDENT_DIRECTORY;SIS_ADMIN_DEPARTMENT;SIS_COURSE_DESCRIPTION;SIS_DEPARTMENT;SIS_SUBJECT_CODE,Database Error: 1054 (42S22): Unknown column 'sad.DEPARTMENT_CODE' in 'on clause'
+claude-opus-5,dw_1566,False,False,True,False,wrong_values,2121,5,2121,5,FCLT_BUILDING;FCLT_BUILDING_HIST;FCLT_ROOMS,
+claude-opus-5,dw_1570,False,False,True,False,wrong_row_count,32,5,34,5,CIS_COURSE_CATALOG;SIS_DEPARTMENT;SUBJECT_OFFERED_SUMMARY,
+claude-opus-5,dw_1582,True,True,True,False,correct,16,7,16,7,CIS_COURSE_CATALOG;COURSE_CATALOG_SUBJECT_OFFERED;SIS_DEPARTMENT,
+claude-opus-5,dw_1616,False,False,True,False,wrong_row_count,2652,10,1768,10,ACADEMIC_TERMS_ALL;COURSE_CATALOG_SUBJECT_OFFERED;IAP_SUBJECT_DETAIL;LIBRARY_SUBJECT_OFFERED;TIP_SUBJECT_OFFERED,
+claude-opus-5,dw_1639,False,False,True,False,wrong_row_count,40,7,20,7,ACADEMIC_TERMS_ALL;ACADEMIC_TERM_PARAMETER;CIS_COURSE_CATALOG;COURSE_CATALOG_SUBJECT_OFFERED;SIS_DEPARTMENT,
+claude-opus-5,dw_1679,False,False,True,False,wrong_row_count,2,6,5,6,COURSE_CATALOG_SUBJECT_OFFERED;SIS_COURSE_DESCRIPTION;SIS_DEPARTMENT;SIS_SUBJECT_CODE,
+claude-opus-5,dw_1737,False,False,True,False,wrong_row_count,2,4,23,4,ACADEMIC_TERMS;LIBRARY_SUBJECT_OFFERED;SIS_SUBJECT_CODE;SUBJECT_SUMMARY,
+claude-opus-5,dw_1795,False,False,True,False,wrong_values,45,9,70,9,COURSE_CATALOG_SUBJECT_OFFERED;SIS_COURSE_DESCRIPTION;SIS_DEPARTMENT;TIP_SUBJECT_OFFERED,
+claude-opus-5,dw_1848,False,False,True,False,wrong_values,2121,5,2121,5,FCLT_BUILDING;FCLT_BUILDING_HIST;FCLT_ROOMS,
+claude-opus-5,dw_19,True,True,True,False,correct,24,4,24,4,COURSE_CATALOG_SUBJECT_OFFERED;SIS_COURSE_DESCRIPTION,
+claude-opus-5,dw_1948,False,False,True,False,wrong_row_count,75,6,71,6,SIS_COURSE_DESCRIPTION;SIS_DEPARTMENT;SUBJECT_OFFERED_SUMMARY,
+claude-opus-5,dw_1970,False,False,True,False,empty_result,0,5,1,5,COURSE_CATALOG_SUBJECT_OFFERED;FCLT_ROOMS;SIS_DEPARTMENT;TIP_SUBJECT_OFFERED,
+claude-opus-5,dw_2030,False,False,True,False,wrong_row_count,51,5,50,5,ACADEMIC_TERMS;COURSE_CATALOG_SUBJECT_OFFERED;SIS_ADMIN_DEPARTMENT;SIS_DEPARTMENT,
+claude-opus-5,dw_2070,False,False,True,False,wrong_row_count,680,9,2720,9,SIS_DEPARTMENT;SIS_SUBJECT_CODE;SUBJECT_OFFERED_SUMMARY,
+claude-opus-5,dw_2097,False,False,True,False,timeout,,,6,2,ACADEMIC_TERMS;LIBRARY_RESERVE_MATRL_DETAIL;SIS_DEPARTMENT;SUBJECT_SUMMARY;TIP_SUBJECT_OFFERED,Timeout exceeded
+claude-opus-5,dw_2132,True,True,True,False,correct,1,11,1,11,COURSE_CATALOG_SUBJECT_OFFERED;SIS_DEPARTMENT;STUDENT_DEPARTMENT;SUBJECT_OFFERED_SUMMARY;TIP_SUBJECT_OFFERED,
+claude-opus-5,dw_2227,False,False,True,False,wrong_values,1,12,1,12,ACADEMIC_TERMS;ACADEMIC_TERM_PARAMETER;COURSE_CATALOG_SUBJECT_OFFERED,
+claude-opus-5,dw_2293,False,False,True,False,wrong_row_count,413,10,332,10,LIBRARY_RESERVE_MATRL_DETAIL;STUDENT_DEPARTMENT;TIP_DETAIL;TIP_SUBJECT_OFFERED,
+claude-opus-5,dw_232,False,False,True,False,wrong_values,49,3,49,3,TIP_DETAIL;TIP_SUBJECT_OFFERED,
+claude-opus-5,dw_2394,False,False,True,False,wrong_row_count,127,6,127,6,SIS_COURSE_DESCRIPTION;SIS_DEPARTMENT;TIP_DETAIL;TIP_SUBJECT_OFFERED,
+claude-opus-5,dw_2443,False,False,True,False,wrong_row_count,24,4,27,4,ACADEMIC_TERMS;COURSE_CATALOG_SUBJECT_OFFERED,
+claude-opus-5,dw_2633,False,False,True,False,wrong_row_count,28,4,50,4,ACADEMIC_TERMS;ACADEMIC_TERM_PARAMETER;SUBJECT_SUMMARY,
+claude-opus-5,dw_2669,True,True,True,False,correct,58,6,58,6,SPACE_SUPERVISOR_USAGE;SPACE_UNIT,
+claude-opus-5,dw_2694,True,True,True,False,correct,270,6,270,6,SUBJECT_OFFERED;SUBJECT_OFFERED_SUMMARY;SUBJECT_SUMMARY,
+claude-opus-5,dw_2715,True,True,True,False,correct,140,10,140,10,ACADEMIC_TERMS_ALL;ACADEMIC_TERM_PARAMETER;TIP_SUBJECT_OFFERED,
+claude-opus-5,dw_287,True,True,True,False,correct,66,5,66,5,SIS_DEPARTMENT;STUDENT_DEPARTMENT;TIP_SUBJECT_OFFERED,
+claude-opus-5,dw_2878,True,True,True,False,correct,15,2,15,2,LIBRARY_SUBJECT_OFFERED;SUBJECT_OFFERED_SUMMARY;TIP_DETAIL,
+claude-opus-5,dw_2933,False,False,True,False,wrong_row_count,10,3,154,3,FCLT_ORGANIZATION;SPACE_UNIT,
+claude-opus-5,dw_3148,False,False,True,False,wrong_row_count,336,6,339,6,ACADEMIC_TERMS;ACADEMIC_TERMS_ALL;SIS_DEPARTMENT;TIP_DETAIL,
+claude-opus-5,dw_3183,False,False,True,False,wrong_row_count,1,2,17,2,SPACE_UNIT;ZPM_ROOMS_LOAD,
+claude-opus-5,dw_323,True,True,True,False,correct,14,2,14,2,LIBRARY_SUBJECT_OFFERED;SIS_COURSE_DESCRIPTION;SIS_SUBJECT_CODE,
+claude-opus-5,dw_3298,False,False,True,False,wrong_row_count,193234,10,149,10,ACADEMIC_TERMS;COURSE_CATALOG_SUBJECT_OFFERED;LIBRARY_SUBJECT_OFFERED;SIS_COURSE_DESCRIPTION;SIS_DEPARTMENT,
+claude-opus-5,dw_3310,False,False,True,False,wrong_row_count,7819,5,11599,5,COURSE_CATALOG_SUBJECT_OFFERED;LIBRARY_SUBJECT_OFFERED;SIS_COURSE_DESCRIPTION;SIS_SUBJECT_CODE;SUBJECT_OFFERED_SUMMARY,
+claude-opus-5,dw_3545,True,True,True,False,correct,83,11,83,11,ACADEMIC_TERMS;LIBRARY_SUBJECT_OFFERED;STUDENT_DEPARTMENT;SUBJECT_OFFERED;TIP_SUBJECT_OFFERED,
+claude-opus-5,dw_3585,True,True,True,False,correct,14,7,14,7,ACADEMIC_TERMS;COURSE_CATALOG_SUBJECT_OFFERED;FCLT_ORGANIZATION;FCLT_ROOMS,
+claude-opus-5,dw_3643,True,True,True,False,correct,1,8,1,8,ACADEMIC_TERMS;SIS_DEPARTMENT;SUBJECT_SUMMARY;TIP_SUBJECT_OFFERED,
+claude-opus-5,dw_3778,True,True,True,False,correct,1149,8,1141,8,ACADEMIC_TERMS;ACADEMIC_TERM_PARAMETER;COURSE_CATALOG_SUBJECT_OFFERED;SIS_COURSE_DESCRIPTION;SIS_DEPARTMENT,
+claude-opus-5,dw_3847,False,False,True,False,wrong_row_count,138,9,9534,9,ACADEMIC_TERMS;COURSE_CATALOG_SUBJECT_OFFERED;SUBJECT_OFFERED_SUMMARY;TIP_DETAIL;TIP_SUBJECT_OFFERED,
+claude-opus-5,dw_3862,True,True,True,False,correct,2238,7,2260,7,LIBRARY_SUBJECT_OFFERED;MIT_STUDENT_DIRECTORY;SIS_DEPARTMENT;SUBJECT_OFFERED_SUMMARY;TIP_DETAIL,
+claude-opus-5,dw_3868,False,False,True,False,wrong_row_count,2559,13,871,13,LIBRARY_RESERVE_MATRL_DETAIL;SIS_DEPARTMENT;TIP_DETAIL;TIP_SUBJECT_OFFERED,
+claude-opus-5,dw_3901,False,False,True,False,wrong_row_count,15194,16,25809,16,CIP;SIS_COURSE_DESCRIPTION;SUBJECT_OFFERED;SUBJECT_OFFERED_SUMMARY;SUBJECT_SUMMARY,
+claude-opus-5,dw_4004,False,False,True,False,wrong_values,15881,12,15881,12,ACADEMIC_TERMS;CIS_COURSE_CATALOG;COURSE_CATALOG_SUBJECT_OFFERED;SIS_COURSE_DESCRIPTION;SIS_DEPARTMENT,
+claude-opus-5,dw_4061,False,False,True,False,wrong_row_count,100980,10,1021,10,ACADEMIC_TERMS;COURSE_CATALOG_SUBJECT_OFFERED;FCLT_BUILDING;FCLT_ROOMS,
+claude-opus-5,dw_4072,False,False,True,False,wrong_values,68,9,68,9,CIS_COURSE_CATALOG;SIS_COURSE_DESCRIPTION;SIS_DEPARTMENT;SIS_SUBJECT_CODE,
+claude-opus-5,dw_4101,False,False,True,False,wrong_row_count,6,9,152,9,FCLT_ORGANIZATION;FCLT_ORG_DLC_KEY;MASTER_DEPT_HIERARCHY;SPACE_UNIT,
+claude-opus-5,dw_4128,True,True,True,False,correct,95,8,95,8,ACADEMIC_TERMS;ACADEMIC_TERM_PARAMETER;COURSE_CATALOG_SUBJECT_OFFERED;SIS_DEPARTMENT;SUBJECT_OFFERED_SUMMARY,
+claude-opus-5,dw_4155,False,False,True,False,wrong_row_count,68,9,1021,9,ACADEMIC_TERMS_ALL;COURSE_CATALOG_SUBJECT_OFFERED;SIS_DEPARTMENT;SIS_SUBJECT_CODE,
+claude-opus-5,dw_427,True,True,True,False,correct,1,4,1,4,SUBJECT_OFFERED;SUBJECT_OFFERED_SUMMARY,
+claude-opus-5,dw_4339,False,False,True,False,wrong_row_count,47949,16,605,16,LIBRARY_RESERVE_MATRL_DETAIL;SIS_COURSE_DESCRIPTION;SIS_SUBJECT_CODE;SUBJECT_OFFERED_SUMMARY;TIP_DETAIL;TIP_SUBJECT_OFFERED,
+claude-opus-5,dw_4349,False,False,True,False,wrong_values,14,8,14,8,ACADEMIC_TERMS;ACADEMIC_TERMS_ALL;LIBRARY_SUBJECT_OFFERED;TIP_SUBJECT_OFFERED,
+claude-opus-5,dw_4351,True,True,True,False,correct,220,11,220,11,ACADEMIC_TERMS;LIBRARY_SUBJECT_OFFERED;SIS_DEPARTMENT;SIS_SUBJECT_CODE,
+claude-opus-5,dw_4374,False,False,True,False,wrong_row_count,28,9,157,9,ACADEMIC_TERMS_ALL;COURSE_CATALOG_SUBJECT_OFFERED;LIBRARY_RESERVE_MATRL_DETAIL;SIS_COURSE_DESCRIPTION,
+claude-opus-5,dw_4407,False,False,True,False,wrong_row_count,1002,9,130080,9,ACADEMIC_TERMS_ALL;COURSE_CATALOG_SUBJECT_OFFERED;SIS_DEPARTMENT;SIS_SUBJECT_CODE,
+claude-opus-5,dw_4413,False,False,True,False,empty_result,0,11,6,11,ACADEMIC_TERMS;IAP_SUBJECT_DETAIL;LIBRARY_SUBJECT_OFFERED;TIP_DETAIL,
+claude-opus-5,dw_4513,False,False,True,False,wrong_values,53,12,53,12,ACADEMIC_TERMS;LIBRARY_RESERVE_MATRL_DETAIL;LIBRARY_SUBJECT_OFFERED;TIP_SUBJECT_OFFERED,
+claude-opus-5,dw_4522,False,False,True,False,exec_error,,,2363,11,ACADEMIC_TERMS;LIBRARY_SUBJECT_OFFERED;SIS_ADMIN_DEPARTMENT;SIS_DEPARTMENT;SUBJECT_OFFERED_SUMMARY;SUBJECT_SUMMARY;TIP_DETAIL,Database Error: 1054 (42S22): Unknown column 'sad.DEPARTMENT_NAME' in 'on clause'
+claude-opus-5,dw_4553,False,False,True,False,wrong_columns,1,9,2,8,ACADEMIC_TERMS;ACADEMIC_TERMS_ALL;ACADEMIC_TERM_PARAMETER;SUBJECT_SUMMARY;TIP_DETAIL,
+claude-opus-5,dw_4570,False,False,True,False,wrong_row_count,2,8,77493,8,CIS_COURSE_CATALOG;MIT_STUDENT_DIRECTORY;SIS_COURSE_DESCRIPTION;SIS_DEPARTMENT;SIS_SUBJECT_CODE,
+claude-opus-5,dw_458,False,False,True,False,wrong_row_count,88,3,85,3,FCLT_BUILDING;FCLT_BUILDING_ADDRESS;FCLT_ROOMS,
+claude-opus-5,dw_4588,False,False,True,False,wrong_row_count,31,6,99,6,FCLT_ORGANIZATION;FCLT_ROOMS;SPACE_SUPERVISOR_USAGE;SPACE_UNIT,
+claude-opus-5,dw_461,True,True,True,False,correct,3,2,3,2,SIS_ADMIN_DEPARTMENT;SIS_DEPARTMENT,
+claude-opus-5,dw_4610,True,True,True,False,correct,13,6,158,6,LIBRARY_RESERVE_MATRL_DETAIL;SIS_DEPARTMENT;SIS_SUBJECT_CODE;SUBJECT_OFFERED_SUMMARY;TIP_DETAIL;TIP_SUBJECT_OFFERED,
+claude-opus-5,dw_4691,False,False,True,False,wrong_columns,257,8,254,9,ACADEMIC_TERMS;SUBJECT_SUMMARY;TIP_DETAIL;TIP_SUBJECT_OFFERED,
+claude-opus-5,dw_4725,False,False,True,False,wrong_row_count,3402,9,7,9,ACADEMIC_TERMS_ALL;COURSE_CATALOG_SUBJECT_OFFERED;SUBJECT_OFFERED_SUMMARY;TIP_DETAIL;TIP_SUBJECT_OFFERED,
+claude-opus-5,dw_4771,False,False,True,False,wrong_values,37,6,37,6,SIS_COURSE_DESCRIPTION;SIS_DEPARTMENT;TIP_DETAIL;TIP_SUBJECT_OFFERED,
+claude-opus-5,dw_4876,False,False,True,False,wrong_values,1315,11,1315,11,FCLT_ORGANIZATION;HR_ORG_UNIT;MASTER_DEPT_HIERARCHY;SPACE_UNIT,
+claude-opus-5,dw_4961,True,True,True,False,correct,7,6,7,6,ACADEMIC_TERMS;ACADEMIC_TERM_PARAMETER;LIBRARY_SUBJECT_OFFERED;SUBJECT_OFFERED_SUMMARY;SUBJECT_SUMMARY;TIP_DETAIL,
+claude-opus-5,dw_5008,True,True,True,False,correct,2,5,2,5,ACADEMIC_TERMS_ALL;ACADEMIC_TERM_PARAMETER;COURSE_CATALOG_SUBJECT_OFFERED;TIP_DETAIL,
+claude-opus-5,dw_5136,False,False,True,False,wrong_row_count,69,6,158,6,FCLT_ORGANIZATION;MASTER_DEPT_HIERARCHY;SPACE_SUPERVISOR_USAGE;SPACE_UNIT,
+claude-opus-5,dw_5166,True,True,True,False,correct,105,2,105,2,FCLT_ORGANIZATION;FCLT_ROOMS,
+claude-opus-5,dw_5181,True,True,True,False,correct,35,3,35,3,COURSE_CATALOG_SUBJECT_OFFERED;SIS_DEPARTMENT,
+claude-opus-5,dw_5330,True,True,True,False,correct,1,4,1,4,MIT_STUDENT_DIRECTORY;SIS_DEPARTMENT;TIP_SUBJECT_OFFERED,
+claude-opus-5,dw_5361,True,True,True,False,correct,155,4,155,4,FCLT_ORGANIZATION;MASTER_DEPT_HIERARCHY,
+claude-opus-5,dw_5415,True,True,True,False,correct,31,7,31,7,STUDENT_DEPARTMENT;TIP_SUBJECT_OFFERED,
+claude-opus-5,dw_5638,False,False,True,False,wrong_row_count,16,4,12,4,ACADEMIC_TERMS_ALL;COURSE_CATALOG_SUBJECT_OFFERED;TIP_DETAIL,
+claude-opus-5,dw_5668,False,False,True,False,wrong_values,1,3,1,3,SIS_ADMIN_DEPARTMENT;SIS_COURSE_DESCRIPTION;SIS_DEPARTMENT,
+claude-opus-5,dw_5711,True,True,True,False,correct,1,4,1,4,SIS_COURSE_DESCRIPTION;SIS_DEPARTMENT,
+claude-opus-5,dw_5769,False,False,True,False,wrong_values,1,2,1,2,ACADEMIC_TERMS;COURSE_CATALOG_SUBJECT_OFFERED;LIBRARY_RESERVE_MATRL_DETAIL,
+claude-opus-5,dw_588,False,False,True,False,wrong_columns,10,5,10,6,ACADEMIC_TERMS_ALL;COURSE_CATALOG_SUBJECT_OFFERED;LIBRARY_SUBJECT_OFFERED,
+claude-opus-5,dw_625,True,True,True,False,correct,1,3,1,3,SUBJECT_OFFERED;TIP_SUBJECT_OFFERED,
+claude-opus-5,dw_649,False,False,True,False,wrong_values,38,8,38,8,LIBRARY_SUBJECT_OFFERED;SIS_DEPARTMENT;SIS_SUBJECT_CODE;TIP_SUBJECT_OFFERED,
+claude-opus-5,dw_663,True,True,True,False,correct,25,6,25,6,ACADEMIC_TERMS;COURSE_CATALOG_SUBJECT_OFFERED;MIT_STUDENT_DIRECTORY;SE_PERSON,
+claude-opus-5,dw_714,False,False,True,False,wrong_row_count,64,6,56,6,ACADEMIC_TERMS;COURSE_CATALOG_SUBJECT_OFFERED;MIT_STUDENT_DIRECTORY;SIS_DEPARTMENT;SUBJECT_SUMMARY,
+claude-opus-5,dw_718,False,False,True,False,wrong_values,24,5,24,5,ACADEMIC_TERMS;ACADEMIC_TERMS_ALL;COURSE_CATALOG_SUBJECT_OFFERED;TIP_SUBJECT_OFFERED,
+claude-opus-5,dw_752,False,False,True,False,wrong_row_count,34,6,35,6,SIS_COURSE_DESCRIPTION;SIS_DEPARTMENT;SUBJECT_OFFERED_SUMMARY;TIP_SUBJECT_OFFERED,
+claude-opus-5,dw_777,True,True,True,False,correct,37,6,37,6,COURSE_CATALOG_SUBJECT_OFFERED;SIS_DEPARTMENT;TIP_DETAIL;TIP_SUBJECT_OFFERED,
+claude-opus-5,dw_779,False,False,True,False,wrong_row_count,24,5,23,5,ACADEMIC_TERMS;COURSE_CATALOG_SUBJECT_OFFERED,
+claude-opus-5,dw_817,False,False,True,False,wrong_row_count,1290,7,1325,7,SPACE_DETAIL;SPACE_FLOOR,
+claude-opus-5,dw_872,True,True,True,False,correct,5,13,5,13,CIS_COURSE_CATALOG;COURSE_CATALOG_SUBJECT_OFFERED;SIS_COURSE_DESCRIPTION,
+claude-opus-5,dw_942,True,True,True,False,correct,1,6,1,6,ACADEMIC_TERMS_ALL;COURSE_CATALOG_SUBJECT_OFFERED;SIS_ADMIN_DEPARTMENT;SIS_DEPARTMENT;SUBJECT_SUMMARY,
+claude-opus-5,dw_960,False,False,True,False,wrong_values,9,3,9,3,COURSE_CATALOG_SUBJECT_OFFERED;SIS_DEPARTMENT;SUBJECT_OFFERED_SUMMARY,
+claude-opus-5,dw_965,True,True,True,False,correct,1,10,1,10,COURSE_CATALOG_SUBJECT_OFFERED;SIS_DEPARTMENT;STUDENT_DEPARTMENT;SUBJECT_OFFERED_SUMMARY;TIP_SUBJECT_OFFERED,
+claude-opus-5,dw_995,False,False,True,False,wrong_row_count,60,6,101,6,ACADEMIC_TERMS_ALL;SIS_COURSE_DESCRIPTION;SIS_DEPARTMENT;TIP_SUBJECT_OFFERED,
+claude-sonnet-5,dw_104,False,False,True,False,wrong_values,29,4,29,4,COURSE_CATALOG_SUBJECT_OFFERED;SIS_DEPARTMENT,
+claude-sonnet-5,dw_1133,True,True,True,False,correct,1,5,1,5,COURSE_CATALOG_SUBJECT_OFFERED;SIS_DEPARTMENT,
+claude-sonnet-5,dw_1191,True,True,True,False,correct,5,14,5,14,CIS_COURSE_CATALOG;COURSE_CATALOG_SUBJECT_OFFERED;SIS_DEPARTMENT;SIS_SUBJECT_CODE,
+claude-sonnet-5,dw_1207,False,False,True,False,wrong_values,2,3,2,3,ACADEMIC_TERMS_ALL;COURSE_CATALOG_SUBJECT_OFFERED;LIBRARY_RESERVE_MATRL_DETAIL,
+claude-sonnet-5,dw_140,False,False,True,False,wrong_row_count,27,5,19,5,ACADEMIC_TERMS;SUBJECT_SUMMARY,
+claude-sonnet-5,dw_1414,False,False,False,False,no_prediction,,,3,3,,no prediction
+claude-sonnet-5,dw_1498,False,False,True,False,exec_error,,,1,10,COURSE_CATALOG_SUBJECT_OFFERED;MIT_STUDENT_DIRECTORY;SIS_ADMIN_DEPARTMENT;SIS_COURSE_DESCRIPTION;SIS_DEPARTMENT;SIS_SUBJECT_CODE,Database Error: 1054 (42S22): Unknown column 'sad.DEPARTMENT_CODE' in 'on clause'
+claude-sonnet-5,dw_1566,False,False,True,False,wrong_row_count,2214,5,2121,5,FCLT_BUILDING;FCLT_BUILDING_HIST;FCLT_ROOMS,
+claude-sonnet-5,dw_1570,False,False,True,False,wrong_row_count,3,5,34,5,CIS_COURSE_CATALOG;SIS_DEPARTMENT;SUBJECT_OFFERED_SUMMARY,
+claude-sonnet-5,dw_1582,True,True,True,False,correct,16,7,16,7,CIS_COURSE_CATALOG;COURSE_CATALOG_SUBJECT_OFFERED;SIS_DEPARTMENT,
+claude-sonnet-5,dw_1616,True,True,True,False,correct,1768,10,1768,10,ACADEMIC_TERMS_ALL;COURSE_CATALOG_SUBJECT_OFFERED;IAP_SUBJECT_DETAIL;LIBRARY_SUBJECT_OFFERED;TIP_SUBJECT_OFFERED,
+claude-sonnet-5,dw_1639,False,False,True,False,wrong_row_count,2,7,20,7,ACADEMIC_TERMS_ALL;ACADEMIC_TERM_PARAMETER;CIS_COURSE_CATALOG;COURSE_CATALOG_SUBJECT_OFFERED;SIS_DEPARTMENT,
+claude-sonnet-5,dw_1679,False,False,True,False,wrong_row_count,2,6,5,6,COURSE_CATALOG_SUBJECT_OFFERED;SIS_COURSE_DESCRIPTION;SIS_DEPARTMENT,
+claude-sonnet-5,dw_1737,False,False,True,False,wrong_row_count,2,4,23,4,ACADEMIC_TERMS;LIBRARY_SUBJECT_OFFERED;SIS_SUBJECT_CODE;SUBJECT_SUMMARY,
+claude-sonnet-5,dw_1795,False,False,True,False,wrong_values,45,9,70,9,COURSE_CATALOG_SUBJECT_OFFERED;SIS_COURSE_DESCRIPTION;SIS_DEPARTMENT;TIP_SUBJECT_OFFERED,
+claude-sonnet-5,dw_1848,False,False,True,False,wrong_values,2121,5,2121,5,FCLT_BUILDING;FCLT_BUILDING_HIST;FCLT_ROOMS,
+claude-sonnet-5,dw_19,False,False,True,False,wrong_row_count,25,4,24,4,COURSE_CATALOG_SUBJECT_OFFERED;SIS_COURSE_DESCRIPTION,
+claude-sonnet-5,dw_1948,False,False,True,False,wrong_row_count,64,6,71,6,SIS_COURSE_DESCRIPTION;SIS_DEPARTMENT;SUBJECT_OFFERED_SUMMARY,
+claude-sonnet-5,dw_1970,False,False,True,False,empty_result,0,5,1,5,COURSE_CATALOG_SUBJECT_OFFERED;FCLT_ROOMS;SIS_DEPARTMENT;TIP_SUBJECT_OFFERED,
+claude-sonnet-5,dw_2030,False,False,True,False,wrong_row_count,51,5,50,5,ACADEMIC_TERMS;COURSE_CATALOG_SUBJECT_OFFERED;SIS_ADMIN_DEPARTMENT;SIS_DEPARTMENT,
+claude-sonnet-5,dw_2070,False,False,True,False,wrong_row_count,680,9,2720,9,SIS_DEPARTMENT;SIS_SUBJECT_CODE;SUBJECT_OFFERED_SUMMARY,
+claude-sonnet-5,dw_2097,False,False,True,False,timeout,,,6,2,ACADEMIC_TERMS;LIBRARY_RESERVE_MATRL_DETAIL;SIS_DEPARTMENT;SUBJECT_SUMMARY;TIP_SUBJECT_OFFERED,Timeout exceeded
+claude-sonnet-5,dw_2132,False,False,True,False,wrong_values,1,11,1,11,COURSE_CATALOG_SUBJECT_OFFERED;SIS_DEPARTMENT;STUDENT_DEPARTMENT;SUBJECT_OFFERED_SUMMARY;TIP_SUBJECT_OFFERED,
+claude-sonnet-5,dw_2227,True,True,True,False,correct,1,12,1,12,ACADEMIC_TERMS;ACADEMIC_TERM_PARAMETER;COURSE_CATALOG_SUBJECT_OFFERED,
+claude-sonnet-5,dw_2293,False,False,True,False,wrong_row_count,31,10,332,10,LIBRARY_RESERVE_MATRL_DETAIL;STUDENT_DEPARTMENT;TIP_DETAIL;TIP_SUBJECT_OFFERED,
+claude-sonnet-5,dw_232,False,False,True,False,wrong_row_count,1,3,49,3,TIP_DETAIL;TIP_SUBJECT_OFFERED,
+claude-sonnet-5,dw_2394,False,False,True,False,wrong_row_count,127,6,127,6,SIS_COURSE_DESCRIPTION;SIS_DEPARTMENT;TIP_DETAIL;TIP_SUBJECT_OFFERED,
+claude-sonnet-5,dw_2443,True,True,True,False,correct,27,4,27,4,ACADEMIC_TERMS;COURSE_CATALOG_SUBJECT_OFFERED,
+claude-sonnet-5,dw_2633,False,False,True,False,wrong_row_count,28,4,50,4,ACADEMIC_TERMS;ACADEMIC_TERM_PARAMETER;SUBJECT_SUMMARY,
+claude-sonnet-5,dw_2669,True,True,True,False,correct,58,6,58,6,SPACE_SUPERVISOR_USAGE;SPACE_UNIT,
+claude-sonnet-5,dw_2694,True,True,True,False,correct,270,6,270,6,SUBJECT_OFFERED;SUBJECT_OFFERED_SUMMARY;SUBJECT_SUMMARY,
+claude-sonnet-5,dw_2715,True,True,True,False,correct,140,10,140,10,ACADEMIC_TERMS_ALL;ACADEMIC_TERM_PARAMETER;TIP_SUBJECT_OFFERED,
+claude-sonnet-5,dw_287,True,True,True,False,correct,66,5,66,5,SIS_DEPARTMENT;STUDENT_DEPARTMENT;TIP_SUBJECT_OFFERED,
+claude-sonnet-5,dw_2878,False,False,True,False,wrong_values,15,2,15,2,LIBRARY_SUBJECT_OFFERED;SUBJECT_OFFERED_SUMMARY;TIP_DETAIL,
+claude-sonnet-5,dw_2933,False,False,False,False,no_prediction,,,154,3,,no prediction
+claude-sonnet-5,dw_3148,False,False,True,False,wrong_columns,337,5,339,6,ACADEMIC_TERMS;ACADEMIC_TERMS_ALL;TIP_DETAIL,
+claude-sonnet-5,dw_3183,False,False,True,False,wrong_row_count,1,2,17,2,SPACE_UNIT;ZPM_ROOMS_LOAD,
+claude-sonnet-5,dw_323,True,True,True,False,correct,14,2,14,2,LIBRARY_SUBJECT_OFFERED;SIS_COURSE_DESCRIPTION;SIS_SUBJECT_CODE,
+claude-sonnet-5,dw_3298,False,False,True,False,wrong_row_count,193234,10,149,10,ACADEMIC_TERMS;COURSE_CATALOG_SUBJECT_OFFERED;LIBRARY_SUBJECT_OFFERED;SIS_COURSE_DESCRIPTION;SIS_DEPARTMENT,
+claude-sonnet-5,dw_3310,False,False,True,False,wrong_row_count,7819,5,11599,5,COURSE_CATALOG_SUBJECT_OFFERED;LIBRARY_SUBJECT_OFFERED;SIS_COURSE_DESCRIPTION;SIS_SUBJECT_CODE;SUBJECT_OFFERED_SUMMARY,
+claude-sonnet-5,dw_3545,False,False,True,False,wrong_row_count,1488,11,83,11,ACADEMIC_TERMS;LIBRARY_SUBJECT_OFFERED;STUDENT_DEPARTMENT;SUBJECT_OFFERED;TIP_SUBJECT_OFFERED,
+claude-sonnet-5,dw_3585,True,True,True,False,correct,14,7,14,7,ACADEMIC_TERMS;COURSE_CATALOG_SUBJECT_OFFERED;FCLT_ORGANIZATION;FCLT_ROOMS,
+claude-sonnet-5,dw_3643,False,False,True,False,wrong_values,1,8,1,8,ACADEMIC_TERMS;SIS_DEPARTMENT;SUBJECT_SUMMARY;TIP_SUBJECT_OFFERED,
+claude-sonnet-5,dw_3778,False,False,True,False,empty_result,0,8,1141,8,ACADEMIC_TERMS;ACADEMIC_TERM_PARAMETER;COURSE_CATALOG_SUBJECT_OFFERED;SIS_COURSE_DESCRIPTION;SIS_DEPARTMENT,
+claude-sonnet-5,dw_3847,False,False,True,False,wrong_row_count,138,9,9534,9,ACADEMIC_TERMS;COURSE_CATALOG_SUBJECT_OFFERED;SUBJECT_OFFERED_SUMMARY;TIP_DETAIL;TIP_SUBJECT_OFFERED,
+claude-sonnet-5,dw_3862,False,False,True,False,wrong_row_count,939,7,2260,7,LIBRARY_SUBJECT_OFFERED;MIT_STUDENT_DIRECTORY;SIS_DEPARTMENT;SUBJECT_OFFERED_SUMMARY;TIP_DETAIL,
+claude-sonnet-5,dw_3868,False,False,True,False,wrong_row_count,2559,13,871,13,LIBRARY_RESERVE_MATRL_DETAIL;SIS_DEPARTMENT;TIP_DETAIL;TIP_SUBJECT_OFFERED,
+claude-sonnet-5,dw_3901,False,False,True,False,wrong_columns,606160,17,25809,16,CIP;SIS_COURSE_DESCRIPTION;SUBJECT_OFFERED;SUBJECT_OFFERED_SUMMARY;SUBJECT_SUMMARY,
+claude-sonnet-5,dw_4004,False,False,True,False,wrong_values,15881,12,15881,12,ACADEMIC_TERMS;CIS_COURSE_CATALOG;COURSE_CATALOG_SUBJECT_OFFERED;SIS_COURSE_DESCRIPTION;SIS_DEPARTMENT,
+claude-sonnet-5,dw_4061,False,False,True,False,wrong_row_count,100980,10,1021,10,ACADEMIC_TERMS;COURSE_CATALOG_SUBJECT_OFFERED;FCLT_BUILDING;FCLT_ROOMS,
+claude-sonnet-5,dw_4072,False,False,True,False,wrong_values,68,9,68,9,CIS_COURSE_CATALOG;SIS_COURSE_DESCRIPTION;SIS_DEPARTMENT;SIS_SUBJECT_CODE,
+claude-sonnet-5,dw_4101,False,False,True,False,wrong_values,155,9,152,9,FCLT_ORGANIZATION;FCLT_ORG_DLC_KEY;MASTER_DEPT_HIERARCHY;SPACE_UNIT,
+claude-sonnet-5,dw_4128,True,True,True,False,correct,95,8,95,8,ACADEMIC_TERMS;ACADEMIC_TERM_PARAMETER;COURSE_CATALOG_SUBJECT_OFFERED;SIS_DEPARTMENT;SUBJECT_OFFERED_SUMMARY,
+claude-sonnet-5,dw_4155,False,False,True,False,exec_error,,,1021,9,ACADEMIC_TERMS_ALL;COURSE_CATALOG_SUBJECT_OFFERED;SIS_DEPARTMENT;SIS_SUBJECT_CODE,Database Error: 1235 (42000): This version of MySQL doesn't yet support '<window function>(DISTINCT ..)'
+claude-sonnet-5,dw_427,False,False,True,False,wrong_columns,1,1,1,4,SUBJECT_OFFERED;SUBJECT_OFFERED_SUMMARY,
+claude-sonnet-5,dw_4339,False,False,True,False,wrong_row_count,605,16,605,16,LIBRARY_RESERVE_MATRL_DETAIL;SIS_COURSE_DESCRIPTION;SIS_SUBJECT_CODE;SUBJECT_OFFERED_SUMMARY;TIP_DETAIL;TIP_SUBJECT_OFFERED,
+claude-sonnet-5,dw_4349,False,False,True,False,wrong_values,14,8,14,8,ACADEMIC_TERMS;ACADEMIC_TERMS_ALL;LIBRARY_SUBJECT_OFFERED;TIP_SUBJECT_OFFERED,
+claude-sonnet-5,dw_4351,True,True,True,False,correct,220,11,220,11,ACADEMIC_TERMS;LIBRARY_SUBJECT_OFFERED;SIS_DEPARTMENT;SIS_SUBJECT_CODE,
+claude-sonnet-5,dw_4374,False,False,True,False,wrong_row_count,23,9,157,9,ACADEMIC_TERMS_ALL;COURSE_CATALOG_SUBJECT_OFFERED;LIBRARY_RESERVE_MATRL_DETAIL;SIS_COURSE_DESCRIPTION,
+claude-sonnet-5,dw_4407,False,False,True,False,wrong_row_count,14370,9,130080,9,ACADEMIC_TERMS_ALL;COURSE_CATALOG_SUBJECT_OFFERED;SIS_DEPARTMENT;SIS_SUBJECT_CODE,
+claude-sonnet-5,dw_4413,False,False,True,False,empty_result,0,11,6,11,ACADEMIC_TERMS;IAP_SUBJECT_DETAIL;LIBRARY_SUBJECT_OFFERED;TIP_DETAIL,
+claude-sonnet-5,dw_4513,False,False,True,False,wrong_values,53,12,53,12,ACADEMIC_TERMS;LIBRARY_RESERVE_MATRL_DETAIL;LIBRARY_SUBJECT_OFFERED;TIP_SUBJECT_OFFERED,
+claude-sonnet-5,dw_4522,False,False,True,False,exec_error,,,2363,11,ACADEMIC_TERMS;LIBRARY_SUBJECT_OFFERED;SIS_ADMIN_DEPARTMENT;SIS_DEPARTMENT;SUBJECT_OFFERED_SUMMARY;SUBJECT_SUMMARY;TIP_DETAIL,Database Error: 1054 (42S22): Unknown column 'sad.DEPARTMENT_NAME' in 'on clause'
+claude-sonnet-5,dw_4553,False,False,True,False,wrong_columns,1,9,2,8,ACADEMIC_TERMS;ACADEMIC_TERM_PARAMETER;SUBJECT_SUMMARY;TIP_DETAIL,
+claude-sonnet-5,dw_4570,False,False,True,False,timeout,,,77493,8,CIS_COURSE_CATALOG;MIT_STUDENT_DIRECTORY;SIS_COURSE_DESCRIPTION;SIS_DEPARTMENT;SIS_SUBJECT_CODE,Timeout exceeded
+claude-sonnet-5,dw_458,False,False,True,False,wrong_columns,88,4,85,3,FCLT_BUILDING;FCLT_BUILDING_ADDRESS;FCLT_ROOMS,
+claude-sonnet-5,dw_4588,False,False,True,False,wrong_row_count,50,6,99,6,FCLT_ORGANIZATION;FCLT_ROOMS;SPACE_SUPERVISOR_USAGE;SPACE_UNIT,
+claude-sonnet-5,dw_461,True,True,True,False,correct,3,2,3,2,SIS_ADMIN_DEPARTMENT;SIS_DEPARTMENT,
+claude-sonnet-5,dw_4610,False,False,True,False,wrong_values,231,6,158,6,LIBRARY_RESERVE_MATRL_DETAIL;SIS_DEPARTMENT;SIS_SUBJECT_CODE;SUBJECT_OFFERED_SUMMARY;TIP_DETAIL;TIP_SUBJECT_OFFERED,
+claude-sonnet-5,dw_4691,False,False,True,False,exec_error,,,254,9,ACADEMIC_TERMS;SUBJECT_SUMMARY;TIP_DETAIL;TIP_SUBJECT_OFFERED,Database Error: 1060 (42S21): Duplicate column name 'DEPARTMENT_NAME'
+claude-sonnet-5,dw_4725,False,False,True,False,wrong_row_count,3402,9,7,9,ACADEMIC_TERMS_ALL;COURSE_CATALOG_SUBJECT_OFFERED;SUBJECT_OFFERED_SUMMARY;TIP_DETAIL;TIP_SUBJECT_OFFERED,
+claude-sonnet-5,dw_4771,False,False,True,False,wrong_values,37,6,37,6,SIS_COURSE_DESCRIPTION;SIS_DEPARTMENT;TIP_DETAIL;TIP_SUBJECT_OFFERED,
+claude-sonnet-5,dw_4876,False,False,True,False,wrong_values,1315,11,1315,11,FCLT_ORGANIZATION;HR_ORG_UNIT;MASTER_DEPT_HIERARCHY;SPACE_UNIT,
+claude-sonnet-5,dw_4961,False,False,True,False,wrong_values,7,6,7,6,ACADEMIC_TERMS;ACADEMIC_TERM_PARAMETER;LIBRARY_SUBJECT_OFFERED;SUBJECT_OFFERED_SUMMARY;SUBJECT_SUMMARY;TIP_DETAIL,
+claude-sonnet-5,dw_5008,True,True,True,False,correct,2,5,2,5,ACADEMIC_TERMS_ALL;ACADEMIC_TERM_PARAMETER;COURSE_CATALOG_SUBJECT_OFFERED;TIP_DETAIL,
+claude-sonnet-5,dw_5136,False,False,True,False,wrong_row_count,69,6,158,6,FCLT_ORGANIZATION;MASTER_DEPT_HIERARCHY;SPACE_SUPERVISOR_USAGE;SPACE_UNIT,
+claude-sonnet-5,dw_5166,True,True,False,False,correct,105,2,105,2,FCLT_ORGANIZATION;FCLT_ROOMS,
+claude-sonnet-5,dw_5181,True,True,False,False,correct,35,3,35,3,COURSE_CATALOG_SUBJECT_OFFERED;SIS_DEPARTMENT,
+claude-sonnet-5,dw_5330,True,True,True,False,correct,1,4,1,4,MIT_STUDENT_DIRECTORY;SIS_DEPARTMENT;TIP_SUBJECT_OFFERED,
+claude-sonnet-5,dw_5361,True,True,False,False,correct,155,4,155,4,FCLT_ORGANIZATION;MASTER_DEPT_HIERARCHY,
+claude-sonnet-5,dw_5415,True,True,True,False,correct,31,7,31,7,STUDENT_DEPARTMENT;TIP_SUBJECT_OFFERED,
+claude-sonnet-5,dw_5638,False,False,True,False,wrong_row_count,10,4,12,4,ACADEMIC_TERMS_ALL;COURSE_CATALOG_SUBJECT_OFFERED;TIP_DETAIL,
+claude-sonnet-5,dw_5668,False,False,False,False,empty_result,0,3,1,3,SIS_ADMIN_DEPARTMENT;SIS_COURSE_DESCRIPTION;SIS_DEPARTMENT,
+claude-sonnet-5,dw_5711,True,True,False,False,correct,1,4,1,4,SIS_COURSE_DESCRIPTION;SIS_DEPARTMENT,
+claude-sonnet-5,dw_5769,False,False,False,False,wrong_values,1,2,1,2,ACADEMIC_TERMS;COURSE_CATALOG_SUBJECT_OFFERED;LIBRARY_RESERVE_MATRL_DETAIL,
+claude-sonnet-5,dw_588,False,False,True,False,wrong_columns,14,3,10,6,ACADEMIC_TERMS_ALL;COURSE_CATALOG_SUBJECT_OFFERED;LIBRARY_SUBJECT_OFFERED,
+claude-sonnet-5,dw_625,True,True,True,False,correct,1,3,1,3,SUBJECT_OFFERED;TIP_SUBJECT_OFFERED,
+claude-sonnet-5,dw_649,False,False,True,False,wrong_values,38,8,38,8,LIBRARY_SUBJECT_OFFERED;SIS_DEPARTMENT;SIS_SUBJECT_CODE;TIP_SUBJECT_OFFERED,
+claude-sonnet-5,dw_663,True,True,True,False,correct,25,6,25,6,ACADEMIC_TERMS;COURSE_CATALOG_SUBJECT_OFFERED;MIT_STUDENT_DIRECTORY;SE_PERSON,
+claude-sonnet-5,dw_714,False,False,True,False,wrong_row_count,64,6,56,6,ACADEMIC_TERMS;COURSE_CATALOG_SUBJECT_OFFERED;MIT_STUDENT_DIRECTORY;SIS_DEPARTMENT;SUBJECT_SUMMARY,
+claude-sonnet-5,dw_718,False,False,True,False,wrong_values,24,5,24,5,ACADEMIC_TERMS;ACADEMIC_TERMS_ALL;COURSE_CATALOG_SUBJECT_OFFERED;TIP_SUBJECT_OFFERED,
+claude-sonnet-5,dw_752,False,False,True,False,wrong_row_count,34,6,35,6,SIS_COURSE_DESCRIPTION;SIS_DEPARTMENT;SUBJECT_OFFERED_SUMMARY;TIP_SUBJECT_OFFERED,
+claude-sonnet-5,dw_777,True,True,True,False,correct,37,6,37,6,COURSE_CATALOG_SUBJECT_OFFERED;SIS_DEPARTMENT;TIP_DETAIL;TIP_SUBJECT_OFFERED,
+claude-sonnet-5,dw_779,False,False,True,False,wrong_row_count,24,5,23,5,ACADEMIC_TERMS;COURSE_CATALOG_SUBJECT_OFFERED,
+claude-sonnet-5,dw_817,False,False,True,False,wrong_values,1325,7,1325,7,SPACE_DETAIL;SPACE_FLOOR,
+claude-sonnet-5,dw_872,True,True,True,False,correct,5,13,5,13,CIS_COURSE_CATALOG;COURSE_CATALOG_SUBJECT_OFFERED;SIS_COURSE_DESCRIPTION,
+claude-sonnet-5,dw_942,True,True,True,False,correct,1,6,1,6,ACADEMIC_TERMS_ALL;COURSE_CATALOG_SUBJECT_OFFERED;SIS_ADMIN_DEPARTMENT;SIS_DEPARTMENT;SUBJECT_SUMMARY,
+claude-sonnet-5,dw_960,False,False,True,False,wrong_values,9,3,9,3,COURSE_CATALOG_SUBJECT_OFFERED;SIS_DEPARTMENT;SUBJECT_OFFERED_SUMMARY,
+claude-sonnet-5,dw_965,True,True,True,False,correct,1,10,1,10,COURSE_CATALOG_SUBJECT_OFFERED;SIS_DEPARTMENT;STUDENT_DEPARTMENT;SUBJECT_OFFERED_SUMMARY;TIP_SUBJECT_OFFERED,
+claude-sonnet-5,dw_995,False,False,True,False,wrong_values,101,6,101,6,ACADEMIC_TERMS_ALL;SIS_COURSE_DESCRIPTION;SIS_DEPARTMENT;TIP_SUBJECT_OFFERED,
+gpt-5.6-luna,dw_104,False,False,True,False,wrong_columns,29,5,29,4,COURSE_CATALOG_SUBJECT_OFFERED;SIS_DEPARTMENT,
+gpt-5.6-luna,dw_1133,False,False,True,False,wrong_values,1,5,1,5,COURSE_CATALOG_SUBJECT_OFFERED;SIS_DEPARTMENT,
+gpt-5.6-luna,dw_1191,True,True,True,False,correct,5,14,5,14,CIS_COURSE_CATALOG;COURSE_CATALOG_SUBJECT_OFFERED;SIS_DEPARTMENT;SIS_SUBJECT_CODE,
+gpt-5.6-luna,dw_1207,False,False,True,False,wrong_row_count,80,3,2,3,ACADEMIC_TERMS_ALL;COURSE_CATALOG_SUBJECT_OFFERED;LIBRARY_RESERVE_MATRL_DETAIL,
+gpt-5.6-luna,dw_140,True,True,True,False,correct,19,5,19,5,ACADEMIC_TERMS;COURSE_CATALOG_SUBJECT_OFFERED;SUBJECT_SUMMARY,
+gpt-5.6-luna,dw_1414,True,True,False,False,correct,3,3,3,3,SIS_ADMIN_DEPARTMENT;SIS_DEPARTMENT,
+gpt-5.6-luna,dw_1498,False,False,True,False,exec_error,,,1,10,,Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'None' at line 1
+gpt-5.6-luna,dw_1566,False,False,True,False,exec_error,,,2121,5,FCLT_BUILDING;FCLT_BUILDING_HIST;FCLT_ROOMS,"Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ';&gt; '32'
+          AND fr.MAJOR_USE_DESC IN ('RESIDENT', 'LABS')
+        GROUP' at line 13"
+gpt-5.6-luna,dw_1570,False,False,True,False,wrong_row_count,33,5,34,5,CIS_COURSE_CATALOG;SIS_DEPARTMENT;SUBJECT_OFFERED_SUMMARY,
+gpt-5.6-luna,dw_1582,False,False,True,False,wrong_values,9,7,16,7,CIS_COURSE_CATALOG;COURSE_CATALOG_SUBJECT_OFFERED;SIS_DEPARTMENT,
+gpt-5.6-luna,dw_1616,False,False,True,False,wrong_row_count,886,10,1768,10,ACADEMIC_TERMS_ALL;COURSE_CATALOG_SUBJECT_OFFERED;IAP_SUBJECT_DETAIL;LIBRARY_SUBJECT_OFFERED;TIP_SUBJECT_OFFERED,
+gpt-5.6-luna,dw_1639,False,False,True,False,wrong_row_count,40,7,20,7,ACADEMIC_TERMS_ALL;ACADEMIC_TERM_PARAMETER;CIS_COURSE_CATALOG;COURSE_CATALOG_SUBJECT_OFFERED;SIS_DEPARTMENT,
+gpt-5.6-luna,dw_1679,False,False,True,False,wrong_row_count,6,6,5,6,COURSE_CATALOG_SUBJECT_OFFERED;SIS_COURSE_DESCRIPTION;SIS_DEPARTMENT;SIS_SUBJECT_CODE,
+gpt-5.6-luna,dw_1737,False,False,True,False,wrong_row_count,2,4,23,4,ACADEMIC_TERMS;LIBRARY_SUBJECT_OFFERED;SIS_SUBJECT_CODE;SUBJECT_SUMMARY,
+gpt-5.6-luna,dw_1795,False,False,True,False,wrong_values,45,9,70,9,COURSE_CATALOG_SUBJECT_OFFERED;SIS_COURSE_DESCRIPTION;SIS_DEPARTMENT;TIP_SUBJECT_OFFERED,
+gpt-5.6-luna,dw_1848,False,False,True,False,exec_error,,,2121,5,FCLT_BUILDING;FCLT_BUILDING_HIST;FCLT_ROOMS,"Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ';&gt; '32'
+          AND fr.MAJOR_USE_DESC IN ('RESIDENT', 'LABS')
+        GROUP' at line 13"
+gpt-5.6-luna,dw_19,True,True,True,False,correct,24,4,24,4,COURSE_CATALOG_SUBJECT_OFFERED;SIS_COURSE_DESCRIPTION,
+gpt-5.6-luna,dw_1948,False,False,True,False,wrong_row_count,75,6,71,6,SIS_COURSE_DESCRIPTION;SIS_DEPARTMENT;SUBJECT_OFFERED_SUMMARY,
+gpt-5.6-luna,dw_1970,False,False,True,False,exec_error,,,1,5,COURSE_CATALOG_SUBJECT_OFFERED;FCLT_ROOMS;SIS_DEPARTMENT;TIP_SUBJECT_OFFERED,"Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '; 5
+          )
+        GROUP BY sd.DEPARTMENT_NAME
+    ),
+    subq2 AS (
+      ' at line 15"
+gpt-5.6-luna,dw_2030,False,False,True,False,wrong_values,50,5,50,5,ACADEMIC_TERMS;COURSE_CATALOG_SUBJECT_OFFERED;SIS_ADMIN_DEPARTMENT;SIS_DEPARTMENT,
+gpt-5.6-luna,dw_2070,False,False,True,False,wrong_row_count,340,9,2720,9,SIS_DEPARTMENT;SIS_SUBJECT_CODE;SUBJECT_OFFERED_SUMMARY,
+gpt-5.6-luna,dw_2097,False,False,True,False,wrong_columns,7,6,6,2,ACADEMIC_TERMS;LIBRARY_RESERVE_MATRL_DETAIL;SIS_DEPARTMENT;SUBJECT_SUMMARY;TIP_SUBJECT_OFFERED,
+gpt-5.6-luna,dw_2132,False,False,True,False,wrong_values,1,11,1,11,COURSE_CATALOG_SUBJECT_OFFERED;SIS_DEPARTMENT;STUDENT_DEPARTMENT;SUBJECT_OFFERED_SUMMARY;TIP_SUBJECT_OFFERED,
+gpt-5.6-luna,dw_2227,False,False,True,False,wrong_row_count,47,12,1,12,ACADEMIC_TERMS;ACADEMIC_TERM_PARAMETER;COURSE_CATALOG_SUBJECT_OFFERED,
+gpt-5.6-luna,dw_2293,False,False,True,False,wrong_row_count,31,10,332,10,LIBRARY_RESERVE_MATRL_DETAIL;STUDENT_DEPARTMENT;TIP_DETAIL;TIP_SUBJECT_OFFERED,
+gpt-5.6-luna,dw_232,False,False,True,False,wrong_row_count,2,3,49,3,TIP_DETAIL;TIP_SUBJECT_OFFERED,
+gpt-5.6-luna,dw_2394,False,False,True,False,exec_error,,,127,6,SIS_COURSE_DESCRIPTION;SIS_DEPARTMENT;TIP_DETAIL;TIP_SUBJECT_OFFERED,"Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ';&gt; 'NM'
+          )
+        GROUP BY
+            tso.TERM_CODE,
+            t' at line 15"
+gpt-5.6-luna,dw_2443,False,False,True,False,exec_error,,,27,4,ACADEMIC_TERMS;COURSE_CATALOG_SUBJECT_OFFERED,"Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '; 10
+)
+SELECT
+    ACADEMIC_YEAR,
+    ACADEMIC_YEAR_DESC,
+    total_units_varianc' at line 41"
+gpt-5.6-luna,dw_2633,False,False,True,False,exec_error,,,50,4,ACADEMIC_TERMS;ACADEMIC_TERM_PARAMETER;SUBJECT_SUMMARY,"Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '; 5
+)
+SELECT
+    department,
+    school,
+    term_start_date,
+    max_subject_en' at line 17"
+gpt-5.6-luna,dw_2669,True,True,False,False,correct,58,6,58,6,SPACE_SUPERVISOR_USAGE;SPACE_UNIT,
+gpt-5.6-luna,dw_2694,False,False,True,False,empty_result,0,6,270,6,SUBJECT_OFFERED;SUBJECT_OFFERED_SUMMARY;SUBJECT_SUMMARY,
+gpt-5.6-luna,dw_2715,True,True,True,False,correct,140,10,140,10,ACADEMIC_TERMS_ALL;ACADEMIC_TERM_PARAMETER;TIP_SUBJECT_OFFERED,
+gpt-5.6-luna,dw_287,False,False,True,False,wrong_row_count,72,5,66,5,SIS_DEPARTMENT;STUDENT_DEPARTMENT;TIP_SUBJECT_OFFERED,
+gpt-5.6-luna,dw_2878,False,False,True,False,wrong_columns,15,4,15,2,LIBRARY_SUBJECT_OFFERED;SUBJECT_OFFERED_SUMMARY;TIP_DETAIL,
+gpt-5.6-luna,dw_2933,False,False,True,False,wrong_row_count,10,3,154,3,FCLT_ORGANIZATION;FCLT_ORG_DLC_KEY;SPACE_UNIT,
+gpt-5.6-luna,dw_3148,False,False,False,False,exec_error,,,339,6,,Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'None' at line 1
+gpt-5.6-luna,dw_3183,False,False,True,False,exec_error,,,17,2,SPACE_UNIT;ZPM_ROOMS_LOAD,"Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ';= 1
+    GROUP BY su.SPACE_UNIT
+    ORDER BY room_count DESC
+    LIMIT 10
+)
+SELE' at line 8"
+gpt-5.6-luna,dw_323,False,False,True,False,exec_error,,,14,2,LIBRARY_SUBJECT_OFFERED;SIS_COURSE_DESCRIPTION;SIS_SUBJECT_CODE,"Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '; 5
+    GROUP BY scd.DEPARTMENT_NAME
+)
+SELECT
+    DEPARTMENT_NAME,
+    degree_gr' at line 13"
+gpt-5.6-luna,dw_3298,False,False,True,False,wrong_row_count,193234,10,149,10,ACADEMIC_TERMS;COURSE_CATALOG_SUBJECT_OFFERED;LIBRARY_SUBJECT_OFFERED;SIS_COURSE_DESCRIPTION;SIS_DEPARTMENT,
+gpt-5.6-luna,dw_3310,False,False,True,False,exec_error,,,11599,5,COURSE_CATALOG_SUBJECT_OFFERED;LIBRARY_SUBJECT_OFFERED;SIS_COURSE_DESCRIPTION;SIS_SUBJECT_CODE;SUBJECT_OFFERED_SUMMARY,"Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'dense_rank
+    FROM SUBJECT_OFFERED_SUMMARY AS sos
+    JOIN SIS_COURSE_DESCRIPTI' at line 8"
+gpt-5.6-luna,dw_3545,False,False,True,False,empty_result,0,11,83,11,ACADEMIC_TERMS;LIBRARY_SUBJECT_OFFERED;STUDENT_DEPARTMENT;SUBJECT_OFFERED;TIP_SUBJECT_OFFERED,
+gpt-5.6-luna,dw_3585,True,True,True,False,correct,14,7,14,7,ACADEMIC_TERMS;COURSE_CATALOG_SUBJECT_OFFERED;FCLT_ORGANIZATION;FCLT_ROOMS,
+gpt-5.6-luna,dw_3643,True,True,True,False,correct,1,8,1,8,ACADEMIC_TERMS;SIS_DEPARTMENT;SUBJECT_SUMMARY;TIP_SUBJECT_OFFERED,
+gpt-5.6-luna,dw_3778,False,False,True,False,wrong_row_count,1149,8,1141,8,ACADEMIC_TERMS;ACADEMIC_TERM_PARAMETER;COURSE_CATALOG_SUBJECT_OFFERED;SIS_COURSE_DESCRIPTION;SIS_DEPARTMENT,
+gpt-5.6-luna,dw_3847,False,False,True,False,wrong_row_count,138,9,9534,9,ACADEMIC_TERMS;COURSE_CATALOG_SUBJECT_OFFERED;SUBJECT_OFFERED_SUMMARY;TIP_DETAIL;TIP_SUBJECT_OFFERED,
+gpt-5.6-luna,dw_3862,False,False,True,False,exec_error,,,2260,7,LIBRARY_SUBJECT_OFFERED;MIT_STUDENT_DIRECTORY;SIS_DEPARTMENT;SUBJECT_OFFERED_SUMMARY;TIP_DETAIL,"Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ';&gt; 'Engineering'
+
+    UNION ALL
+
+    SELECT
+        ic2.DEPARTMENT_CODE,
+    ' at line 93"
+gpt-5.6-luna,dw_3868,False,False,True,False,wrong_row_count,3594,13,871,13,LIBRARY_RESERVE_MATRL_DETAIL;SIS_DEPARTMENT;TIP_DETAIL;TIP_SUBJECT_OFFERED,
+gpt-5.6-luna,dw_3901,False,False,True,False,exec_error,,,25809,16,CIP;SIS_COURSE_DESCRIPTION;SUBJECT_OFFERED;SUBJECT_OFFERED_SUMMARY;SUBJECT_SUMMARY,"Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '; 0
+    )
+    SELECT
+        i.subject_title,
+        i.subject_course_number,
+ ' at line 19"
+gpt-5.6-luna,dw_4004,False,False,True,False,wrong_values,12825,12,15881,12,ACADEMIC_TERMS;CIS_COURSE_CATALOG;COURSE_CATALOG_SUBJECT_OFFERED;SIS_COURSE_DESCRIPTION;SIS_DEPARTMENT,
+gpt-5.6-luna,dw_4061,False,False,True,False,exec_error,,,1021,10,ACADEMIC_TERMS;COURSE_CATALOG_SUBJECT_OFFERED;FCLT_BUILDING;FCLT_ROOMS,"Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '; 0
+        GROUP BY
+            at.ACADEMIC_YEAR,
+            at.ACADEMIC_YEAR_' at line 11"
+gpt-5.6-luna,dw_4072,False,False,True,False,exec_error,,,68,9,CIS_COURSE_CATALOG;SIS_COURSE_DESCRIPTION;SIS_DEPARTMENT;SIS_SUBJECT_CODE,"Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '; 6
+    )
+    SELECT
+        DEPARTMENT_CODE,
+        DEPARTMENT_NAME,
+        C' at line 15"
+gpt-5.6-luna,dw_4101,False,False,True,False,wrong_row_count,4,9,152,9,FCLT_ORGANIZATION;FCLT_ORG_DLC_KEY;MASTER_DEPT_HIERARCHY;SPACE_UNIT,
+gpt-5.6-luna,dw_4128,False,False,True,False,wrong_row_count,95,8,95,8,ACADEMIC_TERMS;ACADEMIC_TERM_PARAMETER;COURSE_CATALOG_SUBJECT_OFFERED;SIS_DEPARTMENT;SUBJECT_OFFERED_SUMMARY,
+gpt-5.6-luna,dw_4155,False,False,True,False,exec_error,,,1021,9,ACADEMIC_TERMS_ALL;COURSE_CATALOG_SUBJECT_OFFERED;SIS_DEPARTMENT;SIS_SUBJECT_CODE,Database Error: 1690 (22003): BIGINT UNSIGNED value is out of range in '(`o`.`ROW_NUM` - 2)'
+gpt-5.6-luna,dw_427,False,False,True,False,wrong_columns,1,1,1,4,SUBJECT_OFFERED;SUBJECT_OFFERED_SUMMARY,
+gpt-5.6-luna,dw_4339,False,False,True,False,exec_error,,,605,16,LIBRARY_RESERVE_MATRL_DETAIL;SIS_COURSE_DESCRIPTION;SIS_SUBJECT_CODE;SUBJECT_OFFERED_SUMMARY;TIP_DETAIL;TIP_SUBJECT_OFFERED,"Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '; 0
+        GROUP BY
+            ssc.DEPARTMENT_CODE,
+            ssc.DEPARTMENT' at line 15"
+gpt-5.6-luna,dw_4349,False,False,True,False,exec_error,,,14,8,ACADEMIC_TERMS;ACADEMIC_TERMS_ALL;LIBRARY_SUBJECT_OFFERED;TIP_SUBJECT_OFFERED,"Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '; 0
+        GROUP BY
+            ata.ACADEMIC_YEAR,
+            ata.ACADEMIC_YEA' at line 10"
+gpt-5.6-luna,dw_4351,False,False,True,False,wrong_row_count,281,11,220,11,ACADEMIC_TERMS;LIBRARY_SUBJECT_OFFERED;SIS_DEPARTMENT;SIS_SUBJECT_CODE,
+gpt-5.6-luna,dw_4374,False,False,True,False,wrong_row_count,49,9,157,9,ACADEMIC_TERMS_ALL;COURSE_CATALOG_SUBJECT_OFFERED;LIBRARY_RESERVE_MATRL_DETAIL;SIS_COURSE_DESCRIPTION,
+gpt-5.6-luna,dw_4407,False,False,True,False,exec_error,,,130080,9,ACADEMIC_TERMS_ALL;COURSE_CATALOG_SUBJECT_OFFERED;SIS_DEPARTMENT;SIS_SUBJECT_CODE,"Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'dense_rank
+    FROM inner_cte1 AS i
+
+    UNION ALL
+
+    SELECT
+        NULL AS s' at line 33"
+gpt-5.6-luna,dw_4413,False,False,True,False,empty_result,0,11,6,11,ACADEMIC_TERMS;IAP_SUBJECT_DETAIL;LIBRARY_SUBJECT_OFFERED;TIP_DETAIL,
+gpt-5.6-luna,dw_4513,False,False,False,False,empty_result,0,10,53,12,ACADEMIC_TERMS;LIBRARY_RESERVE_MATRL_DETAIL;LIBRARY_SUBJECT_OFFERED;TIP_SUBJECT_OFFERED,
+gpt-5.6-luna,dw_4522,False,False,False,False,exec_error,,,2363,11,,Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'None' at line 1
+gpt-5.6-luna,dw_4553,False,False,True,False,wrong_columns,1,9,2,8,ACADEMIC_TERMS;ACADEMIC_TERMS_ALL;ACADEMIC_TERM_PARAMETER;SUBJECT_SUMMARY;TIP_DETAIL,
+gpt-5.6-luna,dw_4570,False,False,True,False,exec_error,,,77493,8,CIS_COURSE_CATALOG;MIT_STUDENT_DIRECTORY;SIS_COURSE_DESCRIPTION;SIS_DEPARTMENT;SIS_SUBJECT_CODE,"Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '; 6
+    ),
+    subq2 AS (
+        SELECT
+            msd.FULL_NAME,
+            ' at line 14"
+gpt-5.6-luna,dw_458,False,False,True,False,wrong_row_count,88,3,85,3,FCLT_BUILDING;FCLT_BUILDING_ADDRESS;FCLT_ROOMS,
+gpt-5.6-luna,dw_4588,False,False,True,False,exec_error,,,99,6,FCLT_ORGANIZATION;FCLT_ROOMS;SPACE_SUPERVISOR_USAGE;SPACE_UNIT,"Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '; 100
+          AND fr.ACCESS_LEVEL = 1
+        GROUP BY
+            fr.MAJOR_US' at line 12"
+gpt-5.6-luna,dw_461,False,False,False,False,exec_error,,,3,2,SIS_ADMIN_DEPARTMENT;SIS_DEPARTMENT,"Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '; 100000
+      AND sd.DEPARTMENT_NAME &lt;&gt; 'Mathematics'
+      AND sd.DEPART' at line 9"
+gpt-5.6-luna,dw_4610,False,False,True,False,wrong_row_count,10,6,158,6,LIBRARY_RESERVE_MATRL_DETAIL;SIS_DEPARTMENT;SIS_SUBJECT_CODE;SUBJECT_OFFERED_SUMMARY;TIP_DETAIL;TIP_SUBJECT_OFFERED,
+gpt-5.6-luna,dw_4691,False,False,True,False,wrong_row_count,284,9,254,9,ACADEMIC_TERMS;SUBJECT_SUMMARY;TIP_DETAIL;TIP_SUBJECT_OFFERED,
+gpt-5.6-luna,dw_4725,False,False,True,False,wrong_row_count,3402,9,7,9,ACADEMIC_TERMS_ALL;COURSE_CATALOG_SUBJECT_OFFERED;SUBJECT_OFFERED_SUMMARY;TIP_DETAIL;TIP_SUBJECT_OFFERED,
+gpt-5.6-luna,dw_4771,False,False,True,False,wrong_row_count,42,6,37,6,SIS_COURSE_DESCRIPTION;SIS_DEPARTMENT;TIP_DETAIL;TIP_SUBJECT_OFFERED,
+gpt-5.6-luna,dw_4876,False,False,True,False,wrong_columns,1663,9,1315,11,FCLT_ORGANIZATION;HR_ORG_UNIT;MASTER_DEPT_HIERARCHY;SPACE_UNIT,
+gpt-5.6-luna,dw_4961,False,False,True,False,wrong_row_count,6,6,7,6,ACADEMIC_TERMS;ACADEMIC_TERM_PARAMETER;LIBRARY_SUBJECT_OFFERED;SUBJECT_OFFERED_SUMMARY;SUBJECT_SUMMARY;TIP_DETAIL,
+gpt-5.6-luna,dw_5008,False,False,True,False,wrong_columns,2,4,2,5,ACADEMIC_TERMS_ALL;ACADEMIC_TERM_PARAMETER;COURSE_CATALOG_SUBJECT_OFFERED;TIP_DETAIL,
+gpt-5.6-luna,dw_5136,False,False,True,False,wrong_values,158,6,158,6,FCLT_ORGANIZATION;MASTER_DEPT_HIERARCHY;SPACE_SUPERVISOR_USAGE;SPACE_UNIT,
+gpt-5.6-luna,dw_5166,False,False,False,False,exec_error,,,105,2,FCLT_ORGANIZATION;FCLT_ROOMS,Database Error: 1054 (42S22): Unknown column 'lt' in 'where clause'
+gpt-5.6-luna,dw_5181,True,True,False,False,correct,35,3,35,3,COURSE_CATALOG_SUBJECT_OFFERED;SIS_DEPARTMENT,
+gpt-5.6-luna,dw_5330,True,True,False,False,correct,1,4,1,4,MIT_STUDENT_DIRECTORY;SIS_DEPARTMENT;TIP_SUBJECT_OFFERED,
+gpt-5.6-luna,dw_5361,False,False,True,False,exec_error,,,155,4,FCLT_ORGANIZATION;MASTER_DEPT_HIERARCHY,Database Error: 1054 (42S22): Unknown column 'lt' in 'where clause'
+gpt-5.6-luna,dw_5415,True,True,False,False,correct,31,7,31,7,STUDENT_DEPARTMENT;TIP_SUBJECT_OFFERED,
+gpt-5.6-luna,dw_5638,False,False,False,False,wrong_row_count,10,4,12,4,ACADEMIC_TERMS_ALL;COURSE_CATALOG_SUBJECT_OFFERED;TIP_DETAIL,
+gpt-5.6-luna,dw_5668,False,False,True,False,empty_result,0,3,1,3,SIS_ADMIN_DEPARTMENT;SIS_COURSE_DESCRIPTION;SIS_DEPARTMENT,
+gpt-5.6-luna,dw_5711,True,True,False,False,correct,1,4,1,4,SIS_COURSE_DESCRIPTION;SIS_DEPARTMENT,
+gpt-5.6-luna,dw_5769,False,False,False,False,wrong_values,1,2,1,2,ACADEMIC_TERMS;COURSE_CATALOG_SUBJECT_OFFERED;LIBRARY_RESERVE_MATRL_DETAIL,
+gpt-5.6-luna,dw_588,False,False,True,False,exec_error,,,10,6,ACADEMIC_TERMS_ALL;COURSE_CATALOG_SUBJECT_OFFERED;LIBRARY_SUBJECT_OFFERED,"Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '; 5
+)
+SELECT DISTINCT
+    i.ACADEMIC_YEAR_DESC,
+    i.enrollment_stddev,
+    lso' at line 19"
+gpt-5.6-luna,dw_625,True,True,True,False,correct,1,3,1,3,SUBJECT_OFFERED;TIP_SUBJECT_OFFERED,
+gpt-5.6-luna,dw_649,False,False,False,False,exec_error,,,38,8,LIBRARY_SUBJECT_OFFERED;SIS_DEPARTMENT;SIS_SUBJECT_CODE;TIP_SUBJECT_OFFERED,"Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '; 5
+      AND ssc.DEPARTMENT_CODE = '18'
+      AND ssc.DEPARTMENT_NAME = 'Mathem' at line 17"
+gpt-5.6-luna,dw_663,True,True,True,False,correct,25,6,25,6,ACADEMIC_TERMS;COURSE_CATALOG_SUBJECT_OFFERED;MIT_STUDENT_DIRECTORY;SE_PERSON,
+gpt-5.6-luna,dw_714,False,False,True,False,wrong_row_count,65,6,56,6,ACADEMIC_TERMS;COURSE_CATALOG_SUBJECT_OFFERED;MIT_STUDENT_DIRECTORY;SIS_DEPARTMENT;SUBJECT_SUMMARY,
+gpt-5.6-luna,dw_718,False,False,True,False,wrong_values,24,5,24,5,ACADEMIC_TERMS;ACADEMIC_TERMS_ALL;COURSE_CATALOG_SUBJECT_OFFERED;TIP_SUBJECT_OFFERED,
+gpt-5.6-luna,dw_752,False,False,False,False,wrong_row_count,34,6,35,6,SIS_COURSE_DESCRIPTION;SIS_DEPARTMENT;SUBJECT_OFFERED_SUMMARY;TIP_SUBJECT_OFFERED,
+gpt-5.6-luna,dw_777,False,False,True,False,wrong_values,37,6,37,6,COURSE_CATALOG_SUBJECT_OFFERED;SIS_DEPARTMENT;TIP_DETAIL;TIP_SUBJECT_OFFERED,
+gpt-5.6-luna,dw_779,False,False,False,False,wrong_row_count,24,5,23,5,ACADEMIC_TERMS;COURSE_CATALOG_SUBJECT_OFFERED,
+gpt-5.6-luna,dw_817,False,False,True,False,empty_result,0,7,1325,7,SPACE_DETAIL;SPACE_FLOOR,
+gpt-5.6-luna,dw_872,False,False,True,False,exec_error,,,5,13,CIS_COURSE_CATALOG;COURSE_CATALOG_SUBJECT_OFFERED;SIS_COURSE_DESCRIPTION,"Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '; 0
+      AND c.DEPARTMENT_NAME = 'Mathematics'
+      AND sd.DEPARTMENT_NAME = '' at line 32"
+gpt-5.6-luna,dw_942,True,True,False,False,correct,1,6,1,6,ACADEMIC_TERMS_ALL;COURSE_CATALOG_SUBJECT_OFFERED;SIS_ADMIN_DEPARTMENT;SIS_DEPARTMENT;SUBJECT_SUMMARY,
+gpt-5.6-luna,dw_960,False,False,True,False,wrong_row_count,10,3,9,3,COURSE_CATALOG_SUBJECT_OFFERED;SIS_DEPARTMENT;SUBJECT_OFFERED_SUMMARY,
+gpt-5.6-luna,dw_965,True,True,True,False,correct,1,10,1,10,COURSE_CATALOG_SUBJECT_OFFERED;SIS_DEPARTMENT;STUDENT_DEPARTMENT;SUBJECT_OFFERED_SUMMARY;TIP_SUBJECT_OFFERED,
+gpt-5.6-luna,dw_995,False,False,True,False,exec_error,,,101,6,ACADEMIC_TERMS_ALL;SIS_COURSE_DESCRIPTION;SIS_DEPARTMENT;TIP_SUBJECT_OFFERED,"Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '; 0
+      AND sd.DEPARTMENT_NAME &lt;&gt; 'Political Science'
+      AND sd.DEPAR' at line 15"
+gpt-5.6-sol,dw_104,False,False,True,False,wrong_values,29,4,29,4,COURSE_CATALOG_SUBJECT_OFFERED;SIS_DEPARTMENT,
+gpt-5.6-sol,dw_1133,False,False,True,False,exec_error,,,1,5,COURSE_CATALOG_SUBJECT_OFFERED;SIS_DEPARTMENT,"Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ';&gt; '17'
+      AND sd.IS_DEGREE_GRANTING = 'Y'
+    GROUP BY
+        sd.DEPARTM' at line 29"
+gpt-5.6-sol,dw_1191,True,True,True,False,correct,5,14,5,14,CIS_COURSE_CATALOG;COURSE_CATALOG_SUBJECT_OFFERED;SIS_DEPARTMENT;SIS_SUBJECT_CODE,
+gpt-5.6-sol,dw_1207,False,False,True,False,wrong_row_count,4,3,2,3,ACADEMIC_TERMS_ALL;COURSE_CATALOG_SUBJECT_OFFERED;LIBRARY_RESERVE_MATRL_DETAIL,
+gpt-5.6-sol,dw_140,False,False,True,False,exec_error,,,19,5,ACADEMIC_TERMS;SUBJECT_SUMMARY,"Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '; 10
+      AND ss.DEPARTMENT_NAME = 'Mathematics'
+    GROUP BY
+        ss.DEPART' at line 10"
+gpt-5.6-sol,dw_1414,False,False,True,False,exec_error,,,3,3,SIS_ADMIN_DEPARTMENT;SIS_DEPARTMENT,"Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '; 100000
+          AND d.DEPARTMENT_NAME &lt;&gt; 'Mathematics'
+          AND d.' at line 11"
+gpt-5.6-sol,dw_1498,False,False,True,False,exec_error,,,1,10,,Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'None' at line 1
+gpt-5.6-sol,dw_1566,False,False,True,False,wrong_values,2121,5,2121,5,FCLT_BUILDING;FCLT_BUILDING_HIST;FCLT_ROOMS,
+gpt-5.6-sol,dw_1570,False,False,True,False,wrong_row_count,33,5,34,5,CIS_COURSE_CATALOG;SIS_DEPARTMENT;SUBJECT_OFFERED_SUMMARY,
+gpt-5.6-sol,dw_1582,True,True,False,False,correct,16,7,16,7,CIS_COURSE_CATALOG;COURSE_CATALOG_SUBJECT_OFFERED;SIS_DEPARTMENT,
+gpt-5.6-sol,dw_1616,False,False,True,False,wrong_values,1768,10,1768,10,ACADEMIC_TERMS_ALL;COURSE_CATALOG_SUBJECT_OFFERED;IAP_SUBJECT_DETAIL;LIBRARY_SUBJECT_OFFERED;TIP_SUBJECT_OFFERED,
+gpt-5.6-sol,dw_1639,False,False,True,False,exec_error,,,20,7,ACADEMIC_TERMS_ALL;ACADEMIC_TERM_PARAMETER;CIS_COURSE_CATALOG;COURSE_CATALOG_SUBJECT_OFFERED;SIS_DEPARTMENT,"Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ';&gt; 'Mathematics'
+    GROUP BY
+        ata.ACADEMIC_YEAR,
+        ata.ACADEMIC' at line 29"
+gpt-5.6-sol,dw_1679,False,False,True,False,wrong_row_count,2,6,5,6,COURSE_CATALOG_SUBJECT_OFFERED;SIS_COURSE_DESCRIPTION;SIS_DEPARTMENT;SIS_SUBJECT_CODE,
+gpt-5.6-sol,dw_1737,False,False,True,False,wrong_row_count,2,4,23,4,ACADEMIC_TERMS;LIBRARY_SUBJECT_OFFERED;SIS_SUBJECT_CODE;SUBJECT_SUMMARY,
+gpt-5.6-sol,dw_1795,False,False,True,False,wrong_values,45,9,70,9,COURSE_CATALOG_SUBJECT_OFFERED;SIS_COURSE_DESCRIPTION;SIS_DEPARTMENT;TIP_SUBJECT_OFFERED,
+gpt-5.6-sol,dw_1848,False,False,True,False,exec_error,,,2121,5,FCLT_BUILDING;FCLT_BUILDING_HIST;FCLT_ROOMS,"Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ';&gt; '32'
+        ORDER BY fb.FCLT_BUILDING_KEY
+    )
+    SELECT
+        i.buil' at line 57"
+gpt-5.6-sol,dw_19,False,False,False,False,exec_error,,,24,4,COURSE_CATALOG_SUBJECT_OFFERED;SIS_COURSE_DESCRIPTION,"Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ';&gt; 'Mathematics'
+      AND scd.DEPARTMENT &lt;&gt; '18'
+    GROUP BY
+        ' at line 12"
+gpt-5.6-sol,dw_1948,False,False,False,False,exec_error,,,71,6,SIS_COURSE_DESCRIPTION;SIS_DEPARTMENT;SUBJECT_OFFERED_SUMMARY,"Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '; 0
+          AND scd.IS_DEGREE_GRANTING = 'Y'
+          AND scd.DEPARTMENT_NAME' at line 11"
+gpt-5.6-sol,dw_1970,False,False,True,False,empty_result,0,5,1,5,COURSE_CATALOG_SUBJECT_OFFERED;FCLT_ROOMS;SIS_DEPARTMENT;TIP_SUBJECT_OFFERED,
+gpt-5.6-sol,dw_2030,False,False,True,False,exec_error,,,50,5,ACADEMIC_TERMS;COURSE_CATALOG_SUBJECT_OFFERED;SIS_ADMIN_DEPARTMENT;SIS_DEPARTMENT,"Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ';&gt; 'Mathematics'
+          AND at.IS_REGULAR_TERM = 'Y'
+        GROUP BY sd.D' at line 25"
+gpt-5.6-sol,dw_2070,False,False,True,False,wrong_row_count,680,9,2720,9,SIS_DEPARTMENT;SIS_SUBJECT_CODE;SUBJECT_OFFERED_SUMMARY,
+gpt-5.6-sol,dw_2097,False,False,True,False,exec_error,,,6,2,ACADEMIC_TERMS;LIBRARY_RESERVE_MATRL_DETAIL;SIS_DEPARTMENT;SUBJECT_SUMMARY;TIP_SUBJECT_OFFERED,"Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ';&gt; '6'
+        GROUP BY sd.DEPARTMENT_CODE, sd.DEPARTMENT_NAME
+    )
+    SELE' at line 27"
+gpt-5.6-sol,dw_2132,False,False,False,False,wrong_values,1,11,1,11,COURSE_CATALOG_SUBJECT_OFFERED;SIS_DEPARTMENT;STUDENT_DEPARTMENT;SUBJECT_OFFERED_SUMMARY;TIP_SUBJECT_OFFERED,
+gpt-5.6-sol,dw_2227,False,False,True,False,exec_error,,,1,12,ACADEMIC_TERMS;ACADEMIC_TERM_PARAMETER;COURSE_CATALOG_SUBJECT_OFFERED,"Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ';&gt; 'Future'
+          AND ccso.DEPARTMENT_NAME = 'Mathematics'
+        GROUP ' at line 15"
+gpt-5.6-sol,dw_2293,False,False,True,False,wrong_row_count,31,10,332,10,LIBRARY_RESERVE_MATRL_DETAIL;STUDENT_DEPARTMENT;TIP_DETAIL;TIP_SUBJECT_OFFERED,
+gpt-5.6-sol,dw_232,False,False,True,False,exec_error,,,49,3,TIP_DETAIL;TIP_SUBJECT_OFFERED,"Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ';&gt; 'NM'
+      )
+    GROUP BY tso.OFFER_DEPT_NAME WITH ROLLUP
+)
+SELECT
+    dep' at line 12"
+gpt-5.6-sol,dw_2394,False,False,True,False,exec_error,,,127,6,SIS_COURSE_DESCRIPTION;SIS_DEPARTMENT;TIP_DETAIL;TIP_SUBJECT_OFFERED,"Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ';&gt; 'NM'
+          )
+        GROUP BY tso.TERM_CODE, tso.OFFER_DEPT_NAME WITH ' at line 28"
+gpt-5.6-sol,dw_2443,False,False,True,False,exec_error,,,27,4,ACADEMIC_TERMS;COURSE_CATALOG_SUBJECT_OFFERED,"Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '; 10
+)
+SELECT
+    ACADEMIC_YEAR,
+    ACADEMIC_YEAR_DESC,
+    math_total_units_va' at line 40"
+gpt-5.6-sol,dw_2633,False,False,False,False,exec_error,,,50,4,ACADEMIC_TERMS;ACADEMIC_TERM_PARAMETER;SUBJECT_SUMMARY,"Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '; 5
+)
+SELECT
+    DEPARTMENT_NAME,
+    SCHOOL_NAME,
+    TERM_START_DATE,
+    MAX_' at line 17"
+gpt-5.6-sol,dw_2669,True,True,True,False,correct,58,6,58,6,SPACE_SUPERVISOR_USAGE;SPACE_UNIT,
+gpt-5.6-sol,dw_2694,True,True,True,False,correct,270,6,270,6,SUBJECT_OFFERED;SUBJECT_OFFERED_SUMMARY;SUBJECT_SUMMARY,
+gpt-5.6-sol,dw_2715,True,True,False,False,correct,140,10,140,10,ACADEMIC_TERMS_ALL;ACADEMIC_TERM_PARAMETER;TIP_SUBJECT_OFFERED,
+gpt-5.6-sol,dw_287,False,False,True,False,wrong_row_count,72,5,66,5,SIS_DEPARTMENT;STUDENT_DEPARTMENT;TIP_SUBJECT_OFFERED,
+gpt-5.6-sol,dw_2878,False,False,False,False,wrong_values,15,2,15,2,LIBRARY_SUBJECT_OFFERED;SUBJECT_OFFERED_SUMMARY;TIP_DETAIL,
+gpt-5.6-sol,dw_2933,False,False,True,False,wrong_row_count,10,3,154,3,FCLT_ORGANIZATION;SPACE_UNIT,
+gpt-5.6-sol,dw_3148,False,False,False,False,exec_error,,,339,6,,Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'None' at line 1
+gpt-5.6-sol,dw_3183,False,False,True,False,exec_error,,,17,2,SPACE_UNIT;ZPM_ROOMS_LOAD,"Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ';= 1
+    GROUP BY su.SPACE_UNIT_KEY, su.SPACE_UNIT
+    ORDER BY room_count DESC
+' at line 8"
+gpt-5.6-sol,dw_323,False,False,False,False,wrong_row_count,1,2,14,2,LIBRARY_SUBJECT_OFFERED;SIS_COURSE_DESCRIPTION;SIS_SUBJECT_CODE,
+gpt-5.6-sol,dw_3298,False,False,True,False,wrong_row_count,193234,10,149,10,ACADEMIC_TERMS;COURSE_CATALOG_SUBJECT_OFFERED;LIBRARY_SUBJECT_OFFERED;SIS_COURSE_DESCRIPTION;SIS_DEPARTMENT,
+gpt-5.6-sol,dw_3310,False,False,True,False,exec_error,,,11599,5,COURSE_CATALOG_SUBJECT_OFFERED;LIBRARY_SUBJECT_OFFERED;SIS_COURSE_DESCRIPTION;SIS_SUBJECT_CODE;SUBJECT_OFFERED_SUMMARY,"Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '; 3
+    GROUP BY
+        ssc.DEPARTMENT_NAME,
+        ssc.SCHOOL_NAME
+)
+SELECT
+ ' at line 26"
+gpt-5.6-sol,dw_3545,True,True,True,False,correct,83,11,83,11,ACADEMIC_TERMS;LIBRARY_SUBJECT_OFFERED;STUDENT_DEPARTMENT;SUBJECT_OFFERED;TIP_SUBJECT_OFFERED,
+gpt-5.6-sol,dw_3585,True,True,True,False,correct,14,7,14,7,ACADEMIC_TERMS;COURSE_CATALOG_SUBJECT_OFFERED;FCLT_ORGANIZATION;FCLT_ROOMS,
+gpt-5.6-sol,dw_3643,True,True,True,False,correct,1,8,1,8,ACADEMIC_TERMS;SIS_DEPARTMENT;SUBJECT_SUMMARY;TIP_SUBJECT_OFFERED,
+gpt-5.6-sol,dw_3778,False,False,True,False,wrong_row_count,1149,8,1141,8,ACADEMIC_TERMS;ACADEMIC_TERM_PARAMETER;COURSE_CATALOG_SUBJECT_OFFERED;SIS_COURSE_DESCRIPTION;SIS_DEPARTMENT,
+gpt-5.6-sol,dw_3847,False,False,True,False,exec_error,,,9534,9,ACADEMIC_TERMS;COURSE_CATALOG_SUBJECT_OFFERED;SUBJECT_OFFERED_SUMMARY;TIP_DETAIL;TIP_SUBJECT_OFFERED,"Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ';= 1
+          AND td.TIP_MATERIAL_STATUS_KEY = 'RC'
+    ) AS e
+    GROUP BY e.D' at line 42"
+gpt-5.6-sol,dw_3862,False,False,True,False,exec_error,,,2260,7,LIBRARY_SUBJECT_OFFERED;MIT_STUDENT_DIRECTORY;SIS_DEPARTMENT;SUBJECT_OFFERED_SUMMARY;TIP_DETAIL,"Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ';&gt; 'Engineering'
+    GROUP BY lso.OFFER_SCHOOL_NAME
+)
+SELECT
+    subq1.FULL_N' at line 79"
+gpt-5.6-sol,dw_3868,False,False,True,False,wrong_row_count,1330,13,871,13,LIBRARY_RESERVE_MATRL_DETAIL;SIS_DEPARTMENT;TIP_DETAIL;TIP_SUBJECT_OFFERED,
+gpt-5.6-sol,dw_3901,False,False,True,False,exec_error,,,25809,16,CIP;SIS_COURSE_DESCRIPTION;SUBJECT_OFFERED;SUBJECT_OFFERED_SUMMARY;SUBJECT_SUMMARY,"Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '; 0
+        ORDER BY so.OFFER_DEPT_CODE
+    )
+    SELECT
+        subject_title,
+' at line 18"
+gpt-5.6-sol,dw_4004,False,False,True,False,wrong_values,12825,12,15881,12,ACADEMIC_TERMS;CIS_COURSE_CATALOG;COURSE_CATALOG_SUBJECT_OFFERED;SIS_COURSE_DESCRIPTION;SIS_DEPARTMENT,
+gpt-5.6-sol,dw_4061,False,False,True,False,exec_error,,,1021,10,,Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'None' at line 1
+gpt-5.6-sol,dw_4072,False,False,True,False,wrong_row_count,62,9,68,9,CIS_COURSE_CATALOG;SIS_COURSE_DESCRIPTION;SIS_DEPARTMENT;SIS_SUBJECT_CODE,
+gpt-5.6-sol,dw_4101,False,False,True,False,wrong_row_count,18,9,152,9,FCLT_ORGANIZATION;FCLT_ORG_DLC_KEY;MASTER_DEPT_HIERARCHY;SPACE_UNIT,
+gpt-5.6-sol,dw_4128,False,False,True,False,wrong_row_count,92,8,95,8,ACADEMIC_TERMS;ACADEMIC_TERM_PARAMETER;COURSE_CATALOG_SUBJECT_OFFERED;SIS_DEPARTMENT;SUBJECT_OFFERED_SUMMARY,
+gpt-5.6-sol,dw_4155,False,False,True,False,exec_error,,,1021,9,ACADEMIC_TERMS_ALL;COURSE_CATALOG_SUBJECT_OFFERED;SIS_DEPARTMENT;SIS_SUBJECT_CODE,Database Error: 1690 (22003): BIGINT UNSIGNED value is out of range in '(`current_subject`.`units_row_number` - 2)'
+gpt-5.6-sol,dw_427,False,False,False,False,exec_error,,,1,4,SUBJECT_OFFERED;SUBJECT_OFFERED_SUMMARY,"Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '; 6
+)
+SELECT subject_count
+FROM inner_cte' at line 10"
+gpt-5.6-sol,dw_4339,False,False,True,False,exec_error,,,605,16,LIBRARY_RESERVE_MATRL_DETAIL;SIS_COURSE_DESCRIPTION;SIS_SUBJECT_CODE;SUBJECT_OFFERED_SUMMARY;TIP_DETAIL;TIP_SUBJECT_OFFERED,"Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '; 0
+        GROUP BY
+            ssc.DEPARTMENT_CODE,
+            ssc.DEPARTMENT' at line 17"
+gpt-5.6-sol,dw_4349,False,False,False,False,exec_error,,,14,8,ACADEMIC_TERMS;ACADEMIC_TERMS_ALL;LIBRARY_SUBJECT_OFFERED;TIP_SUBJECT_OFFERED,"Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '; 0
+        GROUP BY
+            ata.ACADEMIC_YEAR,
+            ata.ACADEMIC_YEA' at line 10"
+gpt-5.6-sol,dw_4351,False,False,True,False,wrong_row_count,243,11,220,11,ACADEMIC_TERMS;LIBRARY_SUBJECT_OFFERED;SIS_DEPARTMENT;SIS_SUBJECT_CODE,
+gpt-5.6-sol,dw_4374,False,False,True,False,exec_error,,,157,9,ACADEMIC_TERMS_ALL;COURSE_CATALOG_SUBJECT_OFFERED;LIBRARY_RESERVE_MATRL_DETAIL;SIS_COURSE_DESCRIPTION,"Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ';= 5
+),
+subq2 AS (
+    WITH inner_cte2 AS (
+        SELECT
+            ata.ACADE' at line 32"
+gpt-5.6-sol,dw_4407,False,False,True,False,exec_error,,,130080,9,ACADEMIC_TERMS_ALL;COURSE_CATALOG_SUBJECT_OFFERED;SIS_DEPARTMENT;SIS_SUBJECT_CODE,"Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '; COUNT(preceding_rows.TOTAL_UNITS)
+                        THEN 1
+             ' at line 53"
+gpt-5.6-sol,dw_4413,False,False,True,False,exec_error,,,6,11,ACADEMIC_TERMS;IAP_SUBJECT_DETAIL;LIBRARY_SUBJECT_OFFERED;TIP_DETAIL,"Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ';= 10
+),
+subq2 AS (
+    WITH inner_cte2 AS (
+        SELECT
+            ranked.A' at line 37"
+gpt-5.6-sol,dw_4513,False,False,False,False,exec_error,,,53,12,ACADEMIC_TERMS;LIBRARY_RESERVE_MATRL_DETAIL;LIBRARY_SUBJECT_OFFERED;TIP_SUBJECT_OFFERED,"Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '; 0
+          AND lrmd.LIBRARY_MATERIAL_STATUS_KEY = 'U'
+    )
+    SELECT
+      ' at line 35"
+gpt-5.6-sol,dw_4522,False,False,False,False,exec_error,,,2363,11,,Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'None' at line 1
+gpt-5.6-sol,dw_4553,False,False,False,False,exec_error,,,2,8,ACADEMIC_TERMS;ACADEMIC_TERM_PARAMETER;SUBJECT_SUMMARY;TIP_DETAIL,"Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ';&gt; 'NM'
+        GROUP BY
+            atm.ACADEMIC_YEAR,
+            atm.ACADE' at line 31"
+gpt-5.6-sol,dw_4570,False,False,True,False,wrong_row_count,77493,8,77493,8,CIS_COURSE_CATALOG;MIT_STUDENT_DIRECTORY;SIS_COURSE_DESCRIPTION;SIS_DEPARTMENT;SIS_SUBJECT_CODE,
+gpt-5.6-sol,dw_458,False,False,True,False,exec_error,,,85,3,FCLT_BUILDING;FCLT_BUILDING_ADDRESS;FCLT_ROOMS,"Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ';&gt; 'ASHDOWN HOUSE'
+      AND fb.FCLT_BUILDING_KEY &lt;&gt; 'NW35'
+    GROUP B' at line 13"
+gpt-5.6-sol,dw_4588,False,False,True,False,wrong_row_count,50,6,99,6,FCLT_ORGANIZATION;FCLT_ROOMS;SPACE_SUPERVISOR_USAGE;SPACE_UNIT,
+gpt-5.6-sol,dw_461,False,False,False,False,exec_error,,,3,2,SIS_ADMIN_DEPARTMENT;SIS_DEPARTMENT,"Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ';&gt; 'Mathematics'
+      AND sd.DEPARTMENT_CODE &lt;&gt; '8'
+    GROUP BY
+     ' at line 11"
+gpt-5.6-sol,dw_4610,False,False,False,False,wrong_row_count,10,6,158,6,LIBRARY_RESERVE_MATRL_DETAIL;SIS_DEPARTMENT;SIS_SUBJECT_CODE;SUBJECT_OFFERED_SUMMARY;TIP_DETAIL;TIP_SUBJECT_OFFERED,
+gpt-5.6-sol,dw_4691,False,False,False,False,exec_error,,,254,9,ACADEMIC_TERMS;ACADEMIC_TERMS_ALL;SUBJECT_SUMMARY;TIP_DETAIL;TIP_SUBJECT_OFFERED,"Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ';&gt; 'NM'
+        )
+        GROUP BY tso.OFFER_DEPT_NAME
+    ),
+    subq2 AS (
+' at line 12"
+gpt-5.6-sol,dw_4725,False,False,True,False,wrong_row_count,3402,9,7,9,ACADEMIC_TERMS_ALL;COURSE_CATALOG_SUBJECT_OFFERED;SUBJECT_OFFERED_SUMMARY;TIP_DETAIL;TIP_SUBJECT_OFFERED,
+gpt-5.6-sol,dw_4771,False,False,True,False,wrong_values,37,6,37,6,SIS_COURSE_DESCRIPTION;SIS_DEPARTMENT;TIP_DETAIL;TIP_SUBJECT_OFFERED,
+gpt-5.6-sol,dw_4876,False,False,True,False,exec_error,,,1315,11,FCLT_ORGANIZATION;HR_ORG_UNIT;MASTER_DEPT_HIERARCHY;SPACE_UNIT,"Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '; 100000
+        ) AS space_unit_values
+        INNER JOIN FCLT_ORGANIZATION AS ' at line 42"
+gpt-5.6-sol,dw_4961,True,True,True,False,correct,7,6,7,6,ACADEMIC_TERMS;ACADEMIC_TERM_PARAMETER;LIBRARY_SUBJECT_OFFERED;SUBJECT_OFFERED_SUMMARY;SUBJECT_SUMMARY;TIP_DETAIL,
+gpt-5.6-sol,dw_5008,True,True,True,False,correct,2,5,2,5,ACADEMIC_TERMS_ALL;ACADEMIC_TERM_PARAMETER;COURSE_CATALOG_SUBJECT_OFFERED;TIP_DETAIL,
+gpt-5.6-sol,dw_5136,False,False,True,False,wrong_row_count,69,6,158,6,FCLT_ORGANIZATION;MASTER_DEPT_HIERARCHY;SPACE_SUPERVISOR_USAGE;SPACE_UNIT,
+gpt-5.6-sol,dw_5166,False,False,True,False,exec_error,,,105,2,FCLT_ORGANIZATION;FCLT_ROOMS,Database Error: 1054 (42S22): Unknown column 'lt' in 'where clause'
+gpt-5.6-sol,dw_5181,False,False,False,False,exec_error,,,35,3,COURSE_CATALOG_SUBJECT_OFFERED;SIS_DEPARTMENT,Database Error: 1054 (42S22): Unknown column 'lt' in 'where clause'
+gpt-5.6-sol,dw_5330,False,False,True,False,wrong_values,1,4,1,4,MIT_STUDENT_DIRECTORY;SIS_DEPARTMENT;TIP_SUBJECT_OFFERED,
+gpt-5.6-sol,dw_5361,False,False,False,False,exec_error,,,155,4,FCLT_ORGANIZATION;MASTER_DEPT_HIERARCHY,Database Error: 1054 (42S22): Unknown column 'lt' in 'where clause'
+gpt-5.6-sol,dw_5415,True,True,False,False,correct,31,7,31,7,STUDENT_DEPARTMENT;TIP_SUBJECT_OFFERED,
+gpt-5.6-sol,dw_5638,False,False,True,False,wrong_row_count,5,4,12,4,ACADEMIC_TERMS_ALL;COURSE_CATALOG_SUBJECT_OFFERED;TIP_DETAIL,
+gpt-5.6-sol,dw_5668,True,True,True,False,correct,1,3,1,3,SIS_ADMIN_DEPARTMENT;SIS_COURSE_DESCRIPTION;SIS_DEPARTMENT,
+gpt-5.6-sol,dw_5711,True,True,True,False,correct,1,4,1,4,SIS_COURSE_DESCRIPTION;SIS_DEPARTMENT,
+gpt-5.6-sol,dw_5769,False,False,True,False,wrong_values,1,2,1,2,ACADEMIC_TERMS;COURSE_CATALOG_SUBJECT_OFFERED;LIBRARY_RESERVE_MATRL_DETAIL,
+gpt-5.6-sol,dw_588,False,False,True,False,exec_error,,,10,6,ACADEMIC_TERMS_ALL;COURSE_CATALOG_SUBJECT_OFFERED;LIBRARY_SUBJECT_OFFERED,"Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '; 5
+)
+SELECT
+    ACADEMIC_YEAR_DESC,
+    enrollment_stddev,
+    highest_enrollme' at line 35"
+gpt-5.6-sol,dw_625,False,False,True,False,exec_error,,,1,3,SUBJECT_OFFERED;TIP_SUBJECT_OFFERED,"Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '; tso.TIP_SUBJECT_OFFERED_KEY
+    WHERE so.OFFER_DEPT_NAME = 'Harvard Cross-Enro' at line 11"
+gpt-5.6-sol,dw_649,False,False,False,False,wrong_values,38,8,38,8,LIBRARY_SUBJECT_OFFERED;SIS_DEPARTMENT;SIS_SUBJECT_CODE;TIP_SUBJECT_OFFERED,
+gpt-5.6-sol,dw_663,False,False,False,False,exec_error,,,25,6,ACADEMIC_TERMS;COURSE_CATALOG_SUBJECT_OFFERED;MIT_STUDENT_DIRECTORY;SE_PERSON,"Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ';&gt; 'Mathematics'
+    GROUP BY ccso.DEPARTMENT_NAME
+)
+SELECT
+    subq1.MIT_ID,' at line 27"
+gpt-5.6-sol,dw_714,False,False,True,False,exec_error,,,56,6,ACADEMIC_TERMS;COURSE_CATALOG_SUBJECT_OFFERED;MIT_STUDENT_DIRECTORY;SIS_DEPARTMENT;SUBJECT_SUMMARY,"Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ';&gt; 'Biology'
+        GROUP BY
+            sd.DEPARTMENT_CODE,
+            sd.' at line 16"
+gpt-5.6-sol,dw_718,False,False,False,False,wrong_values,24,5,24,5,ACADEMIC_TERMS;ACADEMIC_TERMS_ALL;COURSE_CATALOG_SUBJECT_OFFERED;TIP_SUBJECT_OFFERED,
+gpt-5.6-sol,dw_752,False,False,False,False,exec_error,,,35,6,SIS_COURSE_DESCRIPTION;SIS_DEPARTMENT;SUBJECT_OFFERED_SUMMARY;TIP_SUBJECT_OFFERED,"Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ';&gt; '7'
+    GROUP BY
+        sd.DEPARTMENT_CODE,
+        sd.DEPARTMENT_NAME
+),' at line 14"
+gpt-5.6-sol,dw_777,False,False,False,False,exec_error,,,37,6,COURSE_CATALOG_SUBJECT_OFFERED;SIS_DEPARTMENT;TIP_DETAIL;TIP_SUBJECT_OFFERED,"Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ';= 1
+      )
+    GROUP BY tso.OFFER_DEPT_NAME
+),
+subq2 AS (
+    SELECT
+        s' at line 12"
+gpt-5.6-sol,dw_779,False,False,False,False,wrong_row_count,24,5,23,5,ACADEMIC_TERMS;COURSE_CATALOG_SUBJECT_OFFERED,
+gpt-5.6-sol,dw_817,False,False,True,False,empty_result,0,7,1325,7,SPACE_DETAIL;SPACE_FLOOR,
+gpt-5.6-sol,dw_872,True,True,True,False,correct,2,13,5,13,CIS_COURSE_CATALOG;COURSE_CATALOG_SUBJECT_OFFERED;SIS_COURSE_DESCRIPTION,
+gpt-5.6-sol,dw_942,True,True,True,False,correct,1,6,1,6,ACADEMIC_TERMS_ALL;COURSE_CATALOG_SUBJECT_OFFERED;SIS_ADMIN_DEPARTMENT;SIS_DEPARTMENT;SUBJECT_SUMMARY,
+gpt-5.6-sol,dw_960,False,False,True,False,exec_error,,,9,3,COURSE_CATALOG_SUBJECT_OFFERED;SIS_DEPARTMENT;SUBJECT_OFFERED_SUMMARY,"Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ';&gt; '7'
+    GROUP BY
+        sd.DEPARTMENT_CODE,
+        sd.DEPARTMENT_NAME
+),' at line 13"
+gpt-5.6-sol,dw_965,False,False,True,False,exec_error,,,1,10,COURSE_CATALOG_SUBJECT_OFFERED;SIS_DEPARTMENT;STUDENT_DEPARTMENT;SUBJECT_OFFERED_SUMMARY;TIP_SUBJECT_OFFERED,"Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ';&gt; '7'
+    GROUP BY
+        sis.DEPARTMENT_CODE,
+        sis.DEPARTMENT_NAME
+' at line 33"
+gpt-5.6-sol,dw_995,False,False,True,False,exec_error,,,101,6,ACADEMIC_TERMS_ALL;SIS_COURSE_DESCRIPTION;SIS_DEPARTMENT;TIP_SUBJECT_OFFERED,"Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '; 0
+      AND scd.IS_DEGREE_GRANTING = 'Y'
+      AND sd.DEPARTMENT_NAME &lt;&gt;' at line 11"
+gpt-5.6-terra,dw_104,True,True,True,False,correct,29,4,29,4,COURSE_CATALOG_SUBJECT_OFFERED;SIS_DEPARTMENT,
+gpt-5.6-terra,dw_1133,False,False,True,False,wrong_values,1,5,1,5,COURSE_CATALOG_SUBJECT_OFFERED;SIS_DEPARTMENT,
+gpt-5.6-terra,dw_1191,True,True,True,False,correct,2,14,5,14,CIS_COURSE_CATALOG;COURSE_CATALOG_SUBJECT_OFFERED;SIS_DEPARTMENT;SIS_SUBJECT_CODE,
+gpt-5.6-terra,dw_1207,False,False,True,False,wrong_row_count,24,3,2,3,ACADEMIC_TERMS_ALL;COURSE_CATALOG_SUBJECT_OFFERED;LIBRARY_RESERVE_MATRL_DETAIL,
+gpt-5.6-terra,dw_140,True,True,True,False,correct,19,5,19,5,ACADEMIC_TERMS;COURSE_CATALOG_SUBJECT_OFFERED;SUBJECT_SUMMARY,
+gpt-5.6-terra,dw_1414,True,True,True,False,correct,3,3,3,3,SIS_ADMIN_DEPARTMENT;SIS_DEPARTMENT,
+gpt-5.6-terra,dw_1498,False,False,True,False,exec_error,,,1,10,COURSE_CATALOG_SUBJECT_OFFERED;MIT_STUDENT_DIRECTORY;SIS_ADMIN_DEPARTMENT;SIS_COURSE_DESCRIPTION;SIS_DEPARTMENT;SIS_SUBJECT_CODE,Database Error: 1054 (42S22): Unknown column 'sad.DEPARTMENT_CODE' in 'on clause'
+gpt-5.6-terra,dw_1566,False,False,True,False,wrong_row_count,2168,5,2121,5,FCLT_BUILDING;FCLT_BUILDING_HIST;FCLT_ROOMS,
+gpt-5.6-terra,dw_1570,False,False,True,False,wrong_values,34,5,34,5,CIS_COURSE_CATALOG;SIS_DEPARTMENT;SUBJECT_OFFERED_SUMMARY,
+gpt-5.6-terra,dw_1582,True,True,True,False,correct,16,7,16,7,CIS_COURSE_CATALOG;COURSE_CATALOG_SUBJECT_OFFERED;SIS_DEPARTMENT,
+gpt-5.6-terra,dw_1616,False,False,True,False,wrong_values,1768,10,1768,10,ACADEMIC_TERMS_ALL;COURSE_CATALOG_SUBJECT_OFFERED;IAP_SUBJECT_DETAIL;LIBRARY_SUBJECT_OFFERED;TIP_SUBJECT_OFFERED,
+gpt-5.6-terra,dw_1639,False,False,False,False,wrong_row_count,40,7,20,7,ACADEMIC_TERMS_ALL;ACADEMIC_TERM_PARAMETER;CIS_COURSE_CATALOG;COURSE_CATALOG_SUBJECT_OFFERED;SIS_DEPARTMENT,
+gpt-5.6-terra,dw_1679,False,False,True,False,wrong_row_count,2,6,5,6,COURSE_CATALOG_SUBJECT_OFFERED;SIS_COURSE_DESCRIPTION;SIS_DEPARTMENT;SIS_SUBJECT_CODE,
+gpt-5.6-terra,dw_1737,False,False,True,False,wrong_row_count,2,4,23,4,ACADEMIC_TERMS;LIBRARY_SUBJECT_OFFERED;SIS_SUBJECT_CODE;SUBJECT_SUMMARY,
+gpt-5.6-terra,dw_1795,False,False,True,False,wrong_row_count,44,9,70,9,COURSE_CATALOG_SUBJECT_OFFERED;SIS_COURSE_DESCRIPTION;SIS_DEPARTMENT;TIP_SUBJECT_OFFERED,
+gpt-5.6-terra,dw_1848,False,False,True,False,wrong_row_count,2168,5,2121,5,FCLT_BUILDING;FCLT_BUILDING_HIST;FCLT_ROOMS,
+gpt-5.6-terra,dw_19,True,True,True,False,correct,24,4,24,4,COURSE_CATALOG_SUBJECT_OFFERED;SIS_COURSE_DESCRIPTION,
+gpt-5.6-terra,dw_1948,False,False,False,False,wrong_row_count,75,6,71,6,SIS_COURSE_DESCRIPTION;SIS_DEPARTMENT;SUBJECT_OFFERED_SUMMARY,
+gpt-5.6-terra,dw_1970,False,False,False,False,wrong_values,1,5,1,5,COURSE_CATALOG_SUBJECT_OFFERED;FCLT_ROOMS;SIS_DEPARTMENT;TIP_SUBJECT_OFFERED,
+gpt-5.6-terra,dw_2030,False,False,True,False,wrong_values,50,5,50,5,ACADEMIC_TERMS;COURSE_CATALOG_SUBJECT_OFFERED;SIS_ADMIN_DEPARTMENT;SIS_DEPARTMENT,
+gpt-5.6-terra,dw_2070,False,False,True,False,wrong_row_count,680,9,2720,9,SIS_DEPARTMENT;SIS_SUBJECT_CODE;SUBJECT_OFFERED_SUMMARY,
+gpt-5.6-terra,dw_2097,False,False,True,False,wrong_columns,33,6,6,2,ACADEMIC_TERMS;LIBRARY_RESERVE_MATRL_DETAIL;SIS_DEPARTMENT;SUBJECT_SUMMARY;TIP_SUBJECT_OFFERED,
+gpt-5.6-terra,dw_2132,False,False,True,False,wrong_values,1,11,1,11,COURSE_CATALOG_SUBJECT_OFFERED;SIS_DEPARTMENT;STUDENT_DEPARTMENT;SUBJECT_OFFERED_SUMMARY;TIP_SUBJECT_OFFERED,
+gpt-5.6-terra,dw_2227,False,False,True,False,wrong_values,1,12,1,12,ACADEMIC_TERMS;ACADEMIC_TERM_PARAMETER;COURSE_CATALOG_SUBJECT_OFFERED,
+gpt-5.6-terra,dw_2293,False,False,True,False,wrong_row_count,31,10,332,10,LIBRARY_RESERVE_MATRL_DETAIL;STUDENT_DEPARTMENT;TIP_DETAIL;TIP_SUBJECT_OFFERED,
+gpt-5.6-terra,dw_232,False,False,False,False,wrong_values,49,3,49,3,TIP_DETAIL;TIP_SUBJECT_OFFERED,
+gpt-5.6-terra,dw_2394,False,False,True,False,wrong_row_count,127,6,127,6,SIS_COURSE_DESCRIPTION;SIS_DEPARTMENT;TIP_DETAIL;TIP_SUBJECT_OFFERED,
+gpt-5.6-terra,dw_2443,False,False,False,False,wrong_columns,10,5,27,4,ACADEMIC_TERMS;COURSE_CATALOG_SUBJECT_OFFERED,
+gpt-5.6-terra,dw_2633,False,False,False,False,wrong_row_count,28,4,50,4,ACADEMIC_TERMS;ACADEMIC_TERM_PARAMETER;SUBJECT_SUMMARY,
+gpt-5.6-terra,dw_2669,True,True,False,False,correct,58,6,58,6,SPACE_SUPERVISOR_USAGE;SPACE_UNIT,
+gpt-5.6-terra,dw_2694,True,True,False,False,correct,270,6,270,6,SUBJECT_OFFERED;SUBJECT_OFFERED_SUMMARY;SUBJECT_SUMMARY,
+gpt-5.6-terra,dw_2715,True,True,False,False,correct,140,10,140,10,ACADEMIC_TERMS_ALL;ACADEMIC_TERM_PARAMETER;TIP_SUBJECT_OFFERED,
+gpt-5.6-terra,dw_287,False,False,True,False,wrong_row_count,72,5,66,5,SIS_DEPARTMENT;STUDENT_DEPARTMENT;TIP_SUBJECT_OFFERED,
+gpt-5.6-terra,dw_2878,False,False,True,False,wrong_values,15,2,15,2,LIBRARY_SUBJECT_OFFERED;SUBJECT_OFFERED_SUMMARY;TIP_DETAIL,
+gpt-5.6-terra,dw_2933,False,False,True,False,wrong_row_count,10,3,154,3,FCLT_ORGANIZATION;SPACE_UNIT,
+gpt-5.6-terra,dw_3148,False,False,True,False,exec_error,,,339,6,,Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'None' at line 1
+gpt-5.6-terra,dw_3183,False,False,True,False,wrong_row_count,1,2,17,2,SPACE_UNIT;ZPM_ROOMS_LOAD,
+gpt-5.6-terra,dw_323,False,False,False,False,wrong_row_count,1,2,14,2,LIBRARY_SUBJECT_OFFERED;SIS_COURSE_DESCRIPTION;SIS_SUBJECT_CODE,
+gpt-5.6-terra,dw_3298,False,False,True,False,wrong_row_count,193234,10,149,10,ACADEMIC_TERMS;COURSE_CATALOG_SUBJECT_OFFERED;LIBRARY_SUBJECT_OFFERED;SIS_COURSE_DESCRIPTION;SIS_DEPARTMENT,
+gpt-5.6-terra,dw_3310,False,False,False,False,wrong_row_count,7819,5,11599,5,COURSE_CATALOG_SUBJECT_OFFERED;LIBRARY_SUBJECT_OFFERED;SIS_COURSE_DESCRIPTION;SIS_SUBJECT_CODE;SUBJECT_OFFERED_SUMMARY,
+gpt-5.6-terra,dw_3545,True,True,True,False,correct,83,11,83,11,ACADEMIC_TERMS;LIBRARY_SUBJECT_OFFERED;STUDENT_DEPARTMENT;SUBJECT_OFFERED;TIP_SUBJECT_OFFERED,
+gpt-5.6-terra,dw_3585,True,True,False,False,correct,14,7,14,7,ACADEMIC_TERMS;COURSE_CATALOG_SUBJECT_OFFERED;FCLT_ORGANIZATION;FCLT_ROOMS,
+gpt-5.6-terra,dw_3643,False,False,True,False,wrong_values,1,8,1,8,ACADEMIC_TERMS;SIS_DEPARTMENT;SUBJECT_SUMMARY;TIP_SUBJECT_OFFERED,
+gpt-5.6-terra,dw_3778,False,False,False,False,wrong_row_count,1149,8,1141,8,ACADEMIC_TERMS;ACADEMIC_TERM_PARAMETER;COURSE_CATALOG_SUBJECT_OFFERED;SIS_COURSE_DESCRIPTION;SIS_DEPARTMENT,
+gpt-5.6-terra,dw_3847,False,False,True,False,wrong_values,263,9,9534,9,ACADEMIC_TERMS;COURSE_CATALOG_SUBJECT_OFFERED;SUBJECT_OFFERED_SUMMARY;TIP_DETAIL;TIP_SUBJECT_OFFERED,
+gpt-5.6-terra,dw_3862,False,False,True,False,wrong_row_count,2534,7,2260,7,LIBRARY_SUBJECT_OFFERED;MIT_STUDENT_DIRECTORY;SIS_DEPARTMENT;SUBJECT_OFFERED_SUMMARY;TIP_DETAIL,
+gpt-5.6-terra,dw_3868,False,False,True,False,wrong_row_count,9782,13,871,13,LIBRARY_RESERVE_MATRL_DETAIL;SIS_DEPARTMENT;TIP_DETAIL;TIP_SUBJECT_OFFERED,
+gpt-5.6-terra,dw_3901,False,False,True,False,wrong_row_count,15194,16,25809,16,CIP;SIS_COURSE_DESCRIPTION;SUBJECT_OFFERED;SUBJECT_OFFERED_SUMMARY;SUBJECT_SUMMARY,
+gpt-5.6-terra,dw_4004,False,False,True,False,wrong_values,12825,12,15881,12,ACADEMIC_TERMS;CIS_COURSE_CATALOG;COURSE_CATALOG_SUBJECT_OFFERED;SIS_COURSE_DESCRIPTION;SIS_DEPARTMENT,
+gpt-5.6-terra,dw_4061,False,False,False,False,exec_error,,,1021,10,,Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'None' at line 1
+gpt-5.6-terra,dw_4072,False,False,True,False,wrong_row_count,62,9,68,9,CIS_COURSE_CATALOG;SIS_COURSE_DESCRIPTION;SIS_DEPARTMENT;SIS_SUBJECT_CODE,
+gpt-5.6-terra,dw_4101,False,False,True,False,wrong_row_count,123,9,152,9,FCLT_ORGANIZATION;FCLT_ORG_DLC_KEY;MASTER_DEPT_HIERARCHY;SPACE_UNIT,
+gpt-5.6-terra,dw_4128,False,False,True,False,wrong_row_count,95,8,95,8,ACADEMIC_TERMS;ACADEMIC_TERM_PARAMETER;COURSE_CATALOG_SUBJECT_OFFERED;SIS_DEPARTMENT;SUBJECT_OFFERED_SUMMARY,
+gpt-5.6-terra,dw_4155,False,False,True,False,wrong_row_count,1043,9,1021,9,ACADEMIC_TERMS_ALL;COURSE_CATALOG_SUBJECT_OFFERED;SIS_DEPARTMENT;SIS_SUBJECT_CODE,
+gpt-5.6-terra,dw_427,True,True,True,False,correct,1,4,1,4,SUBJECT_OFFERED;SUBJECT_OFFERED_SUMMARY,
+gpt-5.6-terra,dw_4339,False,False,False,False,wrong_row_count,605,16,605,16,LIBRARY_RESERVE_MATRL_DETAIL;SIS_COURSE_DESCRIPTION;SIS_SUBJECT_CODE;SUBJECT_OFFERED_SUMMARY;TIP_DETAIL;TIP_SUBJECT_OFFERED,
+gpt-5.6-terra,dw_4349,True,True,True,False,correct,14,8,14,8,ACADEMIC_TERMS;ACADEMIC_TERMS_ALL;LIBRARY_SUBJECT_OFFERED;TIP_SUBJECT_OFFERED,
+gpt-5.6-terra,dw_4351,False,False,True,False,wrong_row_count,243,11,220,11,ACADEMIC_TERMS;LIBRARY_SUBJECT_OFFERED;SIS_DEPARTMENT;SIS_SUBJECT_CODE,
+gpt-5.6-terra,dw_4374,False,False,True,False,wrong_row_count,167,9,157,9,ACADEMIC_TERMS_ALL;COURSE_CATALOG_SUBJECT_OFFERED;LIBRARY_RESERVE_MATRL_DETAIL;SIS_COURSE_DESCRIPTION,
+gpt-5.6-terra,dw_4407,False,False,True,False,exec_error,,,130080,9,ACADEMIC_TERMS_ALL;COURSE_CATALOG_SUBJECT_OFFERED;SIS_DEPARTMENT;SIS_SUBJECT_CODE,"Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'dense_rank
+        FROM ACADEMIC_TERMS_ALL AS ata
+        INNER JOIN COURSE_CATA' at line 51"
+gpt-5.6-terra,dw_4413,False,False,True,False,wrong_values,6,11,6,11,ACADEMIC_TERMS;IAP_SUBJECT_DETAIL;LIBRARY_SUBJECT_OFFERED;TIP_DETAIL,
+gpt-5.6-terra,dw_4513,False,False,True,False,empty_result,0,12,53,12,ACADEMIC_TERMS;LIBRARY_RESERVE_MATRL_DETAIL;LIBRARY_SUBJECT_OFFERED;TIP_SUBJECT_OFFERED,
+gpt-5.6-terra,dw_4522,False,False,False,False,exec_error,,,2363,11,,Database Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'None' at line 1
+gpt-5.6-terra,dw_4553,False,False,True,False,wrong_columns,1,9,2,8,ACADEMIC_TERMS;ACADEMIC_TERM_PARAMETER;SUBJECT_SUMMARY;TIP_DETAIL,
+gpt-5.6-terra,dw_4570,False,False,False,False,wrong_row_count,77493,8,77493,8,CIS_COURSE_CATALOG;MIT_STUDENT_DIRECTORY;SIS_COURSE_DESCRIPTION;SIS_DEPARTMENT;SIS_SUBJECT_CODE,
+gpt-5.6-terra,dw_458,False,False,False,False,wrong_row_count,88,3,85,3,FCLT_BUILDING;FCLT_BUILDING_ADDRESS;FCLT_ROOMS,
+gpt-5.6-terra,dw_4588,False,False,False,False,wrong_values,99,6,99,6,FCLT_ORGANIZATION;FCLT_ROOMS;SPACE_SUPERVISOR_USAGE;SPACE_UNIT,
+gpt-5.6-terra,dw_461,True,True,False,False,correct,3,2,3,2,SIS_ADMIN_DEPARTMENT;SIS_DEPARTMENT,
+gpt-5.6-terra,dw_4610,False,False,True,False,wrong_row_count,10,6,158,6,LIBRARY_RESERVE_MATRL_DETAIL;SIS_DEPARTMENT;SIS_SUBJECT_CODE;SUBJECT_OFFERED_SUMMARY;TIP_DETAIL;TIP_SUBJECT_OFFERED,
+gpt-5.6-terra,dw_4691,False,False,True,False,wrong_columns,293,8,254,9,ACADEMIC_TERMS;SUBJECT_SUMMARY;TIP_DETAIL;TIP_SUBJECT_OFFERED,
+gpt-5.6-terra,dw_4725,False,False,True,False,wrong_row_count,30,9,7,9,ACADEMIC_TERMS_ALL;COURSE_CATALOG_SUBJECT_OFFERED;SUBJECT_OFFERED_SUMMARY;TIP_DETAIL;TIP_SUBJECT_OFFERED,
+gpt-5.6-terra,dw_4771,True,True,True,False,correct,37,6,37,6,SIS_COURSE_DESCRIPTION;SIS_DEPARTMENT;TIP_DETAIL;TIP_SUBJECT_OFFERED,
+gpt-5.6-terra,dw_4876,False,False,True,False,wrong_values,1315,11,1315,11,FCLT_ORGANIZATION;HR_ORG_UNIT;MASTER_DEPT_HIERARCHY;SPACE_UNIT,
+gpt-5.6-terra,dw_4961,True,True,True,False,correct,7,6,7,6,ACADEMIC_TERMS;ACADEMIC_TERM_PARAMETER;LIBRARY_SUBJECT_OFFERED;SUBJECT_OFFERED_SUMMARY;SUBJECT_SUMMARY;TIP_DETAIL,
+gpt-5.6-terra,dw_5008,True,True,True,False,correct,2,5,2,5,ACADEMIC_TERMS_ALL;ACADEMIC_TERM_PARAMETER;COURSE_CATALOG_SUBJECT_OFFERED;TIP_DETAIL,
+gpt-5.6-terra,dw_5136,False,False,True,False,wrong_values,158,6,158,6,FCLT_ORGANIZATION;MASTER_DEPT_HIERARCHY;SPACE_SUPERVISOR_USAGE;SPACE_UNIT,
+gpt-5.6-terra,dw_5166,True,True,False,False,correct,105,2,105,2,FCLT_ORGANIZATION;FCLT_ROOMS,
+gpt-5.6-terra,dw_5181,True,True,False,False,correct,35,3,35,3,COURSE_CATALOG_SUBJECT_OFFERED;SIS_DEPARTMENT,
+gpt-5.6-terra,dw_5330,True,True,True,False,correct,1,4,1,4,MIT_STUDENT_DIRECTORY;SIS_DEPARTMENT;TIP_SUBJECT_OFFERED,
+gpt-5.6-terra,dw_5361,True,True,False,False,correct,155,4,155,4,FCLT_ORGANIZATION;MASTER_DEPT_HIERARCHY,
+gpt-5.6-terra,dw_5415,True,True,False,False,correct,31,7,31,7,STUDENT_DEPARTMENT;TIP_SUBJECT_OFFERED,
+gpt-5.6-terra,dw_5638,False,False,True,False,wrong_row_count,5,4,12,4,ACADEMIC_TERMS_ALL;COURSE_CATALOG_SUBJECT_OFFERED;TIP_DETAIL,
+gpt-5.6-terra,dw_5668,False,False,True,False,wrong_values,1,3,1,3,SIS_ADMIN_DEPARTMENT;SIS_COURSE_DESCRIPTION;SIS_DEPARTMENT,
+gpt-5.6-terra,dw_5711,True,True,False,False,correct,1,4,1,4,SIS_COURSE_DESCRIPTION;SIS_DEPARTMENT,
+gpt-5.6-terra,dw_5769,False,False,False,False,wrong_values,1,2,1,2,ACADEMIC_TERMS;COURSE_CATALOG_SUBJECT_OFFERED;LIBRARY_RESERVE_MATRL_DETAIL,
+gpt-5.6-terra,dw_588,False,False,False,False,wrong_columns,10,5,10,6,ACADEMIC_TERMS_ALL;COURSE_CATALOG_SUBJECT_OFFERED;LIBRARY_SUBJECT_OFFERED,
+gpt-5.6-terra,dw_625,True,True,False,False,correct,1,3,1,3,SUBJECT_OFFERED;TIP_SUBJECT_OFFERED,
+gpt-5.6-terra,dw_649,False,False,False,False,wrong_values,38,8,38,8,LIBRARY_SUBJECT_OFFERED;SIS_DEPARTMENT;SIS_SUBJECT_CODE;TIP_SUBJECT_OFFERED,
+gpt-5.6-terra,dw_663,True,True,False,False,correct,25,6,25,6,ACADEMIC_TERMS;COURSE_CATALOG_SUBJECT_OFFERED;MIT_STUDENT_DIRECTORY;SE_PERSON,
+gpt-5.6-terra,dw_714,False,False,False,False,wrong_columns,1026,7,56,6,ACADEMIC_TERMS;COURSE_CATALOG_SUBJECT_OFFERED;MIT_STUDENT_DIRECTORY;SIS_DEPARTMENT;SUBJECT_SUMMARY,
+gpt-5.6-terra,dw_718,False,False,True,False,wrong_values,24,5,24,5,ACADEMIC_TERMS;ACADEMIC_TERMS_ALL;COURSE_CATALOG_SUBJECT_OFFERED;TIP_SUBJECT_OFFERED,
+gpt-5.6-terra,dw_752,False,False,True,False,wrong_row_count,34,6,35,6,SIS_COURSE_DESCRIPTION;SIS_DEPARTMENT;SUBJECT_OFFERED_SUMMARY;TIP_SUBJECT_OFFERED,
+gpt-5.6-terra,dw_777,False,False,False,False,wrong_values,37,6,37,6,COURSE_CATALOG_SUBJECT_OFFERED;SIS_DEPARTMENT;TIP_DETAIL;TIP_SUBJECT_OFFERED,
+gpt-5.6-terra,dw_779,False,False,False,False,wrong_values,23,5,23,5,ACADEMIC_TERMS;COURSE_CATALOG_SUBJECT_OFFERED,
+gpt-5.6-terra,dw_817,False,False,True,False,wrong_row_count,1290,7,1325,7,SPACE_DETAIL;SPACE_FLOOR,
+gpt-5.6-terra,dw_872,False,False,True,False,exec_error,,,5,13,CIS_COURSE_CATALOG;COURSE_CATALOG_SUBJECT_OFFERED;SIS_COURSE_DESCRIPTION,"Database Error: 3065 (HY000): Expression #1 of ORDER BY clause is not in SELECT list, references column 'dw.ccso.DEPARTMENT_CODE' which is not in SELECT list; this is incompatible with DISTINCT"
+gpt-5.6-terra,dw_942,True,True,True,False,correct,1,6,1,6,ACADEMIC_TERMS_ALL;COURSE_CATALOG_SUBJECT_OFFERED;SIS_ADMIN_DEPARTMENT;SIS_DEPARTMENT;SUBJECT_SUMMARY,
+gpt-5.6-terra,dw_960,False,False,False,False,wrong_values,9,3,9,3,COURSE_CATALOG_SUBJECT_OFFERED;SIS_DEPARTMENT;SUBJECT_OFFERED_SUMMARY,
+gpt-5.6-terra,dw_965,True,True,True,False,correct,1,10,1,10,COURSE_CATALOG_SUBJECT_OFFERED;SIS_DEPARTMENT;STUDENT_DEPARTMENT;SUBJECT_OFFERED_SUMMARY;TIP_SUBJECT_OFFERED,
+gpt-5.6-terra,dw_995,False,False,True,False,wrong_row_count,60,6,101,6,ACADEMIC_TERMS_ALL;SIS_COURSE_DESCRIPTION;SIS_DEPARTMENT;TIP_SUBJECT_OFFERED,

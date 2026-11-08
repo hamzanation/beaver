@@ -1,0 +1,6 @@
+instance_id,model,brand,n_words,n_sentences,n_bold_headers,n_atx_headers,n_code_blocks,n_bullets,is_summary,truncated,bullets_per_100w,code_blocks_per_100w,question_rate_per_100w,grounding_rate_per_100w,hedging_per_100w,contrast_self_correction_per_100w,commitment_action_per_100w,meta_format_per_100w,first_person_per_100w
+dw_104,human,human,198,8,0,0,0,0,False,False,0.0,0.0,0.0,26.767676767676768,0.0,0.0,2.0202020202020203,0.0,4.040404040404041
+dw_1133,human,human,376,8,0,0,0,0,False,False,0.0,0.0,0.0,27.925531914893615,0.0,0.5319148936170213,1.0638297872340425,0.0,3.1914893617021276
+dw_1795,human,human,451,16,0,0,0,0,False,False,0.0,0.0,0.0,34.58980044345898,0.0,0.0,0.6651884700665188,0.0,3.9911308203991127
+dw_3298,human,human,324,13,0,0,0,0,False,False,0.0,0.0,0.0,33.33333333333333,0.0,0.0,3.0864197530864197,0.0,4.938271604938271
+dw_4771,human,human,261,11,0,0,0,0,False,False,0.0,0.0,0.0,33.71647509578544,0.38314176245210724,0.38314176245210724,2.2988505747126435,0.0,3.8314176245210727

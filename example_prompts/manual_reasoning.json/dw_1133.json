@@ -1,0 +1,12 @@
+{
+  "instance_id": "dw_1133",
+  "model": "human",
+  "dataset": "dw",
+  "setting": 2,
+  "traces": [
+    {
+      "stage": "generation",
+      "text": "The question is asking me for department information like the name and grade type, and they also want the minimum total units, the subject count and the total subject count for the academic year 2022 as well. This is for the Math department which is code 18 -- but the total subject count for 2022 is department agnostic . This is also for letter graded courses specifically and excludes the political science department. I also have to do this in a sequential way where each part of the question is its own result set or common table expression. First I will get the department information, that will be from the DEPARTMENT table, JOINed onto the COURSE_CATALOG_SUBJECT_OFFERED table via department code to get the number of subjects as well as the smallest TOTAL_UNITs value via COUNT and MIN respectively. I will filter to focus on the Math department of code 18 and make sure the grade type is L for letter graded. So the first CTE will get the department name and grade type and it will aggregate by counting the subject IDs and getting the smallest TOTAL_UNITs value -- filtered appropriately. After that I want the 2022 departments information, I just need to count subjects by department for the year 2022. So we get teh department name and count the subjects using the same JOIN as the earlier CTE, but the filtering is on the ACADEMIC_YEAR of 2022. The total count for 2022 also specifices degree granting ones, so I need a Y for the IS_DEGREE_GRANTING_FLAG. I'm also told to exclude poly sci and am told that is department code 17, so I will make sure to also filter by DEPARTMENT_CODE <> 17. Now to get the top 10 by subjects offered I can ORDER BY the COUNT() descending and limit it to 10 records. For the final query, I can get the department name and grade type as well as the subject count and minimum total units, then I can JOIN onto the second CTE by DEPARTMENT_NAME and get the total subject count for 2022 as well -- it is LEFT JOINed so if the department falls out of the top 10 the query will work and just have the total subject count as NULL."
+    }
+  ]
+}

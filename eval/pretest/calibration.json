@@ -1,0 +1,17 @@
+{
+  "built": "2026-10-09",
+  "n_questions": 15,
+  "scale_factor": 0.5053246753246753,
+  "readiness": {
+    "min_predicted_accuracy": 0.1,
+    "max_execution_error_fraction": 0.2,
+    "max_truncated_fraction": 0.0
+  },
+  "validation": {
+    "calibration_mae": 0.004385281385281399,
+    "holdout_mae": 0.022105894105894107,
+    "holdout_max_abs_err": 0.05787012987012988,
+    "random15_holdout_mae_median": 0.04731288981288981,
+    "holdout_verdict_agreement": "13/13"
+  }
+}

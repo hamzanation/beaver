@@ -13,16 +13,37 @@ def format_instruction(instruction, query, doc):
     output = "<Instruct>: {instruction}\n<Query>: {query}\n<Document>: {doc}".format(instruction=instruction,query=query, doc=doc)
     return output
 
+def get_dtype(dtype: str, device: str):
+    if dtype == "auto":
+        return torch.float16 if device == "cuda" else torch.float32
+    return {
+        "float32": torch.float32,
+        "float16": torch.float16,
+        "bfloat16": torch.bfloat16,
+    }[dtype]
+
+
 class Reranker():
-    def __init__(self, model) -> None:
+    def __init__(self, model, device="cuda", dtype="auto", max_length=2048) -> None:
         self.tokenizer = AutoTokenizer.from_pretrained(model, padding_side='left')
-        self.model = AutoModelForCausalLM.from_pretrained(model).cuda().eval()
+        torch_dtype = get_dtype(dtype, device)
+        try:
+            self.model = AutoModelForCausalLM.from_pretrained(
+                model,
+                torch_dtype=torch_dtype,
+                low_cpu_mem_usage=True,
+            ).to(device).eval()
+        except (ImportError, TypeError):
+            self.model = AutoModelForCausalLM.from_pretrained(
+                model,
+                torch_dtype=torch_dtype,
+            ).to(device).eval()
         # We recommend enabling flash_attention_2 for better acceleration and memory saving.
         # model = AutoModelForCausalLM.from_pretrained("Qwen/Qwen3-Reranker-8B", torch_dtype=torch.float16, attn_implementation="flash_attention_2").cuda().eval()
 
         self.token_false_id = self.tokenizer.convert_tokens_to_ids("no")
         self.token_true_id = self.tokenizer.convert_tokens_to_ids("yes")
-        self.max_length = 8192
+        self.max_length = max_length
 
         prefix = "<|im_start|>system\nJudge whether the Document meets the requirements based on the Query and the Instruct provided. Note that the answer can only be \"yes\" or \"no\".<|im_end|>\n<|im_start|>user\n"
         suffix = "<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"

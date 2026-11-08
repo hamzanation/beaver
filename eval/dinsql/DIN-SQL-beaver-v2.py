@@ -36,6 +36,10 @@ debuger = dinsql.debuger
 GPT4o_generation = dinsql.GPT4o_generation
 GPT4o_debug = dinsql.GPT4o_debug
 
+# eval/ was added to sys.path as a side effect of loading DIN-SQL.py above
+from usage_utils import new_usage_record, record_call, finalize_cost, write_usage_json
+from pricing import PRICING
+
 
 def creating_schema_preprocessed(DATASET_JSON):
     """Load preprocessed schema directly (already in DINSQL format)"""
@@ -86,7 +90,9 @@ def process_single_question(index, row, args, output_base_dir, spider_schema, sp
     question_id = row['id']
     question_dir = Path(output_base_dir) / question_id
     question_dir.mkdir(parents=True, exist_ok=True)
-    
+
+    usage_record = new_usage_record(question_id, args.model, dataset=getattr(args, "dataset", None), setting=getattr(args, "setting", None))
+
     # Setup logging for this question
     log_file = question_dir / 'generation.log'
     logger = logging.getLogger(question_id)
@@ -96,7 +102,7 @@ def process_single_question(index, row, args, output_base_dir, spider_schema, sp
     handler = logging.FileHandler(log_file)
     handler.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(message)s'))
     logger.addHandler(handler)
-    
+
     logger.info("="*80)
     logger.info(f"Processing question: {question_id}")
     logger.info(f"Question text: {row['question']}")
@@ -117,6 +123,7 @@ def process_single_question(index, row, args, output_base_dir, spider_schema, sp
                 schema_linking_input = schema_linking_prompt_maker(row['question'], row['db'], spider_schema, spider_foreign, join_keys=join_keys, table_filter=gold_tables)
                 logger.info(f"[Input Prompt]\n{schema_linking_input}\n[End Input Prompt]")
                 res = GPT4o_generation(schema_linking_input, model=args.model)
+                record_call(usage_record, "schema_linking", res, res.get("latency_sec", 0.0), error=res.get("error", False))
                 assert len(res['response']) == 1
                 schema_links = res['response'][0]
                 logger.info(f"[LLM Response]\n{schema_links}\n[End LLM Response]")
@@ -139,6 +146,7 @@ def process_single_question(index, row, args, output_base_dir, spider_schema, sp
                 classification_input = classification_prompt_maker(row['question'], row['db'], schema_links[1:], spider_schema, spider_foreign, join_keys=join_keys, table_filter=gold_tables)
                 logger.info(f"[Input Prompt]\n{classification_input}\n[End Input Prompt]")
                 res = GPT4o_generation(classification_input, model=args.model)
+                record_call(usage_record, "classification", res, res.get("latency_sec", 0.0), error=res.get("error", False))
                 assert len(res['response']) == 1
                 classification = res['response'][0]
                 logger.info(f"[LLM Response]\n{classification}\n[End LLM Response]")
@@ -171,11 +179,13 @@ def process_single_question(index, row, args, output_base_dir, spider_schema, sp
                     sql_input = hard_prompt_maker(row, schema_links, sub_questions, spider_schema, spider_foreign, args, table_filter=gold_tables)
                     logger.info(f"[Input Prompt for Hard Query]\n{sql_input}\n[End Input Prompt]")
                     res = GPT4o_generation(sql_input, n=args.n, temperature=args.temperature, model=args.model)
+                    record_call(usage_record, "sql_generation", res, res.get("latency_sec", 0.0), error=res.get("error", False))
                     SQL_list = res['response']
                 else:
                     sql_input = medium_prompt_maker(row, schema_links, spider_schema, spider_foreign, args, table_filter=gold_tables)
                     logger.info(f"[Input Prompt for Medium Query]\n{sql_input}\n[End Input Prompt]")
                     res = GPT4o_generation(sql_input, n=args.n, temperature=args.temperature, model=args.model)
+                    record_call(usage_record, "sql_generation", res, res.get("latency_sec", 0.0), error=res.get("error", False))
                     SQL_list = res['response']
                 logger.info(f"[Generated {len(SQL_list)} SQL Candidates]")
                 for i, sql in enumerate(SQL_list):
@@ -201,6 +211,7 @@ def process_single_question(index, row, args, output_base_dir, spider_schema, sp
                     debug_input = debuger(row['question'], row['db'], sql, spider_schema, spider_primary, spider_foreign, join_keys=join_keys, table_filter=gold_tables)
                     logger.info(f"[Debug Input for SQL {idx}]\n{debug_input}\n[End Debug Input for SQL {idx}]")
                     res = GPT4o_debug(debug_input, model=args.model)
+                    record_call(usage_record, f"debug_{idx}", res, res.get("latency_sec", 0.0), error=res.get("error", False))
                     assert len(res['response']) == 1
                     debugged_SQL = res['response'][0]
                     logger.info(f"[Debug Output for SQL {idx}]\n{debugged_SQL}\n[End Debug Output for SQL {idx}]")
@@ -223,10 +234,12 @@ def process_single_question(index, row, args, output_base_dir, spider_schema, sp
     except Exception as e:
         logger.error(f"Fatal error processing {question_id}: {e}", exc_info=True)
     finally:
+        finalize_cost(usage_record, PRICING)
+        write_usage_json(question_dir / 'usage.json', usage_record)
         # Remove handler to avoid duplicates
         logger.removeHandler(handler)
         handler.close()
-    
+
     return index
 
 
@@ -242,13 +255,16 @@ if __name__ == '__main__':
     parser.add_argument("--use_plan", action="store_true", default=False)
     parser.add_argument("--model", type=str, default="gpt-4.1")
     parser.add_argument("--output_dir", type=str, default=None, help="Custom output directory")
+    parser.add_argument("--dataset", type=str, default=None, help="Dataset name, recorded in per-example usage.json only")
+    parser.add_argument("--setting", type=int, default=None, help="Hint setting (0/1/2), recorded in per-example usage.json only")
 
     args = parser.parse_args()
 
     DATASET_SCHEMA = f"./preprocessed_data/{args.dev}/tables_preprocessed.json"
     DATASET = f"./preprocessed_data/{args.dev}/{args.dev}_preprocessed.json"
 
-    openai.api_key = os.environ["OPENAI_API_KEY"]
+    if os.environ.get("OPENAI_API_KEY"):
+        openai.api_key = os.environ["OPENAI_API_KEY"]
 
     set_start_method('spawn')
     s_time = time.time()

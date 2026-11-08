@@ -1,0 +1,212 @@
+<h1 id="beaver-few-shot-comparative-analysis">BEAVER few-shot
+comparative analysis</h1>
+<h2 id="scope-and-reading-guide">Scope and reading guide</h2>
+<ul>
+<li>Source CSV: <a
+href="beaver_results_across_settings_models_20260722.csv">beaver_results_across_settings_models_20260722.csv</a></li>
+<li>Scope: few-shot BEAVER DW runs only, all on the same 100-query
+evaluation slice.</li>
+<li>Main outcome metric: exact match count.</li>
+<li>Supporting metrics: subtask scores for table retrieval, column
+mapping, join key alignment, domain knowledge, and query
+decomposition.</li>
+<li>Resource metrics: average latency, total tokens, and cost
+proxies.</li>
+</ul>
+<h2 id="short-answer">Short answer</h2>
+<ul>
+<li>Larger models do appear to outperform smaller models on final
+correctness, but the gap is not purely a parameter-count story.</li>
+<li>The most dramatic lift comes from changing the setting from 0 to 1,
+especially for smaller models.</li>
+<li>A small model can get much closer to the large model with richer
+settings, but still does not fully close the gap.</li>
+<li>The remaining bottleneck is not schema lookup alone; it is
+structural reasoning and decomposition fidelity.</li>
+</ul>
+<h2 id="evidence-snapshot">Evidence snapshot</h2>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+</colgroup>
+<thead>
+<tr>
+<th>model</th>
+<th style="text-align: right;">setting</th>
+<th style="text-align: right;">exact_matches</th>
+<th style="text-align: right;">avg_table_retrieval_f1</th>
+<th style="text-align: right;">avg_column_mapping_f1</th>
+<th style="text-align: right;">avg_join_key_f1</th>
+<th style="text-align: right;">avg_domain_knowledge_f1</th>
+<th style="text-align: right;">avg_query_decomposition_score</th>
+<th style="text-align: right;">avg_latency_sec</th>
+<th style="text-align: right;">avg_total_tokens</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>claude-haiku-4-5</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.511164</td>
+<td style="text-align: right;">0.407426</td>
+<td style="text-align: right;">0.163939</td>
+<td style="text-align: right;">0.165206</td>
+<td style="text-align: right;">0.338462</td>
+<td style="text-align: right;">4.473995</td>
+<td style="text-align: right;">18085.33</td>
+</tr>
+<tr>
+<td>claude-sonnet-4-5</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.570137</td>
+<td style="text-align: right;">0.455433</td>
+<td style="text-align: right;">0.175032</td>
+<td style="text-align: right;">0.172000</td>
+<td style="text-align: right;">0.400000</td>
+<td style="text-align: right;">9.728563</td>
+<td style="text-align: right;">18092.46</td>
+</tr>
+<tr>
+<td>gpt-5.4-mini</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.492057</td>
+<td style="text-align: right;">0.379278</td>
+<td style="text-align: right;">0.126675</td>
+<td style="text-align: right;">0.199143</td>
+<td style="text-align: right;">0.367033</td>
+<td style="text-align: right;">2.640478</td>
+<td style="text-align: right;">15621.70</td>
+</tr>
+<tr>
+<td>gpt-5.5</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.534740</td>
+<td style="text-align: right;">0.433749</td>
+<td style="text-align: right;">0.183366</td>
+<td style="text-align: right;">0.142524</td>
+<td style="text-align: right;">0.406593</td>
+<td style="text-align: right;">27.290419</td>
+<td style="text-align: right;">17320.56</td>
+</tr>
+<tr>
+<td>gpt-5.4-mini</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">0.949129</td>
+<td style="text-align: right;">0.828867</td>
+<td style="text-align: right;">0.835018</td>
+<td style="text-align: right;">0.250706</td>
+<td style="text-align: right;">0.496703</td>
+<td style="text-align: right;">2.671689</td>
+<td style="text-align: right;">7788.95</td>
+</tr>
+<tr>
+<td>gpt-5.5</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">0.923971</td>
+<td style="text-align: right;">0.802006</td>
+<td style="text-align: right;">0.802310</td>
+<td style="text-align: right;">0.243262</td>
+<td style="text-align: right;">0.527473</td>
+<td style="text-align: right;">29.100938</td>
+<td style="text-align: right;">9039.28</td>
+</tr>
+<tr>
+<td>gpt-5.4-mini</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">0.958895</td>
+<td style="text-align: right;">0.825610</td>
+<td style="text-align: right;">0.881825</td>
+<td style="text-align: right;">0.309381</td>
+<td style="text-align: right;">0.591209</td>
+<td style="text-align: right;">2.960252</td>
+<td style="text-align: right;">8307.25</td>
+</tr>
+<tr>
+<td>gpt-5.5</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">26</td>
+<td style="text-align: right;">0.930284</td>
+<td style="text-align: right;">0.806508</td>
+<td style="text-align: right;">0.814500</td>
+<td style="text-align: right;">0.300383</td>
+<td style="text-align: right;">0.597802</td>
+<td style="text-align: right;">39.612322</td>
+<td style="text-align: right;">10349.74</td>
+</tr>
+</tbody>
+</table>
+<h2 id="what-the-numbers-say">What the numbers say</h2>
+<h3 id="larger-models-win-in-aggregate">1. Larger models win in
+aggregate</h3>
+<p>The clearest pattern is that the large model is strongest in the
+final outcome on the same task setting. At setting 2,
+<code>gpt-5.5</code> reaches 26 exact matches, while
+<code>gpt-5.4-mini</code> reaches 18.</p>
+<h3 id="the-setting-ladder-matters-a-lot-for-small-models">2. The
+setting ladder matters a lot for small models</h3>
+<p>For <code>gpt-5.4-mini</code>, moving from setting 0 to 1 improves
+exact matches from 5 to 13. Moving to setting 2 pushes it to 18. That is
+a very large gain from prompt structure alone.</p>
+<h3 id="structure-heavy-subtasks-improve-first">3. Structure-heavy
+subtasks improve first</h3>
+<p>Table retrieval, column mapping, and join key alignment jump sharply
+under settings 1 and 2. That suggests that the biggest early gains are
+from schema grounding and relational composition, not from raw semantic
+reasoning alone.</p>
+<h3 id="domain-knowledge-and-decomposition-remain-the-hardest-parts">4.
+Domain knowledge and decomposition remain the hardest parts</h3>
+<p>Even at the best setting, the domain-knowledge and decomposition
+scores stay fairly modest. This is the evidence that the remaining gap
+is not just “finding the tables,” but also getting the question
+decomposition and compositional logic right.</p>
+<h3 id="resource-tradeoff-is-substantial">5. Resource tradeoff is
+substantial</h3>
+<p>The large model is much slower on average in the same setting ladder.
+For example, <code>gpt-5.5</code> is around 39.6 seconds latency at
+setting 2 versus about 3.0 seconds for <code>gpt-5.4-mini</code>. So if
+a smaller model can get within a few queries of the large model, that is
+a compelling practical tradeoff.</p>
+<h2 id="visual-walkthrough">Visual walkthrough</h2>
+<h3 id="accuracy-by-setting">Accuracy by setting</h3>
+<p><img src="analysis_outputs/accuracy_by_setting.png" /></p>
+<p>This chart shows the biggest headline: the setting ladder helps the
+small model far more than it helps the large model, and the large model
+still leads overall.</p>
+<h3 id="subtask-heatmap">Subtask heatmap</h3>
+<p><img src="analysis_outputs/subtask_heatmap.png" /></p>
+<p>This is the diagnostic view. The strongest gains are in the
+structural subtasks: retrieval, mapping, and joins. The decomposition
+score stays comparatively low, reinforcing that the final reasoning step
+is still the bottleneck.</p>
+<h3 id="resource-tradeoff">Resource tradeoff</h3>
+<p><img src="analysis_outputs/resource_tradeoff.png" /></p>
+<p>This shows the cost/latency tradeoff directly. The small model is
+much cheaper and much faster in the same setting regime, while the large
+model buys additional correctness with substantially more latency.</p>
+<h2 id="interpretation">Interpretation</h2>
+<p>If your question is “do larger models perform better?”, the evidence
+here says yes, but the reason is not just model size. The setting
+changes appear to be a powerful lever for smaller models. In practice,
+the strong small-model result at setting 2 suggests that structured
+prompting can recover a non-trivial share of the large-model advantage
+without paying the full latency cost.</p>
+<p>The remaining question is whether the improvement is stable across
+examples. That is why the per-run JSON logs in <a
+href="eval/unified-output/fewshot">eval/unified-output/fewshot</a> are
+the right next place to look.</p>

@@ -1,0 +1,10 @@
+model_name,cost_per_million_input_tokens_usd,cost_per_million_input_tokens_cents,cost_per_million_output_tokens_usd,cost_per_million_output_tokens_cents
+claude-opus-5,5.00,500,25.00,2500
+claude-sonnet-5,2.00,200,10.00,1000
+claude-haiku-4-5,1.00,100,5.00,500
+gpt-5.6-sol,4.00,400,20.00,2000
+gpt-5.6-terra,2.00,200,12.00,1200
+gpt-5.6-luna,0.20,20,1.20,120
+claude-sonnet-4-5,3.00,300,15.00,1500
+gpt-5.4-mini,2.00,200,10.00,1000
+gpt-5.5,10.00,1000,30.00,3000

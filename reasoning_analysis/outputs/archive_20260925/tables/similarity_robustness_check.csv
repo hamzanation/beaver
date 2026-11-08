@@ -1,0 +1,2 @@
+mean_pooled_model,long_context_model,pearson_corr_offdiag_similarities,n_model_pairs
+BAAI/bge-large-en-v1.5,BAAI/bge-m3,0.5904049526410031,30

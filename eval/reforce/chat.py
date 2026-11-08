@@ -2,12 +2,36 @@ import sys
 from abc import ABC, abstractmethod
 from utils import extract_all_blocks
 import time
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from usage_utils import new_usage, add_usage
 
 class BaseChat(ABC):
     def __init__(self, model: str, temperature: float = 1.0):
         self.model = model
         self.temperature = float(temperature)
         self.messages = []
+        self.usage = new_usage()
+        self.usage_latency_sec = 0.0
+        self.usage_num_calls = 0
+        self.usage_errors = 0
+
+    def record_call_usage(self, usage, latency_sec, error=False):
+        """Accumulate one LLM call's telemetry into this chat session's running totals."""
+        add_usage(self.usage, usage)
+        self.usage_latency_sec += latency_sec or 0.0
+        self.usage_num_calls += 1
+        if error:
+            self.usage_errors += 1
+
+    def get_token_usage(self):
+        return {
+            "usage": dict(self.usage),
+            "latency_sec": self.usage_latency_sec,
+            "num_calls": self.usage_num_calls,
+            "errors": self.usage_errors,
+        }
 
     @abstractmethod
     def get_response(self, prompt) -> str:
@@ -55,13 +79,27 @@ class BaseChat(ABC):
 
 from openai import OpenAI, AzureOpenAI
 import os
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from local_llm import is_lmstudio_model, lmstudio_client, lmstudio_model_name, response_usage
+from anthropic_llm import anthropic_chat_once, is_anthropic_model
 
 class GPTChat(BaseChat):
     def __init__(self, azure=False, model="gpt-4o", temperature=1.0):
         super().__init__(model, temperature)
+        self.is_lmstudio = False
+        self.is_anthropic = False
 
         if not azure:
-            if model in ["o1-preview", "o1-mini"]:
+            if is_anthropic_model(model):
+                self.is_anthropic = True
+                self.client = None
+            elif is_lmstudio_model(model):
+                self.is_lmstudio = True
+                self.model = lmstudio_model_name(model)
+                self.client = lmstudio_client()
+            elif model in ["o1-preview", "o1-mini"]:
                 self.client = OpenAI(
                     api_key=os.environ.get("OPENAI_API_KEY"),
                     api_version="2024-12-01-preview"
@@ -99,6 +137,8 @@ class GPTChat(BaseChat):
 
     def get_response(self, prompt) -> str:
         self.messages.append({"role": "user", "content": prompt})
+        t0 = time.time()
+        usage = None
         if self.model == "o3-pro":
             response = self.client.responses.create(
                 model=self.model,
@@ -106,6 +146,25 @@ class GPTChat(BaseChat):
                 temperature=self.temperature
             )
             main_content = response.output_text
+            usage = response_usage(response)
+        elif self.is_lmstudio:
+            response = self.client.chat.completions.create(
+                model=self.model,
+                messages=self.messages,
+                temperature=self.temperature,
+                max_tokens=int(os.environ.get("BEAVER_MAX_TOKENS", "1024"))
+            )
+            main_content = response.choices[0].message.content
+            usage = response_usage(response)
+        elif self.is_anthropic:
+            result = anthropic_chat_once(
+                self.model,
+                self.messages,
+                temperature=self.temperature,
+                max_tokens=int(os.environ.get("BEAVER_MAX_TOKENS", "1024")),
+            )
+            main_content = result["content"]
+            usage = result["usage"]
         elif 'gemini' in self.model:
             if '2' in self.model:
                 time.sleep(1)
@@ -122,6 +181,7 @@ class GPTChat(BaseChat):
                 temperature=self.temperature
             )
             main_content = response.choices[0].message.content
+            usage = response_usage(response)
         elif 'claude' in self.model or 'qwen' in self.model:
             response = self.client.chat.completions.create(
                 model=self.model,
@@ -134,6 +194,7 @@ class GPTChat(BaseChat):
                 },
             )
             main_content = response.choices[0].message.content
+            usage = response_usage(response)
         else:
             response = self.client.chat.completions.create(
                 model=self.model,
@@ -141,6 +202,8 @@ class GPTChat(BaseChat):
                 temperature=self.temperature
             )
             main_content = response.choices[0].message.content
+            usage = response_usage(response)
 
+        self.record_call_usage(usage, time.time() - t0)
         self.messages.append({"role": "assistant", "content": main_content})
         return main_content

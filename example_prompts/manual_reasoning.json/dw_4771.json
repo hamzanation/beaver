@@ -1,0 +1,12 @@
+{
+  "instance_id": "dw_4771",
+  "model": "human",
+  "dataset": "dw",
+  "setting": 2,
+  "traces": [
+    {
+      "stage": "generation",
+      "text": "I need to list information by department. I will need the name, range of enrolled and variance of enrolled students -- but those stats seem to consider degree granting departments and graduate level courses) along iwth subject ID counts, and the minimum ISBN value four course materials on focusing on offering departments and schools where there are more than 2 enrolled students. Alongside that they ask for the average number of enrolled students. I am to provide that information in that order. In order to break this down, I'll start with a cte getting the enrolled stats. I can get the department name from SIS_DEPARTMENT and the course level from SIS_COURSE_DESCRIPTION as well as the enrolled info from TIP_SUBJECT_OFFERED all joined on DEPARTMENT_CODE, DEPARTMENT, and OFFER_DEPT_CODE respectively. I can GROUP BY department name and get the range by max - min and the variance by the VARIANCE() function for NUM_ENROLLED_STUDENTS. I'll name them enrolled_range and enrolled_variance respectively. Next I can do the subject and ISBN aggregation and get the average enrolled students across subjects for a department. For the ISBN I will need the JOIN the TIP_SUBJECT_OFFERED table onto the TIP_DETAIL table using subject_id, filtering on NUM_ENROLLED_STUDENTS > 2 GROUPING BY department and school name (OFFER_DEPT_NAME, OFFER_SCHOOL_NAME) then I can count the SUBJECT_IDs, MIN the ISBMs and AVG the NUM_ENROLLED_STUDENTS for subjec_count, min_isbn, and avg_enrolled_students respectively. Then the final SELECT is a JOIN between the two on DEPARTMENT_NAME nad OFFER_DEPT_NAME respectively, using the first CTE column names primarily and appending the subject count ISBN and average enrolled from the second CTE."
+    }
+  ]
+}

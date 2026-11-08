@@ -40,14 +40,31 @@ if [ -f "${script_dir}/../../.env" ]; then
 fi
 
 # --- Check API keys ---
-if [ -z "$OPENAI_API_KEY" ] && [ -z "$OPENROUTER_API_KEY" ] && [ -z "$GOOGLE_API_KEY" ]; then
-    echo "Error: No LLM API key found. Set OPENAI_API_KEY, OPENROUTER_API_KEY, or GOOGLE_API_KEY in eval/.env"
+IS_LOCAL_MODEL=0
+IS_ANTHROPIC_MODEL=0
+case "$MODEL" in
+    qwen2.5-coder-14b-instruct|lmstudio/*|lmstudio:*|local/*) IS_LOCAL_MODEL=1 ;;
+esac
+case "$MODEL" in
+    claude*|anthropic/claude*) IS_ANTHROPIC_MODEL=1 ;;
+esac
+
+if [ "$IS_LOCAL_MODEL" -eq 0 ] && [ "$IS_ANTHROPIC_MODEL" -eq 0 ] && [ -z "$OPENAI_API_KEY" ] && [ -z "$OPENROUTER_API_KEY" ] && [ -z "$GOOGLE_API_KEY" ]; then
+    echo "Error: No LLM API key found. Set OPENAI_API_KEY, OPENROUTER_API_KEY, GOOGLE_API_KEY, or ANTHROPIC_API_KEY in eval/.env"
+    exit 1
+fi
+
+if [ "$IS_ANTHROPIC_MODEL" -eq 1 ] && [ -z "$ANTHROPIC_API_KEY" ]; then
+    echo "Error: Claude models require ANTHROPIC_API_KEY in eval/.env"
     exit 1
 fi
 
 # --- Derived Variables ---
 DEV="beaver_${DATASET}_opt${OPTION}"
 NUM_WORKERS=20
+if [ "$IS_LOCAL_MODEL" -eq 1 ] || [ "$IS_ANTHROPIC_MODEL" -eq 1 ]; then
+    NUM_WORKERS=${BEAVER_NUM_WORKERS:-1}
+fi
 
 # Data paths
 BEAVER_QUESTIONS="../../data/${DATASET}/dev_sampled.json"
@@ -87,6 +104,8 @@ echo "Using preprocessed data from: preprocessed_data/${DEV}/"
 python3 DIN-SQL-beaver-v2.py \
     --dev ${DEV} \
     --model ${MODEL} \
+    --dataset ${DATASET} \
+    --setting ${SETTING} \
     --temperature 0 \
     --n 1 \
     --processes ${NUM_WORKERS} \

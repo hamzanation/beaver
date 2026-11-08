@@ -24,9 +24,13 @@ def main():
     unified_dir = os.path.join(eval_dir, "unified-output", baseline_name, run_name)
     generated_dir = os.path.join(unified_dir, "generated")
     gold_dir = os.path.join(unified_dir, "gold")
-    
+    usage_dir = os.path.join(unified_dir, "usage")
+    reasoning_dir = os.path.join(unified_dir, "reasoning")
+
     os.makedirs(generated_dir, exist_ok=True)
     os.makedirs(gold_dir, exist_ok=True)
+    os.makedirs(usage_dir, exist_ok=True)
+    os.makedirs(reasoning_dir, exist_ok=True)
     
     with open(args.gold_file, 'r') as f:
         gold_data = json.load(f)
@@ -83,7 +87,26 @@ def main():
         
         with open(pred_sql_path, "w") as f:
             f.write(pred_sql)
-            
+
+        # 3. Save per-example usage/telemetry, if the generation step recorded one
+        usage_src_path = os.path.join(subdir_path, "usage.json")
+        if os.path.exists(usage_src_path):
+            usage_dst_path = os.path.join(usage_dir, f"{real_id}.json")
+            with open(usage_src_path, "r") as f:
+                usage_payload = f.read()
+            with open(usage_dst_path, "w") as f:
+                f.write(usage_payload)
+
+        # 4. Save per-example reasoning trace, if extended thinking / a reasoning
+        # summary was captured for this instance (most runs won't have one).
+        reasoning_src_path = os.path.join(subdir_path, "reasoning_trace.json")
+        if os.path.exists(reasoning_src_path):
+            reasoning_dst_path = os.path.join(reasoning_dir, f"{real_id}.json")
+            with open(reasoning_src_path, "r") as f:
+                reasoning_payload = f.read()
+            with open(reasoning_dst_path, "w") as f:
+                f.write(reasoning_payload)
+
     print(f"Saved SQL files to {unified_dir}")
 
 if __name__ == "__main__":

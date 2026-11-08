@@ -1,0 +1,5 @@
+target,input,cv_accuracy,majority_baseline,permutation_pvalue,n_permutations,n_samples,n_groups
+brand,residual_embeddings,1.0,0.5,0.004975124378109453,200,282,47
+brand,lexical_features,0.9962962962962962,0.5,0.004975124378109453,200,282,47
+size_tier,residual_embeddings,0.6459259259259259,0.3333333333333333,0.004975124378109453,200,282,47
+size_tier,lexical_features,0.5548148148148149,0.3333333333333333,0.004975124378109453,200,282,47

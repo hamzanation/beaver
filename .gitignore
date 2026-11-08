@@ -178,6 +178,9 @@ eval/*.json
 
 eval/dinsql/preprocessed_data/*/
 eval/dinsql/output
+
+data/beaver_db.zip
+data/beaver_db/dw.sql
 eval/dinsql/postprocessed_data/*/
 eval/dinsql/dinsql
 

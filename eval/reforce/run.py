@@ -10,6 +10,39 @@ from sql import SqlEnv
 import time
 import json
 
+# eval/ was added to sys.path as a side effect of importing chat above
+from usage_utils import new_usage_record, add_usage, finalize_cost, write_usage_json, read_usage_json
+from pricing import PRICING
+
+usage_lock = threading.Lock()
+
+
+def merge_usage_into_instance(search_directory, instance_id, model, contributions, dataset=None, setting=None):
+    """Read-merge-write per-instance usage.json, since run.py is invoked multiple times
+    (self-refinement, column-exploration) against the same output dir, and multiple
+    candidate threads for the same instance write concurrently."""
+    usage_path = os.path.join(search_directory, "usage.json")
+    with usage_lock:
+        record = read_usage_json(usage_path) or new_usage_record(instance_id, model, dataset=dataset, setting=setting)
+        for stage, info in contributions:
+            if not info or info.get("num_calls", 0) == 0:
+                continue
+            record["calls"].append({
+                "stage": stage,
+                "prompt_tokens": info["usage"]["prompt_tokens"],
+                "completion_tokens": info["usage"]["completion_tokens"],
+                "total_tokens": info["usage"]["total_tokens"],
+                "latency_sec": info["latency_sec"],
+                "num_calls": info["num_calls"],
+            })
+            add_usage(record["usage"], info["usage"])
+            record["latency_sec"] += info["latency_sec"]
+            record["num_calls"] += info["num_calls"]
+            record["errors"] += info.get("errors", 0)
+        finalize_cost(record, PRICING)
+        write_usage_json(usage_path, record)
+
+
 def execute(question, table_info, args, csv_save_path, log_save_path, sql_save_path, search_directory, format_csv, sql_data):
     db_id = None
     if full_db_id:
@@ -74,7 +107,21 @@ def execute(question, table_info, args, csv_save_path, log_save_path, sql_save_p
         agent.gen(args, logger, question, format_csv, table_struct, table_info, response_pre_txt, pre_info, csv_save_path, sql_save_path, task=args.task)
     if args.generation_model:
         agent.sql_env.close_db()
-    
+
+    contributions = []
+    if chat_session_ex is not None:
+        contributions.append(("exploration", chat_session_ex.get_token_usage()))
+    if chat_session is not None:
+        contributions.append(("generation", chat_session.get_token_usage()))
+    if contributions:
+        merge_usage_into_instance(
+            search_directory, sql_data,
+            args.generation_model or args.column_exploration_model,
+            contributions,
+            dataset=getattr(args, "dataset", None),
+            setting=getattr(args, "setting", None),
+        )
+
 
 def main(args):
     # Use ThreadPoolExecutor to process each sql_data in parallel
@@ -258,6 +305,8 @@ if __name__ == '__main__':
     parser.add_argument('--omnisql_format_pth', type=str, default=None)
     parser.add_argument('--option', type=int, default=None, help="Preprocessing option (1-5)")
     parser.add_argument('--gold_result_path', type=str, default=None)
+    parser.add_argument('--dataset', type=str, default=None, help="Dataset name, recorded in per-example usage.json only")
+    parser.add_argument('--setting', type=int, default=None, help="Hint setting (0/1/2), recorded in per-example usage.json only")
     args = parser.parse_args()
 
     if args.gold_result_path is None:

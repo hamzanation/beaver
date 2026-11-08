@@ -1,0 +1,39 @@
+{
+  "dataset": "dw",
+  "built": "2026-10-09",
+  "ids": [
+    "dw_140",
+    "dw_19",
+    "dw_2097",
+    "dw_2669",
+    "dw_287",
+    "dw_3585",
+    "dw_4351",
+    "dw_4374",
+    "dw_461",
+    "dw_4610",
+    "dw_4961",
+    "dw_5166",
+    "dw_5668",
+    "dw_663",
+    "dw_777"
+  ],
+  "bands": {
+    "dw_140": "medium",
+    "dw_19": "easy",
+    "dw_2097": "hard",
+    "dw_2669": "easy",
+    "dw_287": "medium",
+    "dw_3585": "easy",
+    "dw_4351": "medium",
+    "dw_4374": "unsolved",
+    "dw_461": "easy",
+    "dw_4610": "hard",
+    "dw_4961": "medium",
+    "dw_5166": "easy",
+    "dw_5668": "hard",
+    "dw_663": "easy",
+    "dw_777": "medium"
+  },
+  "note": "See eval/pretest/README.md. Run: fewshot/run.sh --ids_file ../pretest/pretest_ids.json --tag pretest"
+}
